@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Search
+description: "Search all articles on Think by Numbers. Find evidence-based analysis on government spending, healthcare, economics, and more."
 permalink: /search/
 ---
 
@@ -9,6 +10,18 @@ permalink: /search/
     <h2>Search</h2>
     <div style="background: white; border: 4px solid black; box-shadow: 8px 8px 0 black; padding: 30px; margin-top: 20px;">
       <div id="search"></div>
+    </div>
+
+    {# Popular articles shown when search is empty #}
+    <div id="popular-articles" style="margin-top: 40px;">
+      <h3>Popular Articles</h3>
+      <div class="post-grid" style="margin-top: 20px;">
+        {%- for post in collections.posts | limit(6) %}
+        {%- if post.data.title and post.inputPath.endsWith('.md') %}
+        {% include "post-card.njk" %}
+        {%- endif %}
+        {%- endfor %}
+      </div>
     </div>
   </div>
 
@@ -75,6 +88,7 @@ permalink: /search/
     const searchDiv = document.querySelector('#search');
     const oldContainer = searchDiv.parentElement;
     const mainContent = oldContainer.parentElement;
+    const popularArticles = document.querySelector('#popular-articles');
 
     // Create new wrapper with icon
     const wrapper = document.createElement('div');
@@ -95,13 +109,44 @@ permalink: /search/
     const pagefind = new PagefindUI({
       element: "#search",
       showSubResults: true,
-      showImages: false
+      showImages: true
     });
+
+    // Toggle popular articles visibility based on search input
+    function updatePopularArticlesVisibility() {
+      const searchInput = document.querySelector('#search input[type="text"]');
+      if (searchInput && popularArticles) {
+        if (searchInput.value.trim().length > 0) {
+          popularArticles.style.display = 'none';
+        } else {
+          popularArticles.style.display = 'block';
+        }
+      }
+    }
+
+    // Watch for input changes
+    setTimeout(() => {
+      const searchInput = document.querySelector('#search input[type="text"]');
+      if (searchInput) {
+        searchInput.addEventListener('input', updatePopularArticlesVisibility);
+        // Also handle clear button clicks
+        const clearBtn = document.querySelector('.pagefind-ui__search-clear');
+        if (clearBtn) {
+          clearBtn.addEventListener('click', () => {
+            setTimeout(updatePopularArticlesVisibility, 50);
+          });
+        }
+      }
+    }, 100);
 
     // Auto-search if there's a query parameter
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('q');
     if (query) {
+      // Hide popular articles immediately if there's a query
+      if (popularArticles) {
+        popularArticles.style.display = 'none';
+      }
       // Wait for Pagefind to initialize, then trigger search
       setTimeout(() => {
         const searchInput = document.querySelector('#search input[type="text"]');

@@ -6,16 +6,18 @@ layout: base.njk
   <div class="main-content">
     {%- if metadata.media.featuredImage %}
     <div class="featured-image" style="margin-bottom: 30px;">
-      <img src="{{ metadata.media.featuredImage }}" alt="{{ title | decodeHtml }}" style="max-width: 100%; height: auto; border-radius: 4px;">
+      <img src="{{ metadata.media.featuredImage }}" alt="{{ title | safe }}" style="max-width: 100%; height: auto; border-radius: 4px;">
     </div>
     {%- endif %}
 
-    <article>
-      <h1>{{ title | decodeHtml }}</h1>
+    {# Tell Pagefind which image to use for search results (prefer ogImage) #}
+    {%- set pagefindImage = metadata.media.ogImage or metadata.media.infographic or metadata.media.featuredImage %}
+    <article{% if pagefindImage %} data-pagefind-meta="image:{{ pagefindImage }}"{% endif %}>
+      <h1>{{ title | safe }}</h1>
       <div class="post-meta" style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
         <time datetime="{{ date | dateToISO }}">{{ date | readableDate }}</time>
         <span style="margin: 0 8px;">•</span>
-        <span>By <a href="{{ site.author.url }}" target="_blank" rel="author" style="color: #000; text-decoration: underline;">{{ site.author.name }}</a></span>
+        <span>By <a href="/author/mikepsinn/" rel="author" style="color: #000; text-decoration: underline;">{{ site.author.name }}</a></span>
       </div>
 
       {%- if metadata.categories %}
@@ -30,7 +32,7 @@ layout: base.njk
       {%- if metadata.media.infographic %}
       <div class="infographic-section" style="margin: 40px 0; text-align: center;">
         <img src="{{ metadata.media.infographic }}"
-             alt="Infographic for {{ title | decodeHtml }}"
+             alt="Infographic for {{ title | safe }}"
              style="max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
       </div>
       {%- endif %}
@@ -44,7 +46,7 @@ layout: base.njk
         <h3>Share this post</h3>
         <div class="share-buttons">
           {%- set postUrl = site.url + page.url %}
-          {%- set postTitle = title | decodeHtml %}
+          {%- set postTitle = title | safe %}
           {%- set encodedUrl = postUrl | urlencode %}
           {%- set encodedTitle = postTitle | urlencode %}
 
