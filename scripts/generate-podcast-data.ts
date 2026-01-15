@@ -1,7 +1,11 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 import mp3Duration from 'mp3-duration';
 import { promisify } from 'util';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const getMp3Duration = promisify(mp3Duration);
 
@@ -93,7 +97,7 @@ async function getMp3Metadata(filePath: string, baseDir: string): Promise<Podcas
 }
 
 async function main() {
-  const projectRoot = path.resolve(import.meta.dirname, '..');
+  const projectRoot = path.resolve(__dirname, '..');
   const contentDir = path.join(projectRoot, 'content');
   const outputPath = path.join(projectRoot, '11ty', '_data', 'podcastEpisodes.json');
 

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run clean && eleventy --serve",
     "serve": "eleventy --serve",
-    "build": "npm run clean && eleventy && npm run search",
+    "build": "npm run clean && npm run podcast-data && eleventy && npm run search",
     "search": "npx pagefind --site _site --output-subdir _pagefind",
     "clean": "npx rimraf _site",
     "generate-images": "tsx scripts/generate-project-images.ts",

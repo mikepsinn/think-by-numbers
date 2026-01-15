@@ -57,6 +57,7 @@ layout: false
     {%- for post in collections.posts | reverse %}
     {%- set mp3Match = post.content | findMp3Url %}
     {%- if mp3Match %}
+    {%- set episodeMeta = podcastEpisodes.episodes[mp3Match] %}
     <item>
       <title>{{ post.data.title | decodeHtml | escape }}</title>
       <link>{{ site.url }}{{ post.url }}</link>
@@ -65,12 +66,12 @@ layout: false
       <author>{{ site.author.email }} ({{ site.author.name }})</author>
       <description><![CDATA[{{ post.data.description | default(post.content | excerpt) | escape }}]]></description>
       <content:encoded><![CDATA[{{ post.content | htmlToAbsoluteUrls(site.url) }}]]></content:encoded>
-      <enclosure url="{{ site.url }}{{ mp3Match }}" type="audio/mpeg" length="0"/>
+      <enclosure url="{{ site.url }}{{ mp3Match }}" type="audio/mpeg" length="{{ episodeMeta.fileSize | default(0) }}"/>
       <itunes:title>{{ post.data.title | decodeHtml | escape }}</itunes:title>
       <itunes:author>{{ site.author.name }}</itunes:author>
       <itunes:summary>{{ post.data.description | default(post.content | excerpt) | escape }}</itunes:summary>
       <itunes:image href="{{ site.url }}{{ post.data.image | default(site.podcast.image) }}"/>
-      <itunes:duration>{{ post.data.podcastDuration | default('00:00:00') }}</itunes:duration>
+      <itunes:duration>{{ episodeMeta.duration | default(post.data.podcastDuration) | default('00:00') }}</itunes:duration>
       <itunes:explicit>{{ post.data.explicit | default(site.podcast.explicit) }}</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
