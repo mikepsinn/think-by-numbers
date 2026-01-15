@@ -47,3 +47,7 @@ DEVLOG.md
 *.log
 .claude/settings.local.json
 _site/
+
+# Auto Claude data directory
+.auto-claude/
+.claude_settings.json

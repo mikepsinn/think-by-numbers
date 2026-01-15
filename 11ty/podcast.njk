@@ -4,30 +4,75 @@ eleventyExcludeFromCollections: true
 layout: false
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:podcast="https://podcastindex.org/namespace/1.0"
+  xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0">
   <channel>
-    <title>{{ site.name }} Podcast</title>
+    <title>{{ site.podcast.title }}</title>
     <link>{{ site.url }}/</link>
-    <description>{{ site.description }}</description>
-    <language>en-us</language>
-    <copyright>{{ site.author.name }}</copyright>
+    <atom:link href="{{ site.url }}{{ site.podcastFeedPath }}/index.xml" rel="self" type="application/rss+xml"/>
+    <description>{{ site.podcast.description }}</description>
+    <language>{{ site.podcast.language }}</language>
+    <copyright>&#xA9; {{ site.author.name }}</copyright>
+    <lastBuildDate>{{ collections.posts | getNewestCollectionItemDate | dateToRfc822 }}</lastBuildDate>
+    <generator>Eleventy (11ty) - Blubrry-style feed</generator>
+    <managingEditor>{{ site.author.email }} ({{ site.author.name }})</managingEditor>
+    <webMaster>{{ site.author.email }} ({{ site.author.name }})</webMaster>
+
+    {# iTunes/Apple Podcasts metadata #}
     <itunes:author>{{ site.author.name }}</itunes:author>
-    <itunes:summary>{{ site.description }}</itunes:summary>
+    <itunes:subtitle>{{ site.podcast.subtitle }}</itunes:subtitle>
+    <itunes:summary>{{ site.podcast.description }}</itunes:summary>
     <itunes:owner>
       <itunes:name>{{ site.author.name }}</itunes:name>
       <itunes:email>{{ site.author.email }}</itunes:email>
     </itunes:owner>
+    <itunes:image href="{{ site.url }}{{ site.podcast.image }}"/>
+    <itunes:category text="{{ site.podcast.category }}">
+      <itunes:category text="{{ site.podcast.subcategory }}"/>
+    </itunes:category>
+    <itunes:explicit>{{ site.podcast.explicit }}</itunes:explicit>
+    <itunes:type>{{ site.podcast.type }}</itunes:type>
+
+    {# Google Play metadata #}
+    <googleplay:author>{{ site.author.name }}</googleplay:author>
+    <googleplay:description>{{ site.podcast.description }}</googleplay:description>
+    <googleplay:image href="{{ site.url }}{{ site.podcast.image }}"/>
+    <googleplay:category text="{{ site.podcast.category }}"/>
+    <googleplay:explicit>{{ 'yes' if site.podcast.explicit else 'no' }}</googleplay:explicit>
+
+    {# Podcast 2.0 metadata #}
+    <podcast:locked>no</podcast:locked>
+    <podcast:guid>{{ site.url }}/podcast</podcast:guid>
+
+    <image>
+      <url>{{ site.url }}{{ site.podcast.image }}</url>
+      <title>{{ site.podcast.title }}</title>
+      <link>{{ site.url }}/</link>
+    </image>
+
     {%- for post in collections.posts | reverse %}
     {%- set mp3Match = post.content | findMp3Url %}
     {%- if mp3Match %}
     <item>
-      <title>{{ post.data.title | escape }}</title>
+      <title>{{ post.data.title | decodeHtml | escape }}</title>
       <link>{{ site.url }}{{ post.url }}</link>
+      <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
       <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
-      <description>{{ post.data.title | escape }}</description>
+      <author>{{ site.author.email }} ({{ site.author.name }})</author>
+      <description><![CDATA[{{ post.data.description | default(post.content | excerpt) | escape }}]]></description>
       <content:encoded><![CDATA[{{ post.content | htmlToAbsoluteUrls(site.url) }}]]></content:encoded>
-      <enclosure url="{{ site.url }}{{ mp3Match }}" type="audio/mpeg"/>
-      <itunes:duration>0</itunes:duration>
+      <enclosure url="{{ site.url }}{{ mp3Match }}" type="audio/mpeg" length="0"/>
+      <itunes:title>{{ post.data.title | decodeHtml | escape }}</itunes:title>
+      <itunes:author>{{ site.author.name }}</itunes:author>
+      <itunes:summary>{{ post.data.description | default(post.content | excerpt) | escape }}</itunes:summary>
+      <itunes:image href="{{ site.url }}{{ post.data.image | default(site.podcast.image) }}"/>
+      <itunes:duration>{{ post.data.podcastDuration | default('00:00:00') }}</itunes:duration>
+      <itunes:explicit>{{ post.data.explicit | default(site.podcast.explicit) }}</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
     </item>
     {%- endif %}
     {%- endfor %}

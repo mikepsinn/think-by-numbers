@@ -14,6 +14,17 @@
   },
   "feedPath": "/feed.xml",
   "podcastFeedPath": "/feed/podcast",
+  "podcast": {
+    "title": "Think by Numbers Podcast",
+    "subtitle": "Data-driven analysis of government spending, economics, and public policy",
+    "description": "The Think by Numbers podcast applies quantitative analysis to political and economic issues, cutting through partisan rhetoric with hard data. Each episode breaks down complex topics like government spending, corporate welfare, and tax policy into digestible, numbers-backed discussions.",
+    "image": "/wp-content/uploads/2016/10/Think-By-Numbers-tbn-logo-favicon-icon-Thumbnail-600-x-600-transparent.png",
+    "category": "News",
+    "subcategory": "Politics",
+    "explicit": false,
+    "type": "episodic",
+    "language": "en-us"
+  },
   "social": {
     "twitter": "https://twitter.com/thinkbynumbers",
     "twitterHandle": "@thinkbynumbers",

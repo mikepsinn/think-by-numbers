@@ -73,10 +73,17 @@ module.exports = function(eleventyConfig) {
       .replace(/src="\//g, `src="${baseUrl}/`);
   });
 
-  // Find MP3 URL in content
+  // Find MP3 URL in content (checks multiple patterns from WordPress/Blubrry migration)
   eleventyConfig.addFilter("findMp3Url", (content) => {
     if (!content) return null;
-    const match = content.match(/\]\((\/assets\/podcasts\/[^)]+\.mp3)/);
+    // Pattern 1: src attribute in audio/source tags
+    let match = content.match(/src="(\/wp-content\/uploads\/[^"]+\.mp3)/);
+    if (match) return match[1];
+    // Pattern 2: markdown link to wp-content
+    match = content.match(/\]\((\/wp-content\/uploads\/[^)]+\.mp3)/);
+    if (match) return match[1];
+    // Pattern 3: assets/podcasts path (future use)
+    match = content.match(/\]\((\/assets\/podcasts\/[^)]+\.mp3)/);
     return match ? match[1] : null;
   });
 
