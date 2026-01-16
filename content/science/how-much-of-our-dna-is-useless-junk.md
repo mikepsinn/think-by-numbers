@@ -11,6 +11,7 @@ metadata:
     featuredImage: /wp-content/uploads/2019/07/dna.png
     ogImage: /assets/og-images/science/how-much-of-our-dna-is-useless-junk.jpg
     infographic: /assets/infographics/science/how-much-of-our-dna-is-useless-junk.jpg
+    thumbnail: /assets/thumbnails/science/how-much-of-our-dna-is-useless-junk.jpg
   categories:
     - Science
   tags:

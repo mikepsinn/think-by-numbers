@@ -15,6 +15,8 @@ metadata:
       /assets/og-images/statistics/what-was-the-population-when-the-united-states-was-established.jpg
     infographic: >-
       /assets/infographics/statistics/what-was-the-population-when-the-united-states-was-established.jpg
+    thumbnail: >-
+      /assets/thumbnails/statistics/what-was-the-population-when-the-united-states-was-established.jpg
   categories:
     - Statistics
   tags:

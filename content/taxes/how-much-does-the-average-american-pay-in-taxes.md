@@ -20,6 +20,8 @@ metadata:
       /assets/og-images/taxes/how-much-does-the-average-american-pay-in-taxes.jpg
     infographic: >-
       /assets/infographics/taxes/how-much-does-the-average-american-pay-in-taxes.jpg
+    thumbnail: >-
+      /assets/thumbnails/taxes/how-much-does-the-average-american-pay-in-taxes.jpg
 tags:
   - taxes
 aiScores:

@@ -15,6 +15,7 @@ metadata:
     featuredImage: /assets/og-images/solutions/the-hedonistic-imperative.jpg
     ogImage: /assets/og-images/solutions/the-hedonistic-imperative.jpg
     infographic: /assets/infographics/solutions/the-hedonistic-imperative.jpg
+    thumbnail: /assets/thumbnails/solutions/the-hedonistic-imperative.jpg
 tags:
   - solutions
 aiScores:

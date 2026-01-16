@@ -11,6 +11,7 @@ metadata:
     featuredImage: /wp-content/uploads/2011/10/brain-gears.jpg
     ogImage: /assets/og-images/psychology/myth-free-will.jpg
     infographic: /assets/infographics/psychology/myth-free-will.jpg
+    thumbnail: /assets/thumbnails/psychology/myth-free-will.jpg
   categories:
     - Psychology
   tags:

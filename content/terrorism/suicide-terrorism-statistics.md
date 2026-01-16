@@ -13,6 +13,7 @@ metadata:
       /wp-content/uploads/2012/01/tbn-think-by-numbers-infographic-intervention-increases-terrorism-960-320.png
     ogImage: /assets/og-images/terrorism/suicide-terrorism-statistics.jpg
     infographic: /assets/infographics/terrorism/suicide-terrorism-statistics.jpg
+    thumbnail: /assets/thumbnails/terrorism/suicide-terrorism-statistics.jpg
   categories:
     - Terrorism
   tags:

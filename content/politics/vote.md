@@ -11,6 +11,7 @@ metadata:
     featuredImage: /wp-content/uploads/2014/11/vote-button-495.jpg
     infographic: /assets/infographics/politics/vote.jpg
     ogImage: /assets/og-images/politics/vote.jpg
+    thumbnail: /assets/thumbnails/politics/vote.jpg
   categories:
     - Politics
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/?p=8707'

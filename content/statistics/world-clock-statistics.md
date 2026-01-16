@@ -12,6 +12,7 @@ metadata:
     featuredImage: /wp-content/uploads/2012/12/world-clock-statistics-featured-image.jpg
     ogImage: /assets/og-images/statistics/world-clock-statistics.jpg
     infographic: /assets/infographics/statistics/world-clock-statistics.jpg
+    thumbnail: /assets/thumbnails/statistics/world-clock-statistics.jpg
   categories:
     - Statistics
   tags:

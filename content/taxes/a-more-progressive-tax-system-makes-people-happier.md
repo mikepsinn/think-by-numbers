@@ -14,6 +14,8 @@ metadata:
       /assets/og-images/taxes/a-more-progressive-tax-system-makes-people-happier.jpg
     infographic: >-
       /assets/infographics/taxes/a-more-progressive-tax-system-makes-people-happier.jpg
+    thumbnail: >-
+      /assets/thumbnails/taxes/a-more-progressive-tax-system-makes-people-happier.jpg
   categories:
     - Taxes
   tags:

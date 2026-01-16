@@ -12,6 +12,10 @@ metadata:
     featuredImage: /wp-content/uploads/2020/08/wishful-thinking-bias-in-voters-chart.png
     infographic: >-
       /assets/infographics/politics/most-voters-believe-their-own-party-will-win.jpg
+    ogImage: >-
+      /assets/og-images/politics/most-voters-believe-their-own-party-will-win.jpg
+    thumbnail: >-
+      /assets/thumbnails/politics/most-voters-believe-their-own-party-will-win.jpg
   categories:
     - Politics
   tags:

@@ -19,6 +19,8 @@ metadata:
       /assets/og-images/tools/algonomy-a-framework-for-dealing-with-suffering.jpg
     infographic: >-
       /assets/infographics/tools/algonomy-a-framework-for-dealing-with-suffering.jpg
+    thumbnail: >-
+      /assets/thumbnails/tools/algonomy-a-framework-for-dealing-with-suffering.jpg
 tags:
   - tools
 aiScores:
