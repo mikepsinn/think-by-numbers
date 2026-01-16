@@ -84,11 +84,14 @@ async function generateImagesForPost(
     .trim();
 
   // Prepare image metadata
+  const postDate = frontmatter.date ? new Date(frontmatter.date) : new Date();
   const imageMetadata = {
     title: frontmatter.title || '',
     description: frontmatter.description || '',
     author: 'Mike P. Sinn',
-    copyright: `© ${new Date().getFullYear()} Mike P. Sinn`,
+    copyright: `© ${postDate.getFullYear()} Mike P. Sinn`,
+    keywords: frontmatter.tags || [],
+    createDate: postDate,
   };
 
   // Shared prompt for OG and podcast images

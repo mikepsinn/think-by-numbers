@@ -16,6 +16,7 @@
     "score-posts": "tsx scripts/score-posts.ts",
     "podcast-data": "tsx scripts/generate-podcast-data.ts",
     "podcast-frontmatter": "tsx scripts/add-podcast-frontmatter.ts",
+    "update-image-metadata": "tsx scripts/update-image-metadata.ts",
     "prepare": "husky || true"
   },
   "keywords": [

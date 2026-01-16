@@ -182,6 +182,7 @@ export interface ImageMetadata {
   author?: string
   copyright?: string
   keywords?: string[]
+  createDate?: Date
 }
 
 /**
@@ -231,9 +232,21 @@ export async function addWatermark(
   const exifData: any = { IFD0: {} }
 
   if (metadata?.title) exifData.IFD0.DocumentName = metadata.title
-  if (metadata?.description) exifData.IFD0.ImageDescription = metadata.description
   if (metadata?.author) exifData.IFD0.Artist = metadata.author
   if (metadata?.copyright) exifData.IFD0.Copyright = metadata.copyright
+
+  // Build description with keywords for SEO
+  let description = metadata?.description || ''
+  if (metadata?.keywords?.length) {
+    const keywordStr = metadata.keywords.join(', ')
+    description = description ? `${description} | ${keywordStr}` : keywordStr
+  }
+  if (description) exifData.IFD0.ImageDescription = description
+
+  // Add creation date if provided
+  if (metadata?.createDate) {
+    exifData.IFD0.DateTime = metadata.createDate.toISOString().replace('T', ' ').substring(0, 19)
+  }
 
   // Composite text onto image and add metadata
   let processedImage = image.composite([
