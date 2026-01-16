@@ -54,30 +54,26 @@ async function generateImagesForPost(
   // Output directories
   const ogOutputDir = path.join('content', 'assets', 'og-images', dirName);
   const infographicOutputDir = path.join('content', 'assets', 'infographics', dirName);
-  const podcastArtOutputDir = path.join('content', 'assets', 'podcast-art', dirName);
+  const thumbnailOutputDir = path.join('content', 'assets', 'thumbnails', dirName);
 
   // Check if images already exist
   const ogImageFile = path.join(ogOutputDir, `${fileName}.jpg`);
   const infographicImageFile = path.join(infographicOutputDir, `${fileName}.jpg`);
-  const podcastArtFile = path.join(podcastArtOutputDir, `${fileName}.jpg`);
+  const thumbnailFile = path.join(thumbnailOutputDir, `${fileName}.jpg`);
 
   const hasOgImage = await fs.access(ogImageFile).then(() => true).catch(() => false);
   const hasInfographic = await fs.access(infographicImageFile).then(() => true).catch(() => false);
-  const hasPodcastArt = await fs.access(podcastArtFile).then(() => true).catch(() => false);
+  const hasThumbnail = await fs.access(thumbnailFile).then(() => true).catch(() => false);
 
-  // Check if this post has podcast content
-  const hasPodcast = !!frontmatter.podcast?.audio;
-
-  // Skip if already has all required images (unless forceRegenerate is true)
-  const hasAllImages = hasOgImage && hasInfographic && (!hasPodcast || hasPodcastArt);
-  if (!forceRegenerate && hasAllImages) {
-    console.log(`[SKIP] Already has all images (OG, infographic${hasPodcast ? ', podcast art' : ''})`);
+  // Skip if already has all images (unless forceRegenerate is true)
+  if (!forceRegenerate && hasOgImage && hasInfographic && hasThumbnail) {
+    console.log(`[SKIP] Already has all images (OG, infographic, thumbnail)`);
     return;
   }
 
   let ogImagePath: string | null = null;
   let infographicImagePath: string | null = null;
-  let podcastArtPath: string | null = null;
+  let thumbnailPath: string | null = null;
 
   // Clean the full post content for image generation prompt
   const cleanedContent = body
@@ -162,33 +158,33 @@ Full article content: ${cleanedContent}
     }
   }
 
-  // Generate podcast artwork (square 1:1, 1400x1400 for podcast platforms)
-  if (hasPodcast && (!hasPodcastArt || forceRegenerate)) {
-    console.log(`  Generating podcast artwork (square 1:1)...`);
+  // Generate thumbnail (square 1:1, useful for podcasts, grids, social)
+  if (!hasThumbnail || forceRegenerate) {
+    console.log(`  Generating thumbnail (1:1)...`);
 
     try {
-      const podcastFiles = await generateAndSaveImages({
+      const thumbnailFiles = await generateAndSaveImages({
         prompt: imagePrompt,
         aspectRatio: '1:1',
-        outputDir: podcastArtOutputDir,
+        outputDir: thumbnailOutputDir,
         filePrefix: fileName,
         format: 'jpg',
         metadata: imageMetadata,
       });
 
-      if (podcastFiles && podcastFiles.length > 0) {
-        podcastArtPath = path.relative('content', podcastFiles[0]).replace(/\\/g, '/');
-        console.log(`  [OK] Generated podcast artwork: ${podcastArtPath}`);
+      if (thumbnailFiles && thumbnailFiles.length > 0) {
+        thumbnailPath = path.relative('content', thumbnailFiles[0]).replace(/\\/g, '/');
+        console.log(`  [OK] Generated thumbnail: ${thumbnailPath}`);
       } else {
-        console.log(`  [WARN] No podcast artwork generated`);
+        console.log(`  [WARN] No thumbnail generated`);
       }
     } catch (error) {
-      console.error(`  [ERROR] Failed to generate podcast artwork:`, error);
+      console.error(`  [ERROR] Failed to generate thumbnail:`, error);
     }
   }
 
   // Update frontmatter if we generated any new images
-  if (ogImagePath || infographicImagePath || podcastArtPath) {
+  if (ogImagePath || infographicImagePath || thumbnailPath) {
     const updatedFrontmatter = { ...frontmatter };
 
     // Ensure metadata structure exists
@@ -206,10 +202,8 @@ Full article content: ${cleanedContent}
     if (infographicImagePath) {
       updatedFrontmatter.metadata.media.infographic = `/${infographicImagePath}`;
     }
-
-    // Add podcast artwork to podcast frontmatter section
-    if (podcastArtPath && updatedFrontmatter.podcast) {
-      updatedFrontmatter.podcast.image = `/${podcastArtPath}`;
+    if (thumbnailPath) {
+      updatedFrontmatter.metadata.media.thumbnail = `/${thumbnailPath}`;
     }
 
     // Write updated file

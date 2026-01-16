@@ -58,7 +58,7 @@ layout: false
     {%- set audioPath = post.data.podcast.audio if post.data.podcast else (post.content | findMp3Url) %}
     {%- if audioPath %}
     {%- set episodeMeta = podcastEpisodes.episodes[audioPath] %}
-    {%- set episodeImage = post.data.podcast.image if post.data.podcast.image else site.podcast.image %}
+    {%- set episodeImage = post.data.metadata.media.thumbnail if post.data.metadata.media.thumbnail else site.podcast.image %}
     <item>
       <title>{{ post.data.title | decodeHtml | escape }}</title>
       <link>{{ site.url }}{{ post.url }}</link>
