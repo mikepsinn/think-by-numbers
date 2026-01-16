@@ -13,6 +13,8 @@ metadata:
       /assets/og-images/military/fraudulent-defense-contractors-paid-1-trillion.jpg
     infographic: >-
       /assets/infographics/military/fraudulent-defense-contractors-paid-1-trillion.jpg
+    thumbnail: >-
+      /assets/thumbnails/military/fraudulent-defense-contractors-paid-1-trillion.jpg
   categories:
     - Military
   tags:

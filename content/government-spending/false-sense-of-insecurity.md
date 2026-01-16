@@ -12,6 +12,7 @@ metadata:
     featuredImage: /wp-content/uploads/2013/10/death-and-dollars-2.jpg
     ogImage: /assets/og-images/government-spending/false-sense-of-insecurity.jpg
     infographic: /assets/infographics/government-spending/false-sense-of-insecurity.jpg
+    thumbnail: /assets/thumbnails/government-spending/false-sense-of-insecurity.jpg
   categories:
     - Government Spending
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/wordpress/?p=4'

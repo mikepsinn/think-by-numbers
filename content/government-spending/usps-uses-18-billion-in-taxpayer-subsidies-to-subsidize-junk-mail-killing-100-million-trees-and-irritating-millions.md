@@ -15,6 +15,8 @@ metadata:
       /assets/og-images/government-spending/usps-uses-18-billion-in-taxpayer-subsidies-to-subsidize-junk-mail-killing-100-million-trees-and-irritating-millions.jpg
     infographic: >-
       /assets/infographics/government-spending/usps-uses-18-billion-in-taxpayer-subsidies-to-subsidize-junk-mail-killing-100-million-trees-and-irritating-millions.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/usps-uses-18-billion-in-taxpayer-subsidies-to-subsidize-junk-mail-killing-100-million-trees-and-irritating-millions.jpg
   categories:
     - Government Spending
   uuid: '11ty/import::wordpress::https://thinkbynumbers.org/?p=9690'

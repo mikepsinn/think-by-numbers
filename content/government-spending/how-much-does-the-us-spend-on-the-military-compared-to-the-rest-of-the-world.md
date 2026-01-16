@@ -14,6 +14,8 @@ metadata:
       /assets/og-images/government-spending/how-much-does-the-us-spend-on-the-military-compared-to-the-rest-of-the-world.jpg
     infographic: >-
       /assets/infographics/government-spending/how-much-does-the-us-spend-on-the-military-compared-to-the-rest-of-the-world.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/how-much-does-the-us-spend-on-the-military-compared-to-the-rest-of-the-world.jpg
   categories:
     - Government Spending
     - Military

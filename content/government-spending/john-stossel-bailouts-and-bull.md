@@ -13,6 +13,7 @@ metadata:
     ogImage: /assets/og-images/government-spending/john-stossel-bailouts-and-bull.jpg
     infographic: >-
       /assets/infographics/government-spending/john-stossel-bailouts-and-bull.jpg
+    thumbnail: /assets/thumbnails/government-spending/john-stossel-bailouts-and-bull.jpg
   categories:
     - Corporate Welfare
     - Government Spending

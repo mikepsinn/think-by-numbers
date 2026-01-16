@@ -14,6 +14,8 @@ metadata:
       /assets/og-images/federal-reserve/zombie-companies-will-lead-to-americas-lost-decade.jpg
     infographic: >-
       /assets/infographics/federal-reserve/zombie-companies-will-lead-to-americas-lost-decade.jpg
+    thumbnail: >-
+      /assets/thumbnails/federal-reserve/zombie-companies-will-lead-to-americas-lost-decade.jpg
   categories:
     - Federal Reserve
   tags:

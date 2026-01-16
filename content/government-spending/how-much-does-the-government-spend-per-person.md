@@ -21,6 +21,8 @@ metadata:
       /assets/og-images/government-spending/how-much-does-the-government-spend-per-person.jpg
     infographic: >-
       /assets/infographics/government-spending/how-much-does-the-government-spend-per-person.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/how-much-does-the-government-spend-per-person.jpg
 tags:
   - government-spending
 aiScores:

@@ -11,6 +11,7 @@ metadata:
     featuredImage: /wp-content/uploads/2012/11/felicific-calculus.jpg
     ogImage: /assets/og-images/empiricism-2/felicific-calculus.jpg
     infographic: /assets/infographics/empiricism-2/felicific-calculus.jpg
+    thumbnail: /assets/thumbnails/empiricism-2/felicific-calculus.jpg
   categories:
     - Empiricism
     - Utilitarianism

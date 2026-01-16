@@ -14,6 +14,8 @@ metadata:
       /assets/og-images/monkey-business/the-kids-today-need-to-learn-their-mathematics-ya-see.jpg
     infographic: >-
       /assets/infographics/monkey-business/the-kids-today-need-to-learn-their-mathematics-ya-see.jpg
+    thumbnail: >-
+      /assets/thumbnails/monkey-business/the-kids-today-need-to-learn-their-mathematics-ya-see.jpg
   categories:
     - Monkey Business
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/blog/?p=200'

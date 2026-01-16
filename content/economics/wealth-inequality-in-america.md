@@ -13,6 +13,7 @@ metadata:
     featuredImage: /wp-content/uploads/2013/03/wealth-inequality-featured-image.png
     ogImage: /assets/og-images/economics/wealth-inequality-in-america.jpg
     infographic: /assets/infographics/economics/wealth-inequality-in-america.jpg
+    thumbnail: /assets/thumbnails/economics/wealth-inequality-in-america.jpg
   categories:
     - Economics
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/?p=8256'

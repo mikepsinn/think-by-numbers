@@ -11,6 +11,7 @@ metadata:
     featuredImage: /wp-content/uploads/2013/02/Duffman2.jpg
     ogImage: /assets/og-images/monkey-business/drink-by-numbers.jpg
     infographic: /assets/infographics/monkey-business/drink-by-numbers.jpg
+    thumbnail: /assets/thumbnails/monkey-business/drink-by-numbers.jpg
   categories:
     - Monkey Business
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/?p=8242'

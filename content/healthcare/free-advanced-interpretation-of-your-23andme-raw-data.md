@@ -13,6 +13,8 @@ metadata:
       /assets/og-images/healthcare/free-advanced-interpretation-of-your-23andme-raw-data.jpg
     infographic: >-
       /assets/infographics/healthcare/free-advanced-interpretation-of-your-23andme-raw-data.jpg
+    thumbnail: >-
+      /assets/thumbnails/healthcare/free-advanced-interpretation-of-your-23andme-raw-data.jpg
   categories:
     - Healthcare
   tags:

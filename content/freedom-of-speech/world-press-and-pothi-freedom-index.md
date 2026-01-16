@@ -14,6 +14,8 @@ metadata:
       /assets/og-images/freedom-of-speech/world-press-and-pothi-freedom-index.jpg
     infographic: >-
       /assets/infographics/freedom-of-speech/world-press-and-pothi-freedom-index.jpg
+    thumbnail: >-
+      /assets/thumbnails/freedom-of-speech/world-press-and-pothi-freedom-index.jpg
   categories:
     - Freedom of Speech
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/?p=8637'

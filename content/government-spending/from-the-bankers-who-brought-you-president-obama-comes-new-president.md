@@ -15,6 +15,8 @@ metadata:
       /assets/og-images/government-spending/from-the-bankers-who-brought-you-president-obama-comes-new-president.jpg
     infographic: >-
       /assets/infographics/government-spending/from-the-bankers-who-brought-you-president-obama-comes-new-president.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/from-the-bankers-who-brought-you-president-obama-comes-new-president.jpg
   categories:
     - Government Spending
   tags:

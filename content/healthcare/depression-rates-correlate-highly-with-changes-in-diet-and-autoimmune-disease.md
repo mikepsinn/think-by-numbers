@@ -14,6 +14,8 @@ metadata:
       /assets/og-images/healthcare/depression-rates-correlate-highly-with-changes-in-diet-and-autoimmune-disease.jpg
     infographic: >-
       /assets/infographics/healthcare/depression-rates-correlate-highly-with-changes-in-diet-and-autoimmune-disease.jpg
+    thumbnail: >-
+      /assets/thumbnails/healthcare/depression-rates-correlate-highly-with-changes-in-diet-and-autoimmune-disease.jpg
   categories:
     - Healthcare
   tags:
