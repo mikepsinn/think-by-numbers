@@ -17,7 +17,6 @@ interface PodcastEpisodeMetadata {
 }
 
 interface PodcastDataFile {
-  generated: string;
   episodes: Record<string, PodcastEpisodeMetadata>;
 }
 
@@ -124,7 +123,6 @@ async function main() {
 
   // Create output data
   const outputData: PodcastDataFile = {
-    generated: new Date().toISOString(),
     episodes
   };
 
