@@ -64,6 +64,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 17872
   imageCount: 6
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn012_presidential_plans_compared.mp3
+  duration: '29:36'
+  durationSeconds: 1777
+  fileSize: 28526750
+  episode: 12
 ---
 GOP Candidate Ron Paul has produced a detailed budget containing over [$1 trillion](http://www.campaignforliberty.org/the-issues/ron-paul-plan-to-restore-america/) in first-year reductions. Mitt Romney, Rick Santorum, and Newt Gingrich have only indicated that they would attempt to repeal Obamacare saving an average of [$20 billion](https://en.wikipedia.org/wiki/Patient_Protection_and_Affordable_Care_Act#Effect_on_national_spending) a year.
 

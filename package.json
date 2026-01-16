@@ -15,6 +15,7 @@
     "generate-checklist": "tsx scripts/generate-post-checklist.ts",
     "score-posts": "tsx scripts/score-posts.ts",
     "podcast-data": "tsx scripts/generate-podcast-data.ts",
+    "podcast-frontmatter": "tsx scripts/add-podcast-frontmatter.ts",
     "prepare": "husky || true"
   },
   "keywords": [

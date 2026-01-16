@@ -54,22 +54,30 @@ async function generateImagesForPost(
   // Output directories
   const ogOutputDir = path.join('content', 'assets', 'og-images', dirName);
   const infographicOutputDir = path.join('content', 'assets', 'infographics', dirName);
+  const podcastArtOutputDir = path.join('content', 'assets', 'podcast-art', dirName);
 
   // Check if images already exist
   const ogImageFile = path.join(ogOutputDir, `${fileName}.jpg`);
   const infographicImageFile = path.join(infographicOutputDir, `${fileName}.jpg`);
+  const podcastArtFile = path.join(podcastArtOutputDir, `${fileName}.jpg`);
 
   const hasOgImage = await fs.access(ogImageFile).then(() => true).catch(() => false);
   const hasInfographic = await fs.access(infographicImageFile).then(() => true).catch(() => false);
+  const hasPodcastArt = await fs.access(podcastArtFile).then(() => true).catch(() => false);
 
-  // Skip if already has both images (unless forceRegenerate is true)
-  if (!forceRegenerate && hasOgImage && hasInfographic) {
-    console.log(`[SKIP] Already has all images (OG, infographic)`);
+  // Check if this post has podcast content
+  const hasPodcast = !!frontmatter.podcast?.audio;
+
+  // Skip if already has all required images (unless forceRegenerate is true)
+  const hasAllImages = hasOgImage && hasInfographic && (!hasPodcast || hasPodcastArt);
+  if (!forceRegenerate && hasAllImages) {
+    console.log(`[SKIP] Already has all images (OG, infographic${hasPodcast ? ', podcast art' : ''})`);
     return;
   }
 
   let ogImagePath: string | null = null;
   let infographicImagePath: string | null = null;
+  let podcastArtPath: string | null = null;
 
   // Clean the full post content for image generation prompt
   const cleanedContent = body
@@ -88,25 +96,22 @@ async function generateImagesForPost(
     keywords: frontmatter.tags || [],
   };
 
-  // Generate OG image (optimized for social media thumbnails)
-  if (!hasOgImage || forceRegenerate) {
-    console.log(`  Generating OG image (social media optimized)...`);
-    const ogPrompt = `Create image illustrating the content below.
-    Style: Use a fun retro scientific black and white style.
+  // Shared prompt for OG and podcast images
+  const imagePrompt = `Create image illustrating the content below.
+Style: Use a fun retro scientific black and white style.
 
-    Here is the content to illustrate:
-
---------------------------------
-    
-Title:    "${frontmatter.title}".
+Title: "${frontmatter.title}".
 
 Full article content: ${cleanedContent}
-
 `;
+
+  // Generate OG image (optimized for social media thumbnails)
+  if (!hasOgImage || forceRegenerate) {
+    console.log(`  Generating OG image (16:9)...`);
 
     try {
       const ogFiles = await generateAndSaveImages({
-        prompt: ogPrompt,
+        prompt: imagePrompt,
         aspectRatio: '16:9',
         outputDir: ogOutputDir,
         filePrefix: fileName,
@@ -157,8 +162,33 @@ Full article content: ${cleanedContent}
     }
   }
 
+  // Generate podcast artwork (square 1:1, 1400x1400 for podcast platforms)
+  if (hasPodcast && (!hasPodcastArt || forceRegenerate)) {
+    console.log(`  Generating podcast artwork (square 1:1)...`);
+
+    try {
+      const podcastFiles = await generateAndSaveImages({
+        prompt: imagePrompt,
+        aspectRatio: '1:1',
+        outputDir: podcastArtOutputDir,
+        filePrefix: fileName,
+        format: 'jpg',
+        metadata: imageMetadata,
+      });
+
+      if (podcastFiles && podcastFiles.length > 0) {
+        podcastArtPath = path.relative('content', podcastFiles[0]).replace(/\\/g, '/');
+        console.log(`  [OK] Generated podcast artwork: ${podcastArtPath}`);
+      } else {
+        console.log(`  [WARN] No podcast artwork generated`);
+      }
+    } catch (error) {
+      console.error(`  [ERROR] Failed to generate podcast artwork:`, error);
+    }
+  }
+
   // Update frontmatter if we generated any new images
-  if (ogImagePath || infographicImagePath) {
+  if (ogImagePath || infographicImagePath || podcastArtPath) {
     const updatedFrontmatter = { ...frontmatter };
 
     // Ensure metadata structure exists
@@ -175,6 +205,11 @@ Full article content: ${cleanedContent}
     }
     if (infographicImagePath) {
       updatedFrontmatter.metadata.media.infographic = `/${infographicImagePath}`;
+    }
+
+    // Add podcast artwork to podcast frontmatter section
+    if (podcastArtPath && updatedFrontmatter.podcast) {
+      updatedFrontmatter.podcast.image = `/${podcastArtPath}`;
     }
 
     // Write updated file

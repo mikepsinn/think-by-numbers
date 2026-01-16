@@ -36,6 +36,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 20029
   imageCount: 2
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn013_why_think_by_numbers.mp3
+  duration: '20:59'
+  durationSeconds: 1260
+  fileSize: 15158172
+  episode: 13
 ---
 ### Numbers cannot lie.
 

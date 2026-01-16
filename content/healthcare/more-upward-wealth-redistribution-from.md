@@ -47,6 +47,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 2423
   imageCount: 1
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn004_ipads-for-doctors.mp3
+  duration: '02:12'
+  durationSeconds: 132
+  fileSize: 1662485
+  episode: 4
 ---
 [![Graph Illustrating Average US Doctor's Salary vs Median Citizen Income](/wp-content/uploads/2011/08/Doctor-Ipad-Graph-960x320-672x224.jpg)](http://thinkbynumbers.org/wp-content/uploads/2011/08/Doctor-Ipad-Graph-960x320.jpg)
 

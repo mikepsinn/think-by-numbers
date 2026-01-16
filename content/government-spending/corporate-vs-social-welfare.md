@@ -40,6 +40,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 17617
   imageCount: 4
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn003_corporate_welfare_statistics.mp3
+  duration: '11:39'
+  durationSeconds: 699
+  fileSize: 8514376
+  episode: 3
 ---
 ![Corporate Welfare Piggy Bank](/wp-content/uploads/2012/11/corporate-welfare-piggy-bank.jpg)
 

@@ -45,6 +45,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 4056
   imageCount: 1
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn011_taxes_make_us_happy.mp3
+  duration: '04:16'
+  durationSeconds: 257
+  fileSize: 4231032
+  episode: 11
 ---
 ![Smiley Money Face](/wp-content/uploads/2011/09/SmileyMoneyFace-44x44.jpg)
 

@@ -50,6 +50,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 4363
   imageCount: 1
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn002_us_national_debt.mp3
+  duration: '01:30'
+  durationSeconds: 91
+  fileSize: 1144356
+  episode: 2
 ---
 "These are extraordinary times. We can't worry about the national debt now. We'll deal with that later."
 

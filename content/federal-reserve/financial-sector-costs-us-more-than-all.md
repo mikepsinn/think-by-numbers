@@ -65,6 +65,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 5782
   imageCount: 2
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn007_financial_sector_costs.mp3
+  duration: '05:19'
+  durationSeconds: 319
+  fileSize: 3895493
+  episode: 7
 ---
 The financial sector receives more of the average paycheck than any other sector of the economy.  Its share of the economy totals $2 trillion dollars.
 

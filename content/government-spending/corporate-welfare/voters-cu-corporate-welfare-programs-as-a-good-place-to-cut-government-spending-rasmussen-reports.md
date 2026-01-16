@@ -47,6 +47,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 3043
   imageCount: 1
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn010_cut_corporate_welfare.mp3
+  duration: '02:11'
+  durationSeconds: 132
+  fileSize: 2241550
+  episode: 10
 ---
 ![Socialism for the Rich. Capitalism for the Rest.](/wp-content/uploads/2011/09/socialism-rich.jpg)
 

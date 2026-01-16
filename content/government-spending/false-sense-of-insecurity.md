@@ -37,6 +37,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 14243
   imageCount: 5
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn001_anti_terroism_spending.mp3
+  duration: '12:11'
+  durationSeconds: 731
+  fileSize: 8981398
+  episode: 1
 ---
 _[![Old Man Struck by Lightning ](/wp-content/uploads/2008/03/lightning.jpg)](http://thinkbynumbers.org/wp-content/uploads/2008/03/lightning.jpg)_
 

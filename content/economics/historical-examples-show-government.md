@@ -55,6 +55,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 2639
   imageCount: 1
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn005_chile_mexico-government-intervention.mp3
+  duration: '02:24'
+  durationSeconds: 144
+  fileSize: 1788700
+  episode: 5
 ---
 This [study](https://www.minneapolisfed.org/research/SR/SR421.pdf) by the Federal Reserve examines the effects of government intervention and the absence thereof in two similar financial crises which occurred simultaneously in Chile and Mexico. Chile liquidated the insolvent banks and instituted a new regulatory system to prevent future abuses. Mexico nationalized the entire banking system keeping the insolvent banks on life support at the expense of the taxpayer.
 

@@ -42,6 +42,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 3918
   imageCount: 4
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn006_us_pays_16000_per_worker.mp3
+  duration: '07:57'
+  durationSeconds: 478
+  fileSize: 5807446
+  episode: 6
 ---
 ## Toxic Assets
 

@@ -44,6 +44,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 12173
   imageCount: 3
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn009_fun_facts_about_iraq.mp3
+  duration: '10:45'
+  durationSeconds: 645
+  fileSize: 10418255
+  episode: 9
 ---
 
 The Iraq War cost $3 trillion. That's enough to end world hunger for 100 years. We chose differently. Here are the numbers.

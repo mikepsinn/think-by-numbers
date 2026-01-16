@@ -45,6 +45,12 @@ aiScores:
   model: gemini-3-flash-preview
   length: 4899
   imageCount: 4
+podcast:
+  audio: /wp-content/uploads/2016/10/tbn008_what_if_aig_failed.mp3
+  duration: '06:27'
+  durationSeconds: 387
+  fileSize: 6282017
+  episode: 8
 ---
 The average American household paid $2,000 to bail out AIG. Your bill arrived without your consent. You paid it anyway.
 
