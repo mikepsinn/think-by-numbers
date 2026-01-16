@@ -19,6 +19,7 @@ metadata:
   media:
     ogImage: /assets/og-images/terms-of-service.jpg
     infographic: /assets/infographics/terms-of-service.jpg
+    thumbnail: /assets/thumbnails/terms-of-service.jpg
 aiScores:
   quality: 6
   value: 3

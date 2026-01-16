@@ -10,6 +10,7 @@ metadata:
   media:
     ogImage: /assets/og-images/vote-2.jpg
     infographic: /assets/infographics/vote-2.jpg
+    thumbnail: /assets/thumbnails/vote-2.jpg
 tags:
   - politics
   - democracy
