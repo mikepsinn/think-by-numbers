@@ -85,11 +85,10 @@ async function generateImagesForPost(
 
   // Prepare image metadata
   const imageMetadata = {
-    title: frontmatter.title || 'ThinkByNumbers Article',
-    description: frontmatter.description || frontmatter.title || '',
-    author: 'ThinkByNumbers',
-    copyright: `© ${new Date().getFullYear()} ThinkByNumbers.org`,
-    keywords: frontmatter.tags || [],
+    title: frontmatter.title || '',
+    description: frontmatter.description || '',
+    author: 'Mike P. Sinn',
+    copyright: `© ${new Date().getFullYear()} Mike P. Sinn`,
   };
 
   // Shared prompt for OG and podcast images

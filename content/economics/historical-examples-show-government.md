@@ -15,6 +15,7 @@ metadata:
     featuredImage: /wp-content/uploads/2009/02/featured-image-Keynes-Time2.jpg
     ogImage: /assets/og-images/economics/historical-examples-show-government.jpg
     infographic: /assets/infographics/economics/historical-examples-show-government.jpg
+    thumbnail: /assets/thumbnails/economics/historical-examples-show-government.jpg
   categories:
     - Corporate Welfare
     - Economics

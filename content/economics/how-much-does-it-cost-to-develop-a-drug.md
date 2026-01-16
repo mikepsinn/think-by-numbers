@@ -14,6 +14,7 @@ metadata:
       /wp-content/uploads/2020/08/2-Crossing-over-the-Valley-of-Death-The-distinct-stages-of-drug-development-from.png
     ogImage: /assets/og-images/economics/how-much-does-it-cost-to-develop-a-drug.jpg
     infographic: /assets/infographics/economics/how-much-does-it-cost-to-develop-a-drug.jpg
+    thumbnail: /assets/thumbnails/economics/how-much-does-it-cost-to-develop-a-drug.jpg
   categories:
     - Economics
     - Healthcare

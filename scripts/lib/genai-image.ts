@@ -228,27 +228,12 @@ export async function addWatermark(
   const top = imageHeight - textHeight - padding
 
   // Prepare EXIF/IFD0 metadata
-  const exifData: any = {
-    IFD0: {
-      Software: 'ThinkByNumbers',
-      DateTime: new Date().toISOString().replace('T', ' ').substring(0, 19),
-    }
-  }
+  const exifData: any = { IFD0: {} }
 
   if (metadata?.title) exifData.IFD0.DocumentName = metadata.title
   if (metadata?.description) exifData.IFD0.ImageDescription = metadata.description
   if (metadata?.author) exifData.IFD0.Artist = metadata.author
   if (metadata?.copyright) exifData.IFD0.Copyright = metadata.copyright
-  if (metadata?.keywords?.length) {
-    // XMP:Subject is the standard for keywords, but EXIF doesn't have a native field
-    // We'll add keywords to ImageDescription if present
-    const keywordStr = metadata.keywords.join(', ')
-    if (exifData.IFD0.ImageDescription) {
-      exifData.IFD0.ImageDescription += ` | Keywords: ${keywordStr}`
-    } else {
-      exifData.IFD0.ImageDescription = `Keywords: ${keywordStr}`
-    }
-  }
 
   // Composite text onto image and add metadata
   let processedImage = image.composite([

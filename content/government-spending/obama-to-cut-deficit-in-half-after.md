@@ -15,6 +15,8 @@ metadata:
       /assets/og-images/government-spending/obama-to-cut-deficit-in-half-after.jpg
     infographic: >-
       /assets/infographics/government-spending/obama-to-cut-deficit-in-half-after.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/obama-to-cut-deficit-in-half-after.jpg
   categories:
     - Government Spending
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/wordpress/?p=8'
