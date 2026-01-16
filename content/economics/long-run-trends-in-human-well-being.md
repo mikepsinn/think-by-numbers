@@ -13,6 +13,7 @@ metadata:
     featuredImage: /wp-content/uploads/2020/04/trends-in-human-well-being.png
     ogImage: /assets/og-images/economics/long-run-trends-in-human-well-being.jpg
     infographic: /assets/infographics/economics/long-run-trends-in-human-well-being.jpg
+    thumbnail: /assets/thumbnails/economics/long-run-trends-in-human-well-being.jpg
   categories:
     - Economics
   uuid: '11ty/import::wordpress::https://thinkbynumbers.org/?p=9700'

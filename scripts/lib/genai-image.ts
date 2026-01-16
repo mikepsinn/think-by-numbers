@@ -227,14 +227,27 @@ export async function addWatermark(
   const left = imageWidth - textWidth - padding
   const top = imageHeight - textHeight - padding
 
-  // Prepare EXIF metadata in proper IFD0 structure
-  const exifData: any = {}
+  // Prepare EXIF/IFD0 metadata
+  const exifData: any = {
+    IFD0: {
+      Software: 'ThinkByNumbers',
+      DateTime: new Date().toISOString().replace('T', ' ').substring(0, 19),
+    }
+  }
 
-  if (metadata?.description || metadata?.author || metadata?.copyright) {
-    exifData.IFD0 = {}
-    if (metadata?.description) exifData.IFD0.ImageDescription = metadata.description
-    if (metadata?.author) exifData.IFD0.Artist = metadata.author
-    if (metadata?.copyright) exifData.IFD0.Copyright = metadata.copyright
+  if (metadata?.title) exifData.IFD0.DocumentName = metadata.title
+  if (metadata?.description) exifData.IFD0.ImageDescription = metadata.description
+  if (metadata?.author) exifData.IFD0.Artist = metadata.author
+  if (metadata?.copyright) exifData.IFD0.Copyright = metadata.copyright
+  if (metadata?.keywords?.length) {
+    // XMP:Subject is the standard for keywords, but EXIF doesn't have a native field
+    // We'll add keywords to ImageDescription if present
+    const keywordStr = metadata.keywords.join(', ')
+    if (exifData.IFD0.ImageDescription) {
+      exifData.IFD0.ImageDescription += ` | Keywords: ${keywordStr}`
+    } else {
+      exifData.IFD0.ImageDescription = `Keywords: ${keywordStr}`
+    }
   }
 
   // Composite text onto image and add metadata
@@ -246,19 +259,19 @@ export async function addWatermark(
     },
   ])
 
-  // Add EXIF metadata if we have any
-  if (Object.keys(exifData).length > 0) {
-    processedImage = processedImage.withExif(exifData)
-  }
+  // Add EXIF metadata
+  processedImage = processedImage.withExif(exifData)
 
   const result = await processedImage.toBuffer()
 
   log.info('Watermark and metadata applied', {
-    text,
-    imageWidth,
-    imageHeight,
-    fontSize,
-    hasMetadata: Object.keys(exifData).length > 0
+    watermark: text,
+    dimensions: `${imageWidth}x${imageHeight}`,
+    metadata: {
+      title: metadata?.title || null,
+      author: metadata?.author || null,
+      keywords: metadata?.keywords?.length || 0,
+    }
   })
   return result
 }
@@ -300,7 +313,7 @@ export async function saveImage(
 
   // Add watermark if enabled (default: true)
   if (options?.addWatermark !== false) {
-    buffer = await addWatermark(buffer, options?.metadata)
+    buffer = Buffer.from(await addWatermark(buffer, options?.metadata))
   }
 
   // Write to file

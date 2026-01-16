@@ -15,6 +15,8 @@ metadata:
       /assets/og-images/economics/how-to-protect-yourself-against-the-invisible-inflation-burglar.jpg
     infographic: >-
       /assets/infographics/economics/how-to-protect-yourself-against-the-invisible-inflation-burglar.jpg
+    thumbnail: >-
+      /assets/thumbnails/economics/how-to-protect-yourself-against-the-invisible-inflation-burglar.jpg
   categories:
     - Economics
   uuid: '11ty/import::wordpress::https://thinkbynumbers.org/?p=10059'

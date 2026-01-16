@@ -16,6 +16,8 @@ metadata:
       /assets/og-images/economics/how-to-identify-the-bottom-of-a-stock-market-correction.jpg
     infographic: >-
       /assets/infographics/economics/how-to-identify-the-bottom-of-a-stock-market-correction.jpg
+    thumbnail: >-
+      /assets/thumbnails/economics/how-to-identify-the-bottom-of-a-stock-market-correction.jpg
   categories:
     - Economics
   tags:
