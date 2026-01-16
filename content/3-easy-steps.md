@@ -10,6 +10,7 @@ metadata:
   media:
     ogImage: /assets/og-images/3-easy-steps.jpg
     infographic: /assets/infographics/3-easy-steps.jpg
+    thumbnail: /assets/thumbnails/3-easy-steps.jpg
 tags:
   - solutions
   - empiricism

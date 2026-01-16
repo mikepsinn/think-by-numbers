@@ -13,6 +13,8 @@ metadata:
       /assets/og-images/utilitarianism/is-it-morally-optimal-to-rescue-a-cat-from-the-pound.jpg
     infographic: >-
       /assets/infographics/utilitarianism/is-it-morally-optimal-to-rescue-a-cat-from-the-pound.jpg
+    thumbnail: >-
+      /assets/thumbnails/utilitarianism/is-it-morally-optimal-to-rescue-a-cat-from-the-pound.jpg
   categories:
     - Utilitarianism
   uuid: '11ty/import::wordpress::https://thinkbynumbers.org/?p=10728'

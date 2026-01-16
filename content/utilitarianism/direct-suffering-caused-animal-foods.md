@@ -13,6 +13,7 @@ metadata:
     ogImage: /assets/og-images/utilitarianism/direct-suffering-caused-animal-foods.jpg
     infographic: >-
       /assets/infographics/utilitarianism/direct-suffering-caused-animal-foods.jpg
+    thumbnail: /assets/thumbnails/utilitarianism/direct-suffering-caused-animal-foods.jpg
   categories:
     - Utilitarianism
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/blog/?p=1067'

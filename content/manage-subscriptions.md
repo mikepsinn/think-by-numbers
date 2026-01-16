@@ -10,6 +10,7 @@ metadata:
   media:
     ogImage: /assets/og-images/manage-subscriptions.jpg
     infographic: /assets/infographics/manage-subscriptions.jpg
+    thumbnail: /assets/thumbnails/manage-subscriptions.jpg
 tags:
   - subscription
 aiScores:
