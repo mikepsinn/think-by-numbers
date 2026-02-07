@@ -1,6 +1,6 @@
 # Think by Numbers
 
-**A better world through data.**
+**Using data to minimize human suffering and optimize life for everyone. A better world through math.**
 
 Look, humanity invented math thousands of years ago. You have calculators in your pockets. Yet you still make trillion-dollar decisions based on how a flag makes you feel. This is... let's call it "suboptimal."
 
