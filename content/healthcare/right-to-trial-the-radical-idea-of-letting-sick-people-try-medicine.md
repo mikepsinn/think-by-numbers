@@ -1,18 +1,27 @@
 ---
-title: "Right to Trial: The Radical Idea of Letting Sick People Try Medicine"
+title: 'Right to Trial: The Radical Idea of Letting Sick People Try Medicine'
 description: >-
-  86% of patients are excluded from clinical trials. 95% of rare diseases have zero FDA-approved treatments. The Right to Trial Act says: what if sick people could try things? Controversial.
-date: 2026-03-08
+  86% of patients are excluded from clinical trials. 95% of rare diseases have
+  zero FDA-approved treatments. The Right to Trial Act says: what if sick people
+  could try things? Controversial.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - healthcare
   - health
   - fda
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/healthcare/right-to-trial-the-radical-idea-of-letting-sick-people-try-medicine.jpg
+    infographic: >-
+      /assets/infographics/healthcare/right-to-trial-the-radical-idea-of-letting-sick-people-try-medicine.jpg
+    thumbnail: >-
+      /assets/thumbnails/healthcare/right-to-trial-the-radical-idea-of-letting-sick-people-try-medicine.jpg
   categories:
     - Healthcare
     - Health
-  source: https://right-to-trial.warondisease.org
+  source: 'https://right-to-trial.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

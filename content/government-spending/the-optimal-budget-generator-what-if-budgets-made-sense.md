@@ -1,17 +1,26 @@
 ---
-title: "The Optimal Budget Generator: What If Budgets Made Sense?"
+title: 'The Optimal Budget Generator: What If Budgets Made Sense?'
 description: >-
-  Pragmatic clinical trials: current $0.5B, optimal $50B (9,900% underinvestment). Military: current $850B, optimal $459B. Agricultural subsidies: optimal $0. This spreadsheet is devastating.
-date: 2026-03-08
+  Pragmatic clinical trials: current $0.5B, optimal $50B (9,900%
+  underinvestment). Military: current $850B, optimal $459B. Agricultural
+  subsidies: optimal $0. This spreadsheet is devastating.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - government-spending
   - economics
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/government-spending/the-optimal-budget-generator-what-if-budgets-made-sense.jpg
+    infographic: >-
+      /assets/infographics/government-spending/the-optimal-budget-generator-what-if-budgets-made-sense.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/the-optimal-budget-generator-what-if-budgets-made-sense.jpg
   categories:
     - Government Spending
     - Economics
-  source: https://obg.warondisease.org
+  source: 'https://obg.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

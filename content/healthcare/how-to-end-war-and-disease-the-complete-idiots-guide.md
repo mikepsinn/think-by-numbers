@@ -1,8 +1,12 @@
 ---
-title: "How to End War and Disease: The Complete Idiot's Guide to Legally Bribing Your Way to Utopia"
+title: >-
+  How to End War and Disease: The Complete Idiot's Guide to Legally Bribing Your
+  Way to Utopia
 description: >-
-  A manual for ending war and disease using financial incentives, pragmatic trials, and the radical assumption that humans respond to money. Spoiler: they do. 10.7 billion lives at stake.
-date: 2026-03-08
+  A manual for ending war and disease using financial incentives, pragmatic
+  trials, and the radical assumption that humans respond to money. Spoiler: they
+  do. 10.7 billion lives at stake.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - healthcare
@@ -10,11 +14,18 @@ tags:
   - economics
   - politics
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/healthcare/how-to-end-war-and-disease-the-complete-idiots-guide.jpg
+    infographic: >-
+      /assets/infographics/healthcare/how-to-end-war-and-disease-the-complete-idiots-guide.jpg
+    thumbnail: >-
+      /assets/thumbnails/healthcare/how-to-end-war-and-disease-the-complete-idiots-guide.jpg
   categories:
     - Healthcare
     - Economics
     - Politics
-  source: https://manual.warondisease.org
+  source: 'https://manual.warondisease.org'
 aiScores:
   composite: 9.5
   quality: 9

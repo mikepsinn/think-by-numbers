@@ -1,17 +1,26 @@
 ---
-title: "US Efficiency Audit: A $4.9 Trillion Dollar Oops"
+title: 'US Efficiency Audit: A $4.9 Trillion Dollar Oops'
 description: >-
-  The US government wastes $4.9T annually—17% of GDP. The Pentagon can't find $2.5T of its own assets. Americans spend 7.9 billion hours doing taxes. Systems engineering says we can fix this.
-date: 2026-03-08
+  The US government wastes $4.9T annually—17% of GDP. The Pentagon can't find
+  $2.5T of its own assets. Americans spend 7.9 billion hours doing taxes.
+  Systems engineering says we can fix this.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - government-spending
   - economics
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/government-spending/us-efficiency-audit-a-49-trillion-dollar-oops.jpg
+    infographic: >-
+      /assets/infographics/government-spending/us-efficiency-audit-a-49-trillion-dollar-oops.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/us-efficiency-audit-a-49-trillion-dollar-oops.jpg
   categories:
     - Government Spending
     - Economics
-  source: https://us-efficiency-audit.warondisease.org
+  source: 'https://us-efficiency-audit.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

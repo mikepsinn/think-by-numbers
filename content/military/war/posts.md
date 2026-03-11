@@ -12,6 +12,7 @@ metadata:
     featuredImage: /wp-content/uploads/2011/08/featured-image-three-trillion-dollar-war.jpg
     ogImage: /assets/og-images/military/war/posts.jpg
     infographic: /assets/infographics/military/war/posts.jpg
+    thumbnail: /assets/thumbnails/military/war/posts.jpg
   categories:
     - War
   tags:

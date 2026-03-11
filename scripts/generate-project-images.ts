@@ -85,13 +85,15 @@ async function generateImagesForPost(
 
   // Prepare image metadata
   const postDate = frontmatter.date ? new Date(frontmatter.date) : new Date();
+  const postUrl = frontmatter.metadata?.url || `https://thinkbynumbers.org/${dirName}/${fileName}/`;
   const imageMetadata = {
     title: frontmatter.title || '',
     description: frontmatter.description || '',
-    author: 'Mike P. Sinn',
-    copyright: `© ${postDate.getFullYear()} Mike P. Sinn`,
+    author: 'Mike P. Sinn (https://mikesinn.com)',
+    copyright: `© ${postDate.getFullYear()} Mike P. Sinn | https://mikesinn.com | WarOnDisease.org`,
     keywords: frontmatter.tags || [],
     createDate: postDate,
+    url: postUrl,
   };
 
   // Shared prompt for OG and podcast images
@@ -103,35 +105,7 @@ Title: "${frontmatter.title}".
 Full article content: ${cleanedContent}
 `;
 
-  // Generate OG image (optimized for social media thumbnails)
-  if (!hasOgImage || forceRegenerate) {
-    console.log(`  Generating OG image (16:9)...`);
-
-    try {
-      const ogFiles = await generateAndSaveImages({
-        prompt: imagePrompt,
-        aspectRatio: '16:9',
-        outputDir: ogOutputDir,
-        filePrefix: fileName,
-        format: 'jpg',
-        metadata: imageMetadata,
-      });
-
-      if (ogFiles && ogFiles.length > 0) {
-        ogImagePath = path.relative('content', ogFiles[0]).replace(/\\/g, '/');
-        console.log(`  [OK] Generated OG image: ${ogImagePath}`);
-      } else {
-        console.log(`  [WARN] No OG image generated`);
-      }
-    } catch (error) {
-      console.error(`  [ERROR] Failed to generate OG image:`, error);
-    }
-  }
-
-  // Generate infographic (detailed, vertical page-like format)
-  if (!hasInfographic || forceRegenerate) {
-    console.log(`  Generating infographic (detailed)...`);
-    const infographicPrompt = `Create a detailed infographic for an article titled "${frontmatter.title}".
+  const infographicPrompt = `Create a detailed infographic for an article titled "${frontmatter.title}".
 
 Style: Fun black and white scientific illustration style.
 
@@ -139,51 +113,73 @@ Full article content: ${cleanedContent}
 
 `;
 
-    try {
-      const infographicFiles = await generateAndSaveImages({
+  // Generate all 3 image types in parallel
+  const imageJobs: Promise<void>[] = [];
+
+  if (!hasOgImage || forceRegenerate) {
+    console.log(`  Generating OG image (16:9)...`);
+    imageJobs.push(
+      generateAndSaveImages({
+        prompt: imagePrompt,
+        aspectRatio: '16:9',
+        outputDir: ogOutputDir,
+        filePrefix: fileName,
+        format: 'jpg',
+        metadata: imageMetadata,
+      }).then(ogFiles => {
+        if (ogFiles && ogFiles.length > 0) {
+          ogImagePath = path.relative('content', ogFiles[0]).replace(/\\/g, '/');
+          console.log(`  [OK] Generated OG image: ${ogImagePath}`);
+        }
+      }).catch(error => {
+        console.error(`  [ERROR] Failed to generate OG image:`, error);
+      })
+    );
+  }
+
+  if (!hasInfographic || forceRegenerate) {
+    console.log(`  Generating infographic (3:4)...`);
+    imageJobs.push(
+      generateAndSaveImages({
         prompt: infographicPrompt,
         aspectRatio: '3:4',
         outputDir: infographicOutputDir,
         filePrefix: fileName,
         format: 'jpg',
         metadata: imageMetadata,
-      });
-
-      if (infographicFiles && infographicFiles.length > 0) {
-        infographicImagePath = path.relative('content', infographicFiles[0]).replace(/\\/g, '/');
-        console.log(`  [OK] Generated infographic: ${infographicImagePath}`);
-      } else {
-        console.log(`  [WARN] No infographic generated`);
-      }
-    } catch (error) {
-      console.error(`  [ERROR] Failed to generate infographic:`, error);
-    }
+      }).then(infographicFiles => {
+        if (infographicFiles && infographicFiles.length > 0) {
+          infographicImagePath = path.relative('content', infographicFiles[0]).replace(/\\/g, '/');
+          console.log(`  [OK] Generated infographic: ${infographicImagePath}`);
+        }
+      }).catch(error => {
+        console.error(`  [ERROR] Failed to generate infographic:`, error);
+      })
+    );
   }
 
-  // Generate thumbnail (square 1:1, useful for podcasts, grids, social)
   if (!hasThumbnail || forceRegenerate) {
     console.log(`  Generating thumbnail (1:1)...`);
-
-    try {
-      const thumbnailFiles = await generateAndSaveImages({
+    imageJobs.push(
+      generateAndSaveImages({
         prompt: imagePrompt,
         aspectRatio: '1:1',
         outputDir: thumbnailOutputDir,
         filePrefix: fileName,
         format: 'jpg',
         metadata: imageMetadata,
-      });
-
-      if (thumbnailFiles && thumbnailFiles.length > 0) {
-        thumbnailPath = path.relative('content', thumbnailFiles[0]).replace(/\\/g, '/');
-        console.log(`  [OK] Generated thumbnail: ${thumbnailPath}`);
-      } else {
-        console.log(`  [WARN] No thumbnail generated`);
-      }
-    } catch (error) {
-      console.error(`  [ERROR] Failed to generate thumbnail:`, error);
-    }
+      }).then(thumbnailFiles => {
+        if (thumbnailFiles && thumbnailFiles.length > 0) {
+          thumbnailPath = path.relative('content', thumbnailFiles[0]).replace(/\\/g, '/');
+          console.log(`  [OK] Generated thumbnail: ${thumbnailPath}`);
+        }
+      }).catch(error => {
+        console.error(`  [ERROR] Failed to generate thumbnail:`, error);
+      })
+    );
   }
+
+  await Promise.all(imageJobs);
 
   // Update frontmatter if we generated any new images
   if (ogImagePath || infographicImagePath || thumbnailPath) {
@@ -266,16 +262,25 @@ async function generateAllPostImages(fileFilter?: string): Promise<void> {
   // Force regeneration if processing a specific file
   const forceRegenerate = !!fileFilter;
 
-  for (const filePath of posts) {
-    try {
-      postsProcessed++;
-      await generateImagesForPost(filePath, forceRegenerate);
-      postsGenerated++;
-    } catch (error) {
-      console.error(`[ERROR] Failed to process ${filePath}:`, error);
-      postsFailed++;
-      // Continue with next file
+  // Process posts in parallel batches (3 at a time to avoid API rate limits)
+  const CONCURRENCY = 3;
+  for (let i = 0; i < posts.length; i += CONCURRENCY) {
+    const batch = posts.slice(i, i + CONCURRENCY);
+    const results = await Promise.allSettled(
+      batch.map(async (filePath) => {
+        postsProcessed++;
+        await generateImagesForPost(filePath, forceRegenerate);
+      })
+    );
+    for (let j = 0; j < results.length; j++) {
+      if (results[j].status === 'fulfilled') {
+        postsGenerated++;
+      } else {
+        postsFailed++;
+        console.error(`[ERROR] Failed to process ${batch[j]}:`, (results[j] as PromiseRejectedResult).reason);
+      }
     }
+    console.log(`\n[PROGRESS] ${Math.min(i + CONCURRENCY, posts.length)}/${posts.length} posts processed\n`);
   }
 
   console.log('\n' + '='.repeat(60));

@@ -1,18 +1,27 @@
 ---
-title: "Incentive Alignment Bonds: Making Greed Save Lives"
+title: 'Incentive Alignment Bonds: Making Greed Save Lives'
 description: >-
-  What if saving millions of lives was a good investment? IABs pay 272% ROI to investors who bribe politicians into doing their jobs. Global household wealth is $454T. Opposition is $5T. Do the maths.
-date: 2026-03-08
+  What if saving millions of lives was a good investment? IABs pay 272% ROI to
+  investors who bribe politicians into doing their jobs. Global household wealth
+  is $454T. Opposition is $5T. Do the maths.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - economics
   - politics
   - healthcare
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/economics/incentive-alignment-bonds-making-greed-save-lives.jpg
+    infographic: >-
+      /assets/infographics/economics/incentive-alignment-bonds-making-greed-save-lives.jpg
+    thumbnail: >-
+      /assets/thumbnails/economics/incentive-alignment-bonds-making-greed-save-lives.jpg
   categories:
     - Economics
     - Politics
-  source: https://iab.warondisease.org
+  source: 'https://iab.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

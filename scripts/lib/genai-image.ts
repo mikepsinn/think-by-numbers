@@ -104,7 +104,7 @@ export async function generateImages(
     prompt,
     count = 1,
     aspectRatio = '1:1',
-    model = 'gemini-3-pro-image-preview',
+    model = 'gemini-3.1-flash-image-preview',
     negativePrompt,
   } = options
 
@@ -183,6 +183,7 @@ export interface ImageMetadata {
   copyright?: string
   keywords?: string[]
   createDate?: Date
+  url?: string
 }
 
 /**
@@ -203,30 +204,36 @@ export async function addWatermark(
   const imageWidth = imgMetadata.width || 1200
   const imageHeight = imgMetadata.height || 630
 
-  // Calculate font size based on image width (1.5% of width - smaller)
-  const fontSize = Math.floor(imageWidth * 0.015)
-  const padding = 3
+  // Watermark: 1.5% of image width, flush to bottom-right corner
+  const fontSize = Math.max(10, Math.floor(imageWidth * 0.015))
+  const boxPadX = Math.floor(fontSize * 0.4)
+  const boxPadY = Math.floor(fontSize * 0.2)
+  const border = Math.max(1, Math.round(fontSize * 0.08))
 
-  // Create text SVG with transparent background
-  const text = 'ThinkByNumbers.org'
-  const textWidth = text.length * fontSize * 0.6 // Approximate width
-  const textHeight = fontSize * 1.4
+  const text = 'WarOnDisease.org'
+  const textW = Math.ceil(text.length * fontSize * 0.6)
+  const textH = Math.ceil(fontSize * 1.15)
+  const badgeW = textW + boxPadX * 2
+  const badgeH = textH + boxPadY * 2
 
   const svgText = `
-    <svg width="${textWidth}" height="${textHeight}">
-      <text x="0" y="${fontSize}"
+    <svg width="${badgeW}" height="${badgeH}" xmlns="http://www.w3.org/2000/svg">
+      <rect x="${border / 2}" y="${border / 2}"
+            width="${badgeW - border}" height="${badgeH - border}"
+            fill="white" stroke="black" stroke-width="${border}"/>
+      <text x="${boxPadX}" y="${boxPadY + textH * 0.82}"
             font-family="Courier New, monospace"
             font-size="${fontSize}px"
             font-weight="600"
-            fill="rgba(0, 0, 0, 0.8)">${text}</text>
+            fill="black">${text}</text>
     </svg>
   `
 
   const textBuffer = Buffer.from(svgText)
 
-  // Position text in lower right corner
-  const left = imageWidth - textWidth - padding
-  const top = imageHeight - textHeight - padding
+  // Flush to bottom-right corner — zero margin
+  const left = imageWidth - badgeW
+  const top = imageHeight - badgeH
 
   // Prepare EXIF/IFD0 metadata
   const exifData: any = { IFD0: {} }
@@ -235,11 +242,14 @@ export async function addWatermark(
   if (metadata?.author) exifData.IFD0.Artist = metadata.author
   if (metadata?.copyright) exifData.IFD0.Copyright = metadata.copyright
 
-  // Build description with keywords for SEO
+  // Build description with keywords and URL for SEO
   let description = metadata?.description || ''
   if (metadata?.keywords?.length) {
     const keywordStr = metadata.keywords.join(', ')
     description = description ? `${description} | ${keywordStr}` : keywordStr
+  }
+  if (metadata?.url) {
+    description = description ? `${description} | ${metadata.url}` : metadata.url
   }
   if (description) exifData.IFD0.ImageDescription = description
 

@@ -1,17 +1,25 @@
 ---
-title: "Continuous Evidence Generation: Testing Drugs for a Dollar"
+title: 'Continuous Evidence Generation: Testing Drugs for a Dollar'
 description: >-
-  Stage 1 costs 10 cents per patient. Stage 2 costs $929. Traditional trials cost $41,000. That's a 44x reduction. The drugs don't know the difference.
-date: 2026-03-08
+  Stage 1 costs 10 cents per patient. Stage 2 costs $929. Traditional trials
+  cost $41,000. That's a 44x reduction. The drugs don't know the difference.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - healthcare
   - science
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/healthcare/continuous-evidence-generation-testing-drugs-for-a-dollar.jpg
+    infographic: >-
+      /assets/infographics/healthcare/continuous-evidence-generation-testing-drugs-for-a-dollar.jpg
+    thumbnail: >-
+      /assets/thumbnails/healthcare/continuous-evidence-generation-testing-drugs-for-a-dollar.jpg
   categories:
     - Healthcare
     - Science
-  source: https://dfda-spec.warondisease.org
+  source: 'https://dfda-spec.warondisease.org'
 aiScores:
   composite: 8.5
   quality: 8

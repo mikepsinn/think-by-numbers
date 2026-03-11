@@ -13,6 +13,7 @@ metadata:
     featuredImage: /wp-content/uploads/2011/09/featured-image-House-Bubble.jpg
     ogImage: /assets/og-images/debt/posts-2.jpg
     infographic: /assets/infographics/debt/posts-2.jpg
+    thumbnail: /assets/thumbnails/debt/posts-2.jpg
   categories:
     - Debt
     - Economics

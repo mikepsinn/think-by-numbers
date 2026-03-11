@@ -1,18 +1,25 @@
 ---
-title: "Optimocracy: What If We Just Copied the Countries That Aren't Failing?"
+title: 'Optimocracy: What If We Just Copied the Countries That Aren''t Failing?'
 description: >-
-  The US spends 3% more of GDP on government than Switzerland yet lives 6.5 fewer years. What if we just... looked at what works elsewhere and did that? Causal inference says yes.
-date: 2026-03-08
+  The US spends 3% more of GDP on government than Switzerland yet lives 6.5
+  fewer years. What if we just... looked at what works elsewhere and did that?
+  Causal inference says yes.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - democracy
   - politics
   - economics
 metadata:
+  media:
+    ogImage: /assets/og-images/democracy/optimocracy-letting-data-run-the-country.jpg
+    infographic: >-
+      /assets/infographics/democracy/optimocracy-letting-data-run-the-country.jpg
+    thumbnail: /assets/thumbnails/democracy/optimocracy-letting-data-run-the-country.jpg
   categories:
     - Democracy
     - Politics
-  source: https://optimocracy.warondisease.org
+  source: 'https://optimocracy.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

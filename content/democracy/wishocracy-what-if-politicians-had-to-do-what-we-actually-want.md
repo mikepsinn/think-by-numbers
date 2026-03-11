@@ -1,17 +1,26 @@
 ---
-title: "Wishocracy: What If Politicians Had to Do What We Actually Want?"
+title: 'Wishocracy: What If Politicians Had to Do What We Actually Want?'
 description: >-
-  Voter preferences have near-zero effect on policy. Citizens want 45:1 medical research vs military spending, but get the reverse. RAPPA fixes this with a slider and a dream.
-date: 2026-03-08
+  Voter preferences have near-zero effect on policy. Citizens want 45:1 medical
+  research vs military spending, but get the reverse. RAPPA fixes this with a
+  slider and a dream.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - democracy
   - politics
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/democracy/wishocracy-what-if-politicians-had-to-do-what-we-actually-want.jpg
+    infographic: >-
+      /assets/infographics/democracy/wishocracy-what-if-politicians-had-to-do-what-we-actually-want.jpg
+    thumbnail: >-
+      /assets/thumbnails/democracy/wishocracy-what-if-politicians-had-to-do-what-we-actually-want.jpg
   categories:
     - Democracy
     - Politics
-  source: https://wishocracy.warondisease.org
+  source: 'https://wishocracy.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

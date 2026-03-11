@@ -1,18 +1,27 @@
 ---
-title: "The Optimal Policy Generator: Ctrl+C, Ctrl+V for Good Governance"
+title: 'The Optimal Policy Generator: Ctrl+C, Ctrl+V for Good Governance'
 description: >-
-  46,000+ country-years of policy data. 3,500+ US state-years. Centuries of natural experiments we've never analysed. The OPG just asks: what worked? Then suggests doing that.
-date: 2026-03-08
+  46,000+ country-years of policy data. 3,500+ US state-years. Centuries of
+  natural experiments we've never analysed. The OPG just asks: what worked? Then
+  suggests doing that.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - democracy
   - politics
   - economics
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/democracy/optimal-policy-generator-copy-pasting-good-governance.jpg
+    infographic: >-
+      /assets/infographics/democracy/optimal-policy-generator-copy-pasting-good-governance.jpg
+    thumbnail: >-
+      /assets/thumbnails/democracy/optimal-policy-generator-copy-pasting-good-governance.jpg
   categories:
     - Democracy
     - Politics
-  source: https://opg.warondisease.org
+  source: 'https://opg.warondisease.org'
 aiScores:
   composite: 8.5
   quality: 8

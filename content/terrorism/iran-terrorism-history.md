@@ -13,6 +13,7 @@ metadata:
       /wp-content/uploads/2012/07/C-_Users_Mike_Documents_Think-by-Numbers_Posts-Completed_Iran-US-Violence_iran-us-government-civilian-direct-deaths-punch-out.jpg
     ogImage: /assets/og-images/terrorism/iran-terrorism-history.jpg
     infographic: /assets/infographics/terrorism/iran-terrorism-history.jpg
+    thumbnail: /assets/thumbnails/terrorism/iran-terrorism-history.jpg
   categories:
     - Terrorism
     - War

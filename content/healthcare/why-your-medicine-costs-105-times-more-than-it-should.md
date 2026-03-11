@@ -1,18 +1,27 @@
 ---
-title: "Why Your Medicine Costs 105 Times More Than It Should"
+title: Why Your Medicine Costs 105 Times More Than It Should
 description: >-
-  Drug development costs increased 105x since 1962. Before regulations, drugs cost $24.7M to develop. Now it's $2.6 billion. The pills haven't gotten 105 times better.
-date: 2026-03-08
+  Drug development costs increased 105x since 1962. Before regulations, drugs
+  cost $24.7M to develop. Now it's $2.6 billion. The pills haven't gotten 105
+  times better.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - healthcare
   - economics
   - fda
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/healthcare/why-your-medicine-costs-105-times-more-than-it-should.jpg
+    infographic: >-
+      /assets/infographics/healthcare/why-your-medicine-costs-105-times-more-than-it-should.jpg
+    thumbnail: >-
+      /assets/thumbnails/healthcare/why-your-medicine-costs-105-times-more-than-it-should.jpg
   categories:
     - Healthcare
     - Economics
-  source: https://drug-cost.warondisease.org
+  source: 'https://drug-cost.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

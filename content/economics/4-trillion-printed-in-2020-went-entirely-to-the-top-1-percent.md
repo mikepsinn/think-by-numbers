@@ -16,6 +16,8 @@ metadata:
       /assets/og-images/economics/4-trillion-printed-in-2020-went-entirely-to-the-top-1-percent.jpg
     infographic: >-
       /assets/infographics/economics/4-trillion-printed-in-2020-went-entirely-to-the-top-1-percent.jpg
+    thumbnail: >-
+      /assets/thumbnails/economics/4-trillion-printed-in-2020-went-entirely-to-the-top-1-percent.jpg
   categories:
     - Economics
     - Federal Reserve

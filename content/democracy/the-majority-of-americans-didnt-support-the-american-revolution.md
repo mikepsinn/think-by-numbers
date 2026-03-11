@@ -16,6 +16,8 @@ metadata:
       /assets/og-images/democracy/the-majority-of-americans-didnt-support-the-american-revolution.jpg
     infographic: >-
       /assets/infographics/democracy/the-majority-of-americans-didnt-support-the-american-revolution.jpg
+    thumbnail: >-
+      /assets/thumbnails/democracy/the-majority-of-americans-didnt-support-the-american-revolution.jpg
   categories:
     - Democracy
   uuid: '11ty/import::wordpress::https://thinkbynumbers.org/?p=10012'

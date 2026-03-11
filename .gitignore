@@ -51,3 +51,4 @@ _site/
 # Auto Claude data directory
 .auto-claude/
 .claude_settings.json
+NUL

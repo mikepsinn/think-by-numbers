@@ -1,19 +1,28 @@
 ---
-title: "The 1% Treaty: Bribing Our Way to Not Dying"
+title: 'The 1% Treaty: Bribing Our Way to Not Dying'
 description: >-
-  What if we took 1% of global military spending ($27.2B/year) and used it to actually save lives? 10.7 billion deaths averted. The maths checks out. The species does not.
-date: 2026-03-08
+  What if we took 1% of global military spending ($27.2B/year) and used it to
+  actually save lives? 10.7 billion deaths averted. The maths checks out. The
+  species does not.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - military
   - healthcare
   - government-spending
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/military/the-1-percent-treaty-bribing-our-way-to-not-dying.jpg
+    infographic: >-
+      /assets/infographics/military/the-1-percent-treaty-bribing-our-way-to-not-dying.jpg
+    thumbnail: >-
+      /assets/thumbnails/military/the-1-percent-treaty-bribing-our-way-to-not-dying.jpg
   categories:
     - Military
     - Healthcare
     - Government Spending
-  source: https://impact.warondisease.org
+  source: 'https://impact.warondisease.org'
 aiScores:
   composite: 9.5
   quality: 9

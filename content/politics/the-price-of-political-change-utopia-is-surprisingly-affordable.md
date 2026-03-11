@@ -1,17 +1,26 @@
 ---
-title: "The Price of Political Change: Utopia Is Surprisingly Affordable"
+title: 'The Price of Political Change: Utopia Is Surprisingly Affordable'
 description: >-
-  The maximum cost to reform all US policy is $25.5 billion. The return is $84.8 quadrillion. That's an 84.8 million:1 ROI. The real question isn't can we afford it, but why haven't we bought it.
-date: 2026-03-08
+  The maximum cost to reform all US policy is $25.5 billion. The return is $84.8
+  quadrillion. That's an 84.8 million:1 ROI. The real question isn't can we
+  afford it, but why haven't we bought it.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - politics
   - economics
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/politics/the-price-of-political-change-utopia-is-surprisingly-affordable.jpg
+    infographic: >-
+      /assets/infographics/politics/the-price-of-political-change-utopia-is-surprisingly-affordable.jpg
+    thumbnail: >-
+      /assets/thumbnails/politics/the-price-of-political-change-utopia-is-surprisingly-affordable.jpg
   categories:
     - Politics
     - Economics
-  source: https://cost-of-change.warondisease.org
+  source: 'https://cost-of-change.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

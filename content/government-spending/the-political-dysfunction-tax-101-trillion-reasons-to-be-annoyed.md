@@ -1,19 +1,28 @@
 ---
-title: "The Political Dysfunction Tax: $101 Trillion Reasons to Be Annoyed"
+title: 'The Political Dysfunction Tax: $101 Trillion Reasons to Be Annoyed'
 description: >-
-  Civilization runs at 51.9% efficiency. The governance gap costs $101 trillion/year—$50,500 per household. We're leaving $1.16M per person on the table because meetings run long.
-date: 2026-03-08
+  Civilization runs at 51.9% efficiency. The governance gap costs $101
+  trillion/year—$50,500 per household. We're leaving $1.16M per person on the
+  table because meetings run long.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - government-spending
   - economics
   - politics
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/government-spending/the-political-dysfunction-tax-101-trillion-reasons-to-be-annoyed.jpg
+    infographic: >-
+      /assets/infographics/government-spending/the-political-dysfunction-tax-101-trillion-reasons-to-be-annoyed.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/the-political-dysfunction-tax-101-trillion-reasons-to-be-annoyed.jpg
   categories:
     - Government Spending
     - Economics
     - Politics
-  source: https://political-dysfunction-tax.warondisease.org
+  source: 'https://political-dysfunction-tax.warondisease.org'
 aiScores:
   composite: 9
   quality: 9

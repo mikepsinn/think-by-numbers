@@ -13,6 +13,7 @@ metadata:
     featuredImage: /wp-content/uploads/2009/02/Debt-to-GDP-Forecast-Chart.png
     ogImage: /assets/og-images/debt/debt-to-gdp-forecast-chart.jpg
     infographic: /assets/infographics/debt/debt-to-gdp-forecast-chart.jpg
+    thumbnail: /assets/thumbnails/debt/debt-to-gdp-forecast-chart.jpg
   categories:
     - Debt
     - GDP

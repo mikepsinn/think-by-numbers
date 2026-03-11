@@ -1,18 +1,26 @@
 ---
-title: "The Invisible Graveyard: 102 Million Deaths Nobody Talks About"
+title: 'The Invisible Graveyard: 102 Million Deaths Nobody Talks About'
 description: >-
-  The FDA's efficacy testing kills 3,070 people for every 1 it saves. 102 million dead since 1962. That's 17 Holocausts, but with better paperwork.
-date: 2026-03-08
+  The FDA's efficacy testing kills 3,070 people for every 1 it saves. 102
+  million dead since 1962. That's 17 Holocausts, but with better paperwork.
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - health
   - healthcare
   - fda
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/health/the-invisible-graveyard-102-million-deaths-nobody-talks-about.jpg
+    infographic: >-
+      /assets/infographics/health/the-invisible-graveyard-102-million-deaths-nobody-talks-about.jpg
+    thumbnail: >-
+      /assets/thumbnails/health/the-invisible-graveyard-102-million-deaths-nobody-talks-about.jpg
   categories:
     - Health
     - Healthcare
-  source: https://invisible-graveyard.warondisease.org
+  source: 'https://invisible-graveyard.warondisease.org'
 aiScores:
   composite: 9.5
   quality: 9

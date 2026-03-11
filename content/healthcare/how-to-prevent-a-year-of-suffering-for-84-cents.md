@@ -1,17 +1,26 @@
 ---
-title: "How to Prevent a Year of Death and Suffering for 84 Cents"
+title: How to Prevent a Year of Death and Suffering for 84 Cents
 description: >-
-  6,650 diseases have zero FDA-approved treatments. Pragmatic trials cost $929 vs $41,000. Scale them up and you get $0.84 per DALY. That's cheaper than a Mars bar. Why haven't we done this?
-date: 2026-03-08
+  6,650 diseases have zero FDA-approved treatments. Pragmatic trials cost $929
+  vs $41,000. Scale them up and you get $0.84 per DALY. That's cheaper than a
+  Mars bar. Why haven't we done this?
+date: 2026-03-08T00:00:00.000Z
 type: post
 tags:
   - healthcare
   - health
 metadata:
+  media:
+    ogImage: >-
+      /assets/og-images/healthcare/how-to-prevent-a-year-of-suffering-for-84-cents.jpg
+    infographic: >-
+      /assets/infographics/healthcare/how-to-prevent-a-year-of-suffering-for-84-cents.jpg
+    thumbnail: >-
+      /assets/thumbnails/healthcare/how-to-prevent-a-year-of-suffering-for-84-cents.jpg
   categories:
     - Healthcare
     - Health
-  source: https://dfda-impact.warondisease.org
+  source: 'https://dfda-impact.warondisease.org'
 aiScores:
   composite: 9.5
   quality: 9

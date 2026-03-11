@@ -15,6 +15,8 @@ metadata:
       /assets/infographics/government-spending/spending-cuts-budget-2012-republican-primary-candidates-compared.jpg
     ogImage: >-
       /assets/og-images/government-spending/spending-cuts-budget-2012-republican-primary-candidates-compared.jpg
+    thumbnail: >-
+      /assets/thumbnails/government-spending/spending-cuts-budget-2012-republican-primary-candidates-compared.jpg
   categories:
     - Government Spending
     - Podcast
