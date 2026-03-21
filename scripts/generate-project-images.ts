@@ -61,9 +61,30 @@ async function generateImagesForPost(
   const infographicImageFile = path.join(infographicOutputDir, `${fileName}.jpg`);
   const thumbnailFile = path.join(thumbnailOutputDir, `${fileName}.jpg`);
 
-  const hasOgImage = await fs.access(ogImageFile).then(() => true).catch(() => false);
-  const hasInfographic = await fs.access(infographicImageFile).then(() => true).catch(() => false);
-  const hasThumbnail = await fs.access(thumbnailFile).then(() => true).catch(() => false);
+  // Check existence AND size — 0-byte files from failed generations don't count
+  async function hasValidImage(filePath: string): Promise<boolean> {
+    try {
+      const stat = await fs.stat(filePath);
+      return stat.size >= 1024;
+    } catch {
+      return false;
+    }
+  }
+
+  const hasOgImage = await hasValidImage(ogImageFile);
+  const hasInfographic = await hasValidImage(infographicImageFile);
+  const hasThumbnail = await hasValidImage(thumbnailFile);
+
+  // Clean up any 0-byte files so they don't persist
+  for (const file of [ogImageFile, infographicImageFile, thumbnailFile]) {
+    try {
+      const stat = await fs.stat(file);
+      if (stat.size === 0) {
+        await fs.unlink(file);
+        console.log(`  [CLEANUP] Deleted 0-byte file: ${file}`);
+      }
+    } catch {}
+  }
 
   // Skip if already has all images (unless forceRegenerate is true)
   if (!forceRegenerate && hasOgImage && hasInfographic && hasThumbnail) {

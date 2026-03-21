@@ -140,6 +140,12 @@ export async function generateImages(
 
         for (const part of parts) {
           if (part.inlineData?.data) {
+            // Validate that the base64 data decodes to a non-trivial image (at least 1KB)
+            const decoded = Buffer.from(part.inlineData.data, 'base64')
+            if (decoded.length < 1024) {
+              log.error('Image data too small, likely corrupt', { size: decoded.length })
+              continue
+            }
             images.push({
               imageBytes: part.inlineData.data,
               raiFilteredReason: undefined,
@@ -319,13 +325,28 @@ export async function saveImage(
   // Decode base64
   let buffer = Buffer.from(image.imageBytes, 'base64')
 
+  if (buffer.length < 1024) {
+    throw new Error(`Decoded image is too small (${buffer.length} bytes), likely corrupt`)
+  }
+
   // Add watermark if enabled (default: true)
   if (options?.addWatermark !== false) {
     buffer = Buffer.from(await addWatermark(buffer, options?.metadata))
   }
 
+  if (buffer.length < 1024) {
+    throw new Error(`Image after watermarking is too small (${buffer.length} bytes)`)
+  }
+
   // Write to file
   await fs.writeFile(filePath, buffer)
+
+  // Verify written file size
+  const stat = await fs.stat(filePath)
+  if (stat.size < 1024) {
+    await fs.unlink(filePath).catch(() => {})
+    throw new Error(`Written file is too small (${stat.size} bytes), deleted ${filePath}`)
+  }
 
   log.info('Image saved', { filePath, size: buffer.length })
 }
@@ -358,6 +379,7 @@ export async function generateAndSaveImages(options: {
   format?: 'png' | 'jpg'
   addWatermark?: boolean
   metadata?: ImageMetadata
+  maxRetries?: number
 }): Promise<string[]> {
   const {
     prompt,
@@ -368,30 +390,48 @@ export async function generateAndSaveImages(options: {
     format = 'png',
     addWatermark = true,
     metadata,
+    maxRetries = 2,
   } = options
 
-  const result = await generateImages({
-    prompt,
-    count,
-    aspectRatio,
-  })
+  let lastError: Error | null = null
 
-  const filePaths: string[] = []
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    if (attempt > 0) {
+      const delay = Math.min(1000 * Math.pow(2, attempt - 1), 10000)
+      log.info(`Retry attempt ${attempt}/${maxRetries} after ${delay}ms...`)
+      await new Promise(resolve => setTimeout(resolve, delay))
+    }
 
-  for (let i = 0; i < result.images.length; i++) {
-    const fileName = count === 1
-      ? `${filePrefix}.${format}`
-      : `${filePrefix}-${i + 1}.${format}`
+    try {
+      const result = await generateImages({
+        prompt,
+        count,
+        aspectRatio,
+      })
 
-    const filePath = `${outputDir}/${fileName}`
-    await saveImage(result.images[i], filePath, { addWatermark, metadata })
-    filePaths.push(filePath)
+      const filePaths: string[] = []
+
+      for (let i = 0; i < result.images.length; i++) {
+        const fileName = count === 1
+          ? `${filePrefix}.${format}`
+          : `${filePrefix}-${i + 1}.${format}`
+
+        const filePath = `${outputDir}/${fileName}`
+        await saveImage(result.images[i], filePath, { addWatermark, metadata })
+        filePaths.push(filePath)
+      }
+
+      log.info('Generated and saved images', {
+        count: filePaths.length,
+        outputDir,
+      })
+
+      return filePaths
+    } catch (error: any) {
+      lastError = error
+      log.error(`Attempt ${attempt + 1} failed:`, error.message || String(error))
+    }
   }
 
-  log.info('Generated and saved images', {
-    count: filePaths.length,
-    outputDir,
-  })
-
-  return filePaths
+  throw lastError || new Error('Image generation failed after retries')
 }
