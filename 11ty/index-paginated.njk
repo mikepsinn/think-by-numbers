@@ -150,23 +150,66 @@ eleventyComputed:
     }
   }));
 
+  // H2EWD (How to End War and Disease) chapters from manual.warondisease.org
+  const h2ewdData = [
+    {%- for chapter in h2ewdChapters %}
+    {
+      url: {{ chapter.url | dump | safe }},
+      title: {{ chapter.title | dump | safe }},
+      description: {{ chapter.description | dump | safe }},
+      ogImage: "{{ chapter.image or '' }}",
+      date: "{{ chapter.lastmod or '' }}",
+      timestamp: {{ chapter.lastmod | dateTimestamp }},
+      source: "h2ewd",
+      aiScores: {
+        quality: {{ chapter.aiScores.quality or 7 }},
+        value: {{ chapter.aiScores.value or 7 }},
+        timeliness: {{ chapter.aiScores.timeliness or 7 }},
+        length: 5000,
+        imageCount: 3
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ].map(post => ({
+    ...post,
+    aiScores: {
+      ...post.aiScores,
+      composite: calculateComposite(
+        post.aiScores.quality,
+        post.aiScores.value,
+        post.aiScores.timeliness,
+        post.aiScores.length,
+        post.aiScores.imageCount
+      )
+    }
+  }));
+
+  // Merge TBN posts with H2EWD chapters
+  const allPosts = [...postsData, ...h2ewdData];
+
   const sortSelect = document.getElementById('post-sort');
   const postGrid = document.getElementById('post-grid');
   const pagination = document.querySelector('.pagination');
 
   function renderPosts(posts) {
-    postGrid.innerHTML = posts.map(post => `
-      <article class="post-card">
+    postGrid.innerHTML = posts.map(post => {
+      const isExternal = post.source === 'h2ewd';
+      const linkTarget = isExternal ? ' target="_blank" rel="noopener"' : '';
+      const badge = isExternal ? ' <span class="external-badge">H2EWD</span>' : '';
+      const readLabel = isExternal ? 'Read on H2EWD Manual' : 'Read more';
+
+      return `
+      <article class="post-card${isExternal ? ' post-card--external' : ''}">
         ${post.ogImage ? `
         <div class="post-image">
-          <a href="${post.url}">
+          <a href="${post.url}"${linkTarget}>
             <img src="${post.ogImage}" alt="${post.title}">
           </a>
         </div>
         ` : ''}
         <div class="post-header">
           <h3 class="post-title">
-            <a href="${post.url}">${post.title}</a>
+            <a href="${post.url}"${linkTarget}>${post.title}${badge}</a>
           </h3>
         </div>
         <div class="post-info">
@@ -176,18 +219,19 @@ eleventyComputed:
         </div>
         <div class="post-footer">
           <small>
-            <a href="${post.url}">
-              <span class="read-more">Read more</span>
+            <a href="${post.url}"${linkTarget}>
+              <span class="read-more">${readLabel}</span>
             </a>
           </small>
           ${post.aiScores.composite ? `<small class="post-score">${post.aiScores.composite.toFixed(1)}/10</small>` : ''}
         </div>
       </article>
-    `).join('');
+    `;
+    }).join('');
   }
 
   function sortPosts(sortBy) {
-    let sorted = [...postsData];
+    let sorted = [...allPosts];
 
     switch(sortBy) {
       case 'composite':

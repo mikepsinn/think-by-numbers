@@ -1,0 +1,50 @@
+---
+pagination:
+  data: h2ewdChapters
+  size: 1
+  alias: chapter
+permalink: "/h2ewd/{{ chapter.slug }}/"
+layout: base.njk
+eleventyComputed:
+  title: "{{ chapter.title }}"
+  description: "{{ chapter.description }}"
+eleventyExcludeFromCollections: true
+---
+
+<div class="container"{% if chapter.image %} data-pagefind-meta="image:{{ chapter.image }}"{% endif %}>
+  <div class="main-content">
+    <article>
+      <div class="h2ewd-notice">
+        <p>This chapter is from the <a href="https://manual.warondisease.org">How to End War and Disease</a> manual.</p>
+        <a href="{{ chapter.url }}" target="_blank" rel="noopener" class="h2ewd-read-button">
+          Read Full Chapter &rarr;
+        </a>
+      </div>
+
+      <h1>{{ chapter.title }}</h1>
+
+      {% if chapter.description %}
+      <p class="h2ewd-description">{{ chapter.description }}</p>
+      {% endif %}
+
+      {% if chapter.sections.length %}
+      <h2>Sections</h2>
+      <ul>
+        {% for section in chapter.sections %}
+        <li>{{ section }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if chapter.tags.length %}
+      <p><strong>Tags:</strong> {{ chapter.tags | join(", ") }}</p>
+      {% endif %}
+
+      <div class="h2ewd-notice" style="margin-top: 2rem;">
+        <a href="{{ chapter.url }}" target="_blank" rel="noopener" class="h2ewd-read-button">
+          Read Full Chapter on H2EWD Manual &rarr;
+        </a>
+      </div>
+    </article>
+  </div>
+</div>

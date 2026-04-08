@@ -26,6 +26,11 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toISO();
   });
 
+  eleventyConfig.addFilter("dateTimestamp", (dateStr) => {
+    if (!dateStr) return Date.now();
+    return new Date(dateStr).getTime();
+  });
+
   eleventyConfig.addFilter("dateToRfc822", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toRFC2822();
   });
