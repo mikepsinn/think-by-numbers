@@ -165,8 +165,8 @@ eleventyComputed:
         quality: {{ chapter.aiScores.quality or 7 }},
         value: {{ chapter.aiScores.value or 7 }},
         timeliness: {{ chapter.aiScores.timeliness or 7 }},
-        length: 5000,
-        imageCount: 3
+        length: 20000,
+        imageCount: 10
       }
     }{% if not loop.last %},{% endif %}
     {%- endfor %}
@@ -263,5 +263,8 @@ eleventyComputed:
   sortSelect.addEventListener('change', (e) => {
     sortPosts(e.target.value);
   });
+
+  // Render mixed content (TBN + H2EWD) on initial load
+  sortPosts(sortSelect.value);
 })();
 </script>
