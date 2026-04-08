@@ -22,10 +22,10 @@ metadata:
     - Economics
   source: 'https://cost-of-change.warondisease.org'
 aiScores:
-  composite: 9
-  quality: 9
-  value: 9
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## How Much Does a Better World Cost? (Less Than You'd Think)

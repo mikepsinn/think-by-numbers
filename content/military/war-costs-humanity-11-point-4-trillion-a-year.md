@@ -24,10 +24,10 @@ metadata:
     thumbnail: >-
       /assets/thumbnails/military/war-costs-humanity-11-point-4-trillion-a-year.jpg
 aiScores:
-  composite: 9.5
-  quality: 9
-  value: 10
-  timeliness: 10
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## Your Itemized Receipt for Global Violence

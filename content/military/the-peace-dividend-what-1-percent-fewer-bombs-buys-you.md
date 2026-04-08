@@ -23,10 +23,10 @@ metadata:
     thumbnail: >-
       /assets/thumbnails/military/the-peace-dividend-what-1-percent-fewer-bombs-buys-you.jpg
 aiScores:
-  composite: 9
-  quality: 9
-  value: 9
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## What 1% Less Murder Money Buys You

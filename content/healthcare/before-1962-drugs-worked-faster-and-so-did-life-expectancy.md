@@ -24,10 +24,10 @@ metadata:
     thumbnail: >-
       /assets/thumbnails/healthcare/before-1962-drugs-worked-faster-and-so-did-life-expectancy.jpg
 aiScores:
-  composite: 9
-  quality: 9
-  value: 9
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## 10,000 Years of Dying at 30

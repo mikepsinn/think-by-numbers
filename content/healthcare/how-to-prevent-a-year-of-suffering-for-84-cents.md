@@ -22,10 +22,10 @@ metadata:
     - Health
   source: 'https://dfda-impact.warondisease.org'
 aiScores:
-  composite: 9.5
-  quality: 9
-  value: 10
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## 84 Cents: The Price of One Year of Not Suffering

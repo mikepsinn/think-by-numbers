@@ -23,10 +23,10 @@ metadata:
     thumbnail: >-
       /assets/thumbnails/economics/please-select-an-earth-everyone-gets-rich-or-somalia-but-everywhere.jpg
 aiScores:
-  composite: 9.5
-  quality: 9
-  value: 10
-  timeliness: 10
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## Two Paths

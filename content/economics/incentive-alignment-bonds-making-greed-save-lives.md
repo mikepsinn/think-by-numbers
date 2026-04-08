@@ -23,10 +23,10 @@ metadata:
     - Politics
   source: 'https://iab.warondisease.org'
 aiScores:
-  composite: 9
-  quality: 9
-  value: 9
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## Legal Bribery: A User's Guide

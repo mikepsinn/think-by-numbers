@@ -24,10 +24,10 @@ metadata:
     - Government Spending
   source: 'https://impact.warondisease.org'
 aiScores:
-  composite: 9.5
-  quality: 9
-  value: 10
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## A Modest Proposal Involving Slightly Fewer Missiles

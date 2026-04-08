@@ -24,10 +24,10 @@ metadata:
     thumbnail: >-
       /assets/thumbnails/science/you-are-a-meat-robot-why-death-is-a-technical-problem.jpg
 aiScores:
-  composite: 9
-  quality: 9
-  value: 9
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## Your Body Is a Machine (Not "Like" a Machine)

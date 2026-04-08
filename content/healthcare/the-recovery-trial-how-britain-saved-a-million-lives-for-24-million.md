@@ -23,10 +23,10 @@ metadata:
     thumbnail: >-
       /assets/thumbnails/healthcare/the-recovery-trial-how-britain-saved-a-million-lives-for-24-million.jpg
 aiScores:
-  composite: 9
-  quality: 9
-  value: 9
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## The Most Cost-Effective Medical Intervention in History

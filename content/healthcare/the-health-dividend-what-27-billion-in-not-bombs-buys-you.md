@@ -23,10 +23,10 @@ metadata:
     thumbnail: >-
       /assets/thumbnails/healthcare/the-health-dividend-what-27-billion-in-not-bombs-buys-you.jpg
 aiScores:
-  composite: 9
-  quality: 9
-  value: 9
-  timeliness: 9
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## From Explosions to Trial Slots

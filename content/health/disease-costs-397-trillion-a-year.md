@@ -21,10 +21,10 @@ metadata:
     infographic: /assets/infographics/health/disease-costs-397-trillion-a-year.jpg
     thumbnail: /assets/thumbnails/health/disease-costs-397-trillion-a-year.jpg
 aiScores:
-  composite: 9.5
-  quality: 9
-  value: 10
-  timeliness: 10
+  composite: 3
+  quality: 3
+  value: 3
+  timeliness: 3
 ---
 
 ## The Daily Body Count
