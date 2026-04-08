@@ -195,11 +195,10 @@ eleventyComputed:
     postGrid.innerHTML = posts.map(post => {
       const isExternal = post.source === 'h2ewd';
       const linkTarget = isExternal ? ' target="_blank" rel="noopener"' : '';
-      const badge = isExternal ? ' <span class="external-badge">H2EWD</span>' : '';
-      const readLabel = isExternal ? 'Read on H2EWD Manual' : 'Read more';
+      const readLabel = 'Read more';
 
       return `
-      <article class="post-card${isExternal ? ' post-card--external' : ''}">
+      <article class="post-card">
         ${post.ogImage ? `
         <div class="post-image">
           <a href="${post.url}"${linkTarget}>
@@ -209,7 +208,7 @@ eleventyComputed:
         ` : ''}
         <div class="post-header">
           <h3 class="post-title">
-            <a href="${post.url}"${linkTarget}>${post.title}${badge}</a>
+            <a href="${post.url}"${linkTarget}>${post.title}</a>
           </h3>
         </div>
         <div class="post-info">

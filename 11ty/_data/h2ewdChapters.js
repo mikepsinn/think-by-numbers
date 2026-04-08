@@ -4,6 +4,14 @@ const BASE_URL = "https://manual.warondisease.org";
 const SEARCH_INDEX_URL = `${BASE_URL}/assets/json/search-index.json`;
 const SITES_META_URL = `${BASE_URL}/assets/json/sites-metadata.json`;
 
+/**
+ * Strip confidence intervals like "(95% CI: 4.85 years-11.5 years)" from text.
+ */
+function stripCI(text) {
+  if (!text) return "";
+  return text.replace(/\s*\(95% CI:\s*[^)]+\)/g, "");
+}
+
 module.exports = async function () {
   try {
     const [searchIndex, sitesMeta] = await Promise.all([
@@ -35,12 +43,17 @@ module.exports = async function () {
       // Skip pages marked as non-syndicatable (utility/meta pages)
       if (item.syndicate === false) continue;
 
-      const fullUrl = BASE_URL + item.url;
+      // URLs in search-index are missing /knowledge/ prefix
+      // e.g. /problem/cost-of-war.html should be /knowledge/problem/cost-of-war.html
+      const urlPath = item.url.startsWith("/knowledge/")
+        ? item.url
+        : "/knowledge" + item.url;
+      const fullUrl = BASE_URL + urlPath;
       if (seenUrls.has(fullUrl)) continue;
       seenUrls.add(fullUrl);
 
       // Derive slug from URL path
-      const slug = item.url
+      const slug = urlPath
         .replace(/\.html$/, "")
         .split("/")
         .filter(Boolean)
@@ -51,24 +64,25 @@ module.exports = async function () {
       const quality = scores.quality || 5;
       const value = scores.value || 5;
       const timeliness = scores.timeliness || 5;
-      const standalone = scores.standalone || 5;
-      const importance = scores.importance || 5;
 
-      // Skip chapters that don't work well as standalone content (score < 5)
-      if (standalone < 5) continue;
+      // Resolve image: from search-index, sites-metadata lookup, or construct from path
+      let image = item.image || imageByUrl.get(fullUrl) || null;
+      // Images are relative paths — prefix with base URL
+      if (image && !image.startsWith("http")) {
+        image = BASE_URL + image;
+      }
 
       chapters.push({
-        title: item.title,
-        description: item.description || "",
+        title: stripCI(item.title),
+        description: stripCI(item.description),
         url: fullUrl,
         slug,
         tags: item.tags || [],
         sections: item.sections || [],
         lastmod: item.lastmod || null,
-        image: imageByUrl.get(fullUrl) || null,
+        image,
         source: "h2ewd",
-        standalone,
-        aiScores: { quality, value, timeliness, importance },
+        aiScores: { quality, value, timeliness },
       });
     }
 
