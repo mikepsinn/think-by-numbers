@@ -27,7 +27,7 @@ tags:
 
 There is a really boring invisible plague consuming the world secretly contributing to poverty, starvation, and death. It is a parasitic evil empire draining a massive amount of the wealth and prosperity you will create throughout your decades of work providing goods and services to others.
 
-This evil empire is the cybercrime economy. Warren Buffett has correctly said cyberattacks are a bigger threat to humanity than nuclear weapons.
+This evil empire is the cybercrime economy. Warren Buffett has correctly said cyberattacks are [a bigger threat to humanity than nuclear weapons](https://www.c4isrnet.com/home/2017/05/11/warren-buffet-cyber-no-1-problem-with-mankind/)—calling them "the number one problem with mankind."
 
 The size of this theft from the productive economy by the parasitic cybercrime economy is greater than the total government spending of every country. This theft is greater than the entire economies of every country in the world except for the US and China.
 
@@ -115,11 +115,11 @@ Once it has more resources than the "light side," it can be impossible to defeat
   - Crushing innovation: most innovation comes from small new startups
   - Monopolization: only mega-corporations can afford this cost of doing business
   
-- **The cybercrime economy is the 3rd largest economy in the world**, after the US and China, and it's growing exponentially. In 2021, the global cost of cybercrime reached $6 trillion, and it's estimated to reach $10.5 trillion by 2025.
+- **The cybercrime economy is the [3rd largest economy in the world](https://www.prnewswire.com/news-releases/cybercrime-to-cost-the-world-10-5-trillion-annually-by-2025--301172786.html)**, after the US and China, and it's growing exponentially. In 2021, the global cost of cybercrime reached $6 trillion, and it's [estimated to reach $10.5 trillion by 2025](https://www.prnewswire.com/news-releases/cybercrime-to-cost-the-world-10-5-trillion-annually-by-2025--301172786.html) (Cybersecurity Ventures).
 
 - **Criminals are rarely caught.** If you steal something, you have about an **80% chance of getting away with it**. If you murder someone, about a **50% chance**. If you engage in cybercrime like theft or extortion, you have roughly a **96% chance of getting away with it**.
 
-- **One sentence of 20 years** was recently handed down—the longest sentence on record for this type of crime.
+- **One sentence of [20 years](https://www.bleepingcomputer.com/news/security/e-root-admin-faces-20-years-for-selling-stolen-rdp-ssh-accounts/)** was recently handed down—among the longest on record for this type of crime.
 
 ## Why Governments are Bad at Fighting Cybercrime
 
