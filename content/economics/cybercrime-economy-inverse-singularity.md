@@ -4,7 +4,7 @@ date: 2026-02-27
 description: >-
   Cybercrime costs $10.5 trillion annually—larger than every economy except the US and China. 
   AI will scale this parasitic drain exponentially, creating an "inverse singularity" where evil 
-  profit margins (10,000%+) attract the smartest minds, while governments waste money on tanks instead of cybersecurity.
+  profit margins attract the smartest minds, while governments waste money on tanks instead of cybersecurity.
 metadata:
   categories:
     - Economics
@@ -52,6 +52,20 @@ You may say, "I've never lost any money from cybercrime. That just affects big c
 - Less economic growth
 
 Why does economic growth matter? Because it ends poverty and represents the creation of goods and services that solve human problems. So, if you don't like getting diseases and dying, it's going to take a lot of resources to cure the over 10,000 currently uncured diseases. These resources come from economic growth.
+
+## Key Facts and Statistics
+
+- **The cybercrime economy is the [3rd largest economy in the world](https://www.prnewswire.com/news-releases/cybercrime-to-cost-the-world-10-5-trillion-annually-by-2025--301172786.html)**, after the US and China, and it's growing exponentially. In 2021, the global cost of cybercrime reached $6 trillion, and it's [estimated to reach $10.5 trillion by 2025](https://www.prnewswire.com/news-releases/cybercrime-to-cost-the-world-10-5-trillion-annually-by-2025--301172786.html) (Cybersecurity Ventures).
+
+- **Small businesses bear the brunt.** Extortion or ransomware shows up in [88% of small-business breaches, versus 39% at large organizations](https://www.verizon.com/business/resources/reports/dbir/) (Verizon Data Breach Investigations Report)—and small firms are the least able to absorb the hit. Consequences:
+  - Crushing innovation: most innovation comes from small new startups
+  - Monopolization: only mega-corporations can afford this cost of doing business
+
+- **Criminals are rarely caught—and cybercriminals almost never are.** Even murder is solved only about half the time, and ordinary theft usually goes unpunished. Cybercrime—theft or extortion committed from across the world—goes unpunished in the overwhelming majority of cases.
+
+- **One sentence of [20 years](https://www.bleepingcomputer.com/news/security/e-root-admin-faces-20-years-for-selling-stolen-rdp-ssh-accounts/)** was recently handed down—among the longest on record for this type of crime.
+
+Simple math shows that soon the world could be overrun by millions of AI parasites feeding on the productive members of society. Given the system we have, the coldly rational move for the smartest, most resource-driven minds is to become a cybercriminal: there's a near-zero chance of being caught and almost unlimited upside compared to a normal job.
 
 ## The Inverse Singularity
 
@@ -105,21 +119,11 @@ And unlike physical crime, you can't escape to somewhere else, because cybercrim
 
 People are scared of sci-fi "Skynet" scenarios where AI magically comes alive and wants to kill everyone for no reason. But the more likely risk is evil human activities using AI to do this at massive scale.
 
-Cybercrime already costs around $10 trillion per year. That's bigger than almost every country's entire economy. If it keeps increasing exponentially, soon it becomes the biggest "economy" in the world: a dark empire.
+Right now, cybercrime is mostly just slowing down economic growth. But even before AI, this parasite has been growing rapidly. Cybercrime already costs around $10 trillion per year—bigger than almost every country's entire economy. If nothing changes and current trends continue, the cost of cybercrime will exceed the entire global economy within several years. That means ongoing negative economic growth and everyone getting poorer.
 
-Once it has more resources than the "light side," it can be impossible to defeat, because it can fund more advanced AI agents that drain the productive economy, until there's nothing left to produce food, medication, or anything else.
+Today, the Light Side is still more powerful than the Dark Side. But the Dark Side is rapidly draining the wealth of the Light Side. Once it has more resources than the Light Side, it becomes impossible to defeat, because it can fund more advanced AI agents that drain the productive economy—until there's nothing left to produce food, medication, or anything else.
 
-## Key Facts and Statistics
-
-- **60% of small companies close within 6 months of being hacked.** Consequences:
-  - Crushing innovation: most innovation comes from small new startups
-  - Monopolization: only mega-corporations can afford this cost of doing business
-  
-- **The cybercrime economy is the [3rd largest economy in the world](https://www.prnewswire.com/news-releases/cybercrime-to-cost-the-world-10-5-trillion-annually-by-2025--301172786.html)**, after the US and China, and it's growing exponentially. In 2021, the global cost of cybercrime reached $6 trillion, and it's [estimated to reach $10.5 trillion by 2025](https://www.prnewswire.com/news-releases/cybercrime-to-cost-the-world-10-5-trillion-annually-by-2025--301172786.html) (Cybersecurity Ventures).
-
-- **Criminals are rarely caught.** If you steal something, you have about an **80% chance of getting away with it**. If you murder someone, about a **50% chance**. If you engage in cybercrime like theft or extortion, you have roughly a **96% chance of getting away with it**.
-
-- **One sentence of [20 years](https://www.bleepingcomputer.com/news/security/e-root-admin-faces-20-years-for-selling-stolen-rdp-ssh-accounts/)** was recently handed down—among the longest on record for this type of crime.
+We've seen this dynamic before in Somalia, where al-Shabaab controls large swaths of territory and rakes in millions of dollars from extortion, kidnapping, and drug trafficking.
 
 ## Why Governments are Bad at Fighting Cybercrime
 
@@ -196,14 +200,6 @@ For example: in the case of Vladimir Putin's invasion of Ukraine, a global swarm
 
 This depends on there being more good actors than bad actors, and on people being able to access truth.
 
-## The Light Side vs. the Dark Side
-
-Right now, cybercrime is mostly just slowing down economic growth. But even before AI, this parasite has been growing rapidly. If nothing changes and current trends continue, the cost of cybercrime will exceed the entire global economy within several years. That means ongoing negative economic growth and everyone getting poorer.
-
-Today, the Light Side is still more powerful than the Dark Side. But the Dark Side is rapidly draining the wealth of the Light Side. In several years, once the Dark Side has more resources than the Light Side, it will be impossible to defeat, because it will be too strong.
-
-We've seen this dynamic before in Somalia, where al-Shabaab controls large swaths of territory and rakes in millions of dollars from extortion, kidnapping, and drug trafficking.
-
 ## An Appeal and a Plan
 
 I'd like to make an appeal to the cybercriminals of the world: come to the light side now, and avoid taking the world down this trajectory of an inverse singularity that completely undoes the massive human progress of the last two centuries.
@@ -244,9 +240,17 @@ Even if only a small number of people can be persuaded at first, never doubt the
 
 ## Sources
 
-- https://digitalinvestigation.com/services/cyber-harassment
-- https://www.bleepingcomputer.com/news/security/e-root-admin-faces-20-years-for-selling-stolen-rdp-ssh-accounts/
-- https://www.informationweek.com/cyber-resilience/lockbit-redux-ransomware-gang-demands-80m-leaks-cdw-data
-- https://gfintegrity.org/report/extortion-in-the-northern-triangle-of-central-america-following-the-money/
-- https://finance.yahoo.com/news/scammers-exploit-bitcoin-atms-california-100014780.html
-- https://www.channelnewsasia.com/cna-insider/malware-scams-hackers-control-phone-android-apple-protect-3858756
+**Key figures cited above:**
+
+- [Cybercrime to Cost the World $10.5 Trillion Annually by 2025 — Cybersecurity Ventures](https://www.prnewswire.com/news-releases/cybercrime-to-cost-the-world-10-5-trillion-annually-by-2025--301172786.html)
+- [Warren Buffett: Cyber "No. 1 problem with mankind" — C4ISRNET](https://www.c4isrnet.com/home/2017/05/11/warren-buffet-cyber-no-1-problem-with-mankind/)
+- [Small businesses bear the brunt of ransomware — Verizon Data Breach Investigations Report](https://www.verizon.com/business/resources/reports/dbir/)
+- [E-Root admin faces 20 years for selling stolen RDP/SSH accounts — BleepingComputer](https://www.bleepingcomputer.com/news/security/e-root-admin-faces-20-years-for-selling-stolen-rdp-ssh-accounts/)
+
+**Further reading:**
+
+- [Cyber-harassment services — Digital Investigation](https://digitalinvestigation.com/services/cyber-harassment)
+- [LockBit ransomware gang demands $80M, leaks CDW data — InformationWeek](https://www.informationweek.com/cyber-resilience/lockbit-redux-ransomware-gang-demands-80m-leaks-cdw-data)
+- [Extortion in the Northern Triangle of Central America — Global Financial Integrity](https://gfintegrity.org/report/extortion-in-the-northern-triangle-of-central-america-following-the-money/)
+- [Scammers exploit Bitcoin ATMs — Yahoo Finance](https://finance.yahoo.com/news/scammers-exploit-bitcoin-atms-california-100014780.html)
+- [Malware scams let hackers control your phone — CNA Insider](https://www.channelnewsasia.com/cna-insider/malware-scams-hackers-control-phone-android-apple-protect-3858756)
