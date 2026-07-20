@@ -69,6 +69,14 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, limit);
   });
 
+  // Top N items (posts or h2ewd chapters) by recomputed composite score.
+  // Used for the homepage "From the Book" teaser so the strongest chapters show.
+  eleventyConfig.addFilter("topByComposite", (items, n) => {
+    return [...(items || [])]
+      .sort((a, b) => computeCompositeScore(b.aiScores) - computeCompositeScore(a.aiScores))
+      .slice(0, n || 6);
+  });
+
   // Decode HTML entities
   eleventyConfig.addFilter("decodeHtml", (str) => {
     if (!str) return str;
