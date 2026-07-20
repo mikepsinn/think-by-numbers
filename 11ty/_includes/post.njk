@@ -41,6 +41,25 @@ layout: base.njk
         {{ content | safe }}
       </div>
 
+      {# Book CTA — reuses .h2ewd-notice / .h2ewd-read-button from base.njk #}
+      <style>
+        .book-cta {
+          margin: 40px 0 0;
+          padding: 1.5rem 1.5rem 1.75rem;
+        }
+        .book-cta p {
+          margin: 0 0 0.75em;
+        }
+        .book-cta .h2ewd-read-button {
+          margin-top: 0.75rem;
+        }
+      </style>
+      <div class="book-cta h2ewd-notice" data-pagefind-ignore>
+        <p>Enjoyed the cheerful statistics? There is a whole book of them: <em>How to End War and Disease</em>, a plan to redirect 1% of military spending, $27 billion a year, from ending lives to extending them.</p>
+        <p>That buys pragmatic trials that cut drug development costs 82x and save an estimated 416 million lives. So far, approximately zero generals have returned our calls.</p>
+        <a href="https://manual.warondisease.org" target="_blank" rel="noopener" class="h2ewd-read-button">Read How to End War and Disease (Free)</a>
+      </div>
+
       {# Social Sharing Buttons #}
       <div class="social-sharing">
         <h3>Share this post</h3>

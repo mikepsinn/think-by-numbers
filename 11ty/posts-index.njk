@@ -1,0 +1,46 @@
+---
+permalink: /assets/json/posts-index.json
+eleventyExcludeFromCollections: true
+layout: false
+---
+{%- set comma = joiner(",") -%}
+[
+{%- for post in collections.posts %}
+{%- if post.data.title and post.inputPath.endsWith('.md') %}
+{{ comma() }}{
+  "url": {{ post.url | dump | safe }},
+  "title": {{ post.data.title | dump | safe }},
+  "description": {{ (post.data.description or post.data.metadata.summary or '') | dump | safe }},
+  "ogImage": {{ (post.data.metadata.media.ogImage or post.data.metadata.media.infographic or post.data.metadata.media.featuredImage or '') | dump | safe }},
+  "date": {{ post.date | dateToISO | dump | safe }},
+  "timestamp": {{ post.date.getTime() }},
+  "source": "tbn",
+  "aiScores": {
+    "quality": {{ post.data.aiScores.quality or 5 }},
+    "value": {{ post.data.aiScores.value or 5 }},
+    "timeliness": {{ post.data.aiScores.timeliness or 5 }},
+    "length": {{ post.data.aiScores.length or 0 }},
+    "imageCount": {{ post.data.aiScores.imageCount or 0 }}
+  }
+}
+{%- endif %}
+{%- endfor %}
+{%- for chapter in h2ewdChapters %}
+{{ comma() }}{
+  "url": {{ chapter.url | dump | safe }},
+  "title": {{ chapter.title | dump | safe }},
+  "description": {{ (chapter.description or '') | dump | safe }},
+  "ogImage": {{ (chapter.image or '') | dump | safe }},
+  "date": {{ (chapter.lastmod or '') | dump | safe }},
+  "timestamp": {{ chapter.lastmod | dateTimestamp }},
+  "source": "h2ewd",
+  "aiScores": {
+    "quality": {{ chapter.aiScores.quality or 5 }},
+    "value": {{ chapter.aiScores.value or 5 }},
+    "timeliness": {{ chapter.aiScores.timeliness or 5 }},
+    "length": {{ chapter.aiScores.length or 0 }},
+    "imageCount": {{ chapter.aiScores.imageCount or 0 }}
+  }
+}
+{%- endfor %}
+]

@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Subscribe
+description: "There is no newsletter. Zero emails sent, zero addresses leaked. Full-text RSS from 1999, a podcast feed, and 3 social links that actually work."
 permalink: /subscribe/
 ---
 
@@ -8,53 +9,29 @@ permalink: /subscribe/
   <div class="main-content">
     <h2>Subscribe to Think by Numbers</h2>
 
-    <div style="background: white; border: 4px solid black; box-shadow: 8px 8px 0 black; padding: 40px; margin-top: 20px; text-align: center;">
-      <p style="font-size: 1.2em; margin-bottom: 30px;">Join thousands of subscribers and get the latest articles delivered to your inbox.</p>
-
-      <form action="#" method="post" style="max-width: 500px; margin: 0 auto;">
-        <input
-          type="email"
-          name="email"
-          placeholder="Type your email..."
-          required
-          style="width: 100%; padding: 15px; font-size: 1.1em; border: 4px solid black; margin-bottom: 20px; font-family: 'Arial Black', sans-serif;">
-        <button
-          type="submit"
-          style="width: 100%; padding: 15px 30px; background: var(--color-primary); color: black; border: 4px solid black; box-shadow: 6px 6px 0 black; font-size: 1.1em; font-weight: 900; text-transform: uppercase; cursor: pointer; font-family: 'Arial Black', sans-serif;">
-          Subscribe
-        </button>
-      </form>
+    <div style="background: white; border: 4px solid black; box-shadow: 8px 8px 0 black; padding: 40px; margin-top: 20px;">
+      <p style="font-size: 1.2em; margin: 0;">There is no email newsletter. That makes ours the only mailing list on the internet that can never be leaked, sold, or "shared with trusted partners." Here is everything that actually delivers:</p>
     </div>
 
     <div style="margin-top: 40px;">
-      <h3>What You'll Get</h3>
+      <h3>RSS Feed</h3>
+      <p>
+        <a href="{{ site.feedPath }}">{{ site.url }}{{ site.feedPath }}</a><br>
+        Every new article, full text, in any feed reader. RSS is 1999 technology with no algorithm, no tracking, and no engagement metrics, which is why it still works.
+      </p>
+
+      <h3>Podcast</h3>
+      <p>
+        <a href="{{ site.podcastFeedPath }}">{{ site.url }}{{ site.podcastFeedPath }}</a><br>
+        The same analysis in audio form, so you can absorb corporate-welfare statistics while doing the dishes.
+      </p>
+
+      <h3>Social</h3>
       <ul style="line-height: 1.8;">
-        <li>Data-driven analysis on economics, policy, and social issues</li>
-        <li>Statistical insights that challenge conventional thinking</li>
-        <li>Updates on projects like the Decentralized Institutes of Health</li>
-        <li>No spam, just quality content</li>
+        <li><a href="{{ site.social.twitter }}" target="_blank" rel="noopener">Twitter</a> — statistical arguments compressed to 280 characters, posted where nuance goes to die.</li>
+        <li><a href="{{ site.social.youtube }}" target="_blank" rel="noopener">YouTube</a> — the same charts, but they move and talk.</li>
+        <li><a href="https://github.com/mikepsinn/think-by-numbers/issues" target="_blank" rel="noopener">GitHub</a> — this whole site is open source, so when we get a number wrong you can file a bug report: a correction mechanism most news outlets have declined to adopt.</li>
       </ul>
     </div>
   </div>
-
-  <aside class="sidebar">
-    <div class="widget">
-      <h4>Follow Us</h4>
-      <ul class="social-links">
-        <li><a href="{{ site.social.facebook }}" target="_blank">Facebook</a></li>
-        <li><a href="{{ site.social.twitter }}" target="_blank">Twitter</a></li>
-        <li><a href="{{ site.social.linkedin }}" target="_blank">LinkedIn</a></li>
-        <li><a href="{{ site.social.youtube }}" target="_blank">YouTube</a></li>
-      </ul>
-    </div>
-
-    <div class="widget">
-      <h4>RSS Feeds</h4>
-      <ul class="social-links">
-        <li><a href="{{ site.feedPath }}">Blog RSS Feed</a></li>
-        <li><a href="{{ site.podcastFeedPath }}">Podcast Feed</a></li>
-      </ul>
-    </div>
-  </aside>
 </div>
-

@@ -15,7 +15,8 @@ layout: false
     <name>{{ site.author.name }}</name>
     <email>{{ site.author.email }}</email>
   </author>
-  {%- for post in collections.posts | reverse | limit(20) %}
+  {# posts collection is sorted by AI score, not date — re-sort by date descending so the feed carries the 20 newest posts #}
+  {%- for post in collections.posts | sort(true, false, 'date') | limit(20) %}
   <entry>
     <title>{{ post.data.title | escape }}</title>
     <link href="{{ site.url }}{{ post.url }}"/>

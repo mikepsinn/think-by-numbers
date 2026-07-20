@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-description: "Evidence-based analysis of government spending, healthcare policy, and rational decision-making. A better world through math."
+description: "Minimizing suffering with the power of arithmetic"
 pagination:
   data: collections.posts
   size: 10
@@ -12,10 +12,12 @@ eleventyComputed:
 
 <div class="container" data-pagefind-ignore>
   <div class="main-content">
-    {% include "declaration-of-optimization.njk" %}
+    <p class="site-identity">Think by Numbers runs cost-benefit analyses for a species that spends $604 on weapons for every $1 on clinical trials. We suspect a math error.</p>
+
+    {% include "declaration-hero.njk" %}
 
     <div class="post-header-controls">
-      <h2>Recent Posts</h2>
+      <h2>Posts, Ranked by Extinction-Prevention Potential</h2>
       <div class="sort-controls">
         <label for="post-sort">Sort by:</label>
         <select id="post-sort">
@@ -71,202 +73,181 @@ eleventyComputed:
     </nav>
     {%- endif %}
   </div>
-
-  <aside class="sidebar">
-    <div class="widget">
-      <h4>Search</h4>
-      <form action="/search/" method="get">
-        <input type="text" name="q" placeholder="Search posts..." required>
-        <button type="submit">🔍 Search</button>
-      </form>
-    </div>
-
-    <div class="widget">
-      <h4>Follow Us</h4>
-      <ul class="social-links">
-        <li><a href="{{ site.social.facebook }}" target="_blank">Facebook</a></li>
-        <li><a href="{{ site.social.twitter }}" target="_blank">Twitter</a></li>
-        <li><a href="{{ site.social.linkedin }}" target="_blank">LinkedIn</a></li>
-      </ul>
-    </div>
-
-    <div class="widget">
-      <h4>Subscribe</h4>
-      <p>Get new posts in your inbox</p>
-      <form action="#">
-        <input type="email" placeholder="Your email">
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  </aside>
 </div>
 
 <script>
 (function() {
-  // Calculate composite score from individual scores
-  function calculateComposite(quality, value, timeliness, length, imageCount) {
-    const lengthScore = Math.min(length / 5000, 1) * 10;
-    const imageScore = Math.min(imageCount / 5, 1) * 10;
+  var INDEX_URL = '/assets/json/posts-index.json';
+  var PAGE_SIZE = 20;
 
+  var sortSelect = document.getElementById('post-sort');
+  var postGrid = document.getElementById('post-grid');
+  var paginationNav = document.querySelector('.pagination');
+
+  if (!sortSelect || !postGrid) return;
+
+  // Same weights the build-time scorer uses; length/imageCount default to 0
+  // when unknown so nothing gets a free composite boost.
+  function calculateComposite(s) {
+    var lengthScore = Math.min((s.length || 0) / 5000, 1) * 10;
+    var imageScore = Math.min((s.imageCount || 0) / 5, 1) * 10;
     return (
-      value * 0.35 +
-      quality * 0.25 +
-      timeliness * 0.25 +
+      s.value * 0.35 +
+      s.quality * 0.25 +
+      s.timeliness * 0.25 +
       lengthScore * 0.10 +
       imageScore * 0.05
     );
   }
 
-  // Store ALL posts for client-side sorting (not just current page)
-  const postsData = [
-    {%- for post in collections.posts %}
-    {%- if post.data.title and post.inputPath.endsWith('.md') %}
-    {
-      url: "{{ post.url }}",
-      title: {{ post.data.title | dump | safe }},
-      description: {{ (post.data.description or post.data.metadata.summary or '') | dump | safe }},
-      ogImage: "{{ post.data.metadata.media.ogImage or post.data.metadata.media.infographic or post.data.metadata.media.featuredImage or '' }}",
-      date: "{{ post.date | dateToISO }}",
-      timestamp: {{ post.date.getTime() }},
-      aiScores: {
-        quality: {{ post.data.aiScores.quality or 0 }},
-        value: {{ post.data.aiScores.value or 0 }},
-        timeliness: {{ post.data.aiScores.timeliness or 0 }},
-        length: {{ post.data.aiScores.length or 0 }},
-        imageCount: {{ post.data.aiScores.imageCount or 0 }}
-      }
-    }{% if not loop.last %},{% endif %}
-    {%- endif %}
-    {%- endfor %}
-  ].map(post => ({
-    ...post,
-    aiScores: {
-      ...post.aiScores,
-      composite: calculateComposite(
-        post.aiScores.quality,
-        post.aiScores.value,
-        post.aiScores.timeliness,
-        post.aiScores.length,
-        post.aiScores.imageCount
-      )
-    }
-  }));
-
-  // H2EWD (How to End War and Disease) chapters from manual.warondisease.org
-  const h2ewdData = [
-    {%- for chapter in h2ewdChapters %}
-    {
-      url: {{ chapter.url | dump | safe }},
-      title: {{ chapter.title | dump | safe }},
-      description: {{ chapter.description | dump | safe }},
-      ogImage: "{{ chapter.image or '' }}",
-      date: "{{ chapter.lastmod or '' }}",
-      timestamp: {{ chapter.lastmod | dateTimestamp }},
-      source: "h2ewd",
-      aiScores: {
-        quality: {{ chapter.aiScores.quality or 7 }},
-        value: {{ chapter.aiScores.value or 7 }},
-        timeliness: {{ chapter.aiScores.timeliness or 7 }},
-        length: 20000,
-        imageCount: 10
-      }
-    }{% if not loop.last %},{% endif %}
-    {%- endfor %}
-  ].map(post => ({
-    ...post,
-    aiScores: {
-      ...post.aiScores,
-      composite: calculateComposite(
-        post.aiScores.quality,
-        post.aiScores.value,
-        post.aiScores.timeliness,
-        post.aiScores.length,
-        post.aiScores.imageCount
-      )
-    }
-  }));
-
-  // Merge TBN posts with H2EWD chapters
-  const allPosts = [...postsData, ...h2ewdData];
-
-  const sortSelect = document.getElementById('post-sort');
-  const postGrid = document.getElementById('post-grid');
-  const pagination = document.querySelector('.pagination');
-
-  function renderPosts(posts) {
-    postGrid.innerHTML = posts.map(post => {
-      const isExternal = post.source === 'h2ewd';
-      const linkTarget = isExternal ? ' target="_blank" rel="noopener"' : '';
-      const readLabel = 'Read more';
-
-      return `
-      <article class="post-card">
-        ${post.ogImage ? `
-        <div class="post-image">
-          <a href="${post.url}"${linkTarget}>
-            <img src="${post.ogImage}" alt="${post.title}">
-          </a>
-        </div>
-        ` : ''}
-        <div class="post-header">
-          <h3 class="post-title">
-            <a href="${post.url}"${linkTarget}>${post.title}</a>
-          </h3>
-        </div>
-        <div class="post-info">
-          <div class="entry-summary">
-            ${post.description ? `<p>${post.description}</p>` : ''}
-          </div>
-        </div>
-        <div class="post-footer">
-          <small>
-            <a href="${post.url}"${linkTarget}>
-              <span class="read-more">${readLabel}</span>
-            </a>
-          </small>
-          ${post.aiScores.composite ? `<small class="post-score">${post.aiScores.composite.toFixed(1)}/10</small>` : ''}
-        </div>
-      </article>
-    `;
-    }).join('');
+  // Full HTML escaper — the server-rendered path (post-card.njk) auto-escapes
+  // these fields via Nunjucks, so the client render must match.
+  function esc(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
   }
 
-  function sortPosts(sortBy) {
-    let sorted = [...allPosts];
+  // Lazily fetched + cached merged index (TBN posts + manual chapters).
+  var allPosts = null;
+  var loadPromise = null;
 
-    switch(sortBy) {
+  function loadIndex() {
+    if (allPosts) return Promise.resolve(allPosts);
+    if (!loadPromise) {
+      loadPromise = fetch(INDEX_URL)
+        .then(function(res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function(items) {
+          allPosts = items.map(function(post) {
+            post.aiScores.composite = calculateComposite(post.aiScores);
+            return post;
+          });
+          return allPosts;
+        })
+        .catch(function(err) {
+          loadPromise = null; // allow retry on the next sort attempt
+          throw err;
+        });
+    }
+    return loadPromise;
+  }
+
+  function sortPosts(posts, sortBy) {
+    var sorted = posts.slice();
+    switch (sortBy) {
       case 'composite':
-        sorted.sort((a, b) => b.aiScores.composite - a.aiScores.composite);
+        sorted.sort(function(a, b) { return b.aiScores.composite - a.aiScores.composite; });
         break;
       case 'value':
-        sorted.sort((a, b) => b.aiScores.value - a.aiScores.value);
+        sorted.sort(function(a, b) { return b.aiScores.value - a.aiScores.value; });
         break;
       case 'quality':
-        sorted.sort((a, b) => b.aiScores.quality - a.aiScores.quality);
+        sorted.sort(function(a, b) { return b.aiScores.quality - a.aiScores.quality; });
         break;
       case 'timeliness':
-        sorted.sort((a, b) => b.aiScores.timeliness - a.aiScores.timeliness);
+        sorted.sort(function(a, b) { return b.aiScores.timeliness - a.aiScores.timeliness; });
         break;
       case 'date-new':
-        sorted.sort((a, b) => b.timestamp - a.timestamp);
+        sorted.sort(function(a, b) { return b.timestamp - a.timestamp; });
         break;
       case 'date-old':
-        sorted.sort((a, b) => a.timestamp - b.timestamp);
+        sorted.sort(function(a, b) { return a.timestamp - b.timestamp; });
         break;
     }
+    return sorted;
+  }
 
-    // Show all posts when sorting, hide pagination
-    renderPosts(sorted);
-    if (pagination) {
-      pagination.style.display = 'none';
+  function cardHtml(post) {
+    var isExternal = post.source === 'h2ewd';
+    var linkTarget = isExternal ? ' target="_blank" rel="noopener"' : '';
+
+    return '' +
+      '<article class="post-card">' +
+        (post.ogImage ?
+          '<div class="post-image">' +
+            '<a href="' + esc(post.url) + '"' + linkTarget + '>' +
+              '<img src="' + esc(post.ogImage) + '" alt="' + esc(post.title) + '" loading="lazy" width="400" height="300">' +
+            '</a>' +
+          '</div>'
+        : '') +
+        '<div class="post-header">' +
+          '<h3 class="post-title">' +
+            '<a href="' + esc(post.url) + '"' + linkTarget + '>' + esc(post.title) + '</a>' +
+          '</h3>' +
+        '</div>' +
+        '<div class="post-info">' +
+          '<div class="entry-summary">' +
+            (post.description ? '<p>' + esc(post.description) + '</p>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="post-footer">' +
+          '<small>' +
+            '<a href="' + esc(post.url) + '"' + linkTarget + '>' +
+              '<span class="read-more">Read more</span>' +
+            '</a>' +
+          '</small>' +
+          (post.aiScores.composite ? '<small class="post-score">' + post.aiScores.composite.toFixed(1) + '/10</small>' : '') +
+        '</div>' +
+      '</article>';
+  }
+
+  // "Show more" state for sorted views
+  var sortedPosts = [];
+  var shownCount = 0;
+  var showMoreBtn = null;
+
+  function updateShowMore() {
+    if (!showMoreBtn) {
+      showMoreBtn = document.createElement('button');
+      showMoreBtn.type = 'button';
+      showMoreBtn.className = 'show-more-button';
+      showMoreBtn.addEventListener('click', appendMore);
+      postGrid.insertAdjacentElement('afterend', showMoreBtn);
+    }
+    var remaining = sortedPosts.length - shownCount;
+    if (remaining > 0) {
+      showMoreBtn.textContent = 'Show ' + Math.min(remaining, PAGE_SIZE) + ' more (' + remaining + ' left)';
+      showMoreBtn.style.display = '';
+    } else {
+      showMoreBtn.style.display = 'none';
     }
   }
 
-  sortSelect.addEventListener('change', (e) => {
-    sortPosts(e.target.value);
-  });
+  function appendMore() {
+    var next = sortedPosts.slice(shownCount, shownCount + PAGE_SIZE);
+    postGrid.insertAdjacentHTML('beforeend', next.map(cardHtml).join(''));
+    shownCount += next.length;
+    updateShowMore();
+  }
 
-  // Render mixed content (TBN + H2EWD) on initial load
-  sortPosts(sortSelect.value);
+  function renderSorted(posts) {
+    sortedPosts = posts;
+    shownCount = Math.min(PAGE_SIZE, posts.length);
+    postGrid.innerHTML = posts.slice(0, shownCount).map(cardHtml).join('');
+    // Pagination only makes sense for the server-rendered order;
+    // hide it once a client-side sort is applied.
+    if (paginationNav) {
+      paginationNav.style.display = 'none';
+    }
+    updateShowMore();
+  }
+
+  // The server-rendered paginated grid IS the initial state.
+  // Sorting (and the index fetch) happens only on a real user interaction.
+  sortSelect.addEventListener('change', function(e) {
+    var sortBy = e.target.value;
+    loadIndex()
+      .then(function(posts) {
+        renderSorted(sortPosts(posts, sortBy));
+      })
+      .catch(function(err) {
+        console.warn('Posts index unavailable, sorting disabled:', err);
+      });
+  });
 })();
 </script>

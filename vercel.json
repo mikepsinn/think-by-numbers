@@ -1,149 +1,149 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
+  "trailingSlash": true,
   "redirects": [
     {
-      "source": "/home",
+      "source": "/home/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/blog",
+      "source": "/blog/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/statistical-cost-benefit-analysis-vs-irrational-emotion",
-      "destination": "/empiricism-2/why-think-by-numbers",
+      "source": "/statistical-cost-benefit-analysis-vs-irrational-emotion/",
+      "destination": "/empiricism-2/why-think-by-numbers/",
       "permanent": true
     },
     {
-      "source": "/economics/household-debt-to-gdp-ratio-100",
-      "destination": "/debt/debt-to-gdp-forecast-chart",
+      "source": "/economics/household-debt-to-gdp-ratio-100/",
+      "destination": "/debt/debt-to-gdp-forecast-chart/",
       "permanent": true
     },
     {
-      "source": "/feed/podcast",
+      "source": "/feed/podcast/",
       "destination": "/feed/podcast/index.xml",
       "permanent": true
     },
     {
-      "source": "/tag/armey-curve",
-      "destination": "/economics/ideal-level-of-government-spending",
+      "source": "/tag/armey-curve/",
+      "destination": "/economics/ideal-level-of-government-spending/",
       "permanent": true
     },
     {
-      "source": "/tag/felicific-calculus",
-      "destination": "/empiricism-2/felicific-calculus",
+      "source": "/tag/felicific-calculus/",
+      "destination": "/empiricism-2/felicific-calculus/",
       "permanent": true
     },
     {
-      "source": "/tag/rahn-curve",
-      "destination": "/economics/ideal-level-of-government-spending",
+      "source": "/tag/rahn-curve/",
+      "destination": "/economics/ideal-level-of-government-spending/",
       "permanent": true
     },
     {
-      "source": "/tag/wishful-thinking-bias",
-      "destination": "/psychology/subconscious-processes-27500-times-more-data-than-the-conscious-mind",
+      "source": "/tag/wishful-thinking-bias/",
+      "destination": "/psychology/subconscious-processes-27500-times-more-data-than-the-conscious-mind/",
       "permanent": true
     },
     {
-      "source": "/tag/robert-pape",
-      "destination": "/terrorism/suicide-terrorism-statistics",
+      "source": "/tag/robert-pape/",
+      "destination": "/terrorism/suicide-terrorism-statistics/",
       "permanent": true
     },
     {
-      "source": "/tag/economics-2",
-      "destination": "/category/economics",
+      "source": "/tag/economics-2/",
+      "destination": "/category/economics/",
       "permanent": true
     },
     {
-      "source": "/tag/featured",
+      "source": "/tag/featured/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/tag/slider",
+      "source": "/tag/slider/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/tag/ccrowdsourcing",
-      "destination": "/solutions/wisdom-of-crowds",
+      "source": "/tag/ccrowdsourcing/",
+      "destination": "/solutions/wisdom-of-crowds/",
       "permanent": true
     },
     {
-      "source": "/tag/steven-pinker",
-      "destination": "/economics/long-run-trends-in-human-well-being",
+      "source": "/tag/steven-pinker/",
+      "destination": "/economics/long-run-trends-in-human-well-being/",
       "permanent": true
     },
     {
-      "source": "/tag/government",
-      "destination": "/category/government-spending",
+      "source": "/tag/government/",
+      "destination": "/category/government-spending/",
       "permanent": true
     },
     {
-      "source": "/tag/corporate-welfare-2",
-      "destination": "/tag/corporate-welfare",
+      "source": "/tag/corporate-welfare-2/",
+      "destination": "/tag/corporate-welfare/",
       "permanent": true
     },
     {
-      "source": "/tag/investing",
-      "destination": "/economics/how-to-identify-the-bottom-of-a-stock-market-correction",
+      "source": "/tag/investing/",
+      "destination": "/economics/how-to-identify-the-bottom-of-a-stock-market-correction/",
       "permanent": true
     },
     {
-      "source": "/tag/economy",
-      "destination": "/tag/economics",
+      "source": "/tag/economy/",
+      "destination": "/tag/economics/",
       "permanent": true
     },
     {
-      "source": "/tag/fda-cost-benefit-analysis",
-      "destination": "/uncategorized/fda-fails-to-apply-basic-rational-cost-benefit-analysis-to-regulatory-decisions",
+      "source": "/tag/fda-cost-benefit-analysis/",
+      "destination": "/uncategorized/fda-fails-to-apply-basic-rational-cost-benefit-analysis-to-regulatory-decisions/",
       "permanent": true
     },
     {
-      "source": "/tag/lobbying",
-      "destination": "/democracy/voter-support-for-a-bill-has-near-zero-influence-on-whether-it-will-become-law",
+      "source": "/tag/lobbying/",
+      "destination": "/democracy/voter-support-for-a-bill-has-near-zero-influence-on-whether-it-will-become-law/",
       "permanent": true
     },
     {
-      "source": "/tag/irs",
-      "destination": "/taxes/irs-automation-could-save-americans-191-billion",
+      "source": "/tag/irs/",
+      "destination": "/taxes/irs-automation-could-save-americans-191-billion/",
       "permanent": true
     },
     {
-      "source": "/tag/military-spending",
-      "destination": "/government-spending/how-much-does-the-us-spend-on-the-military-compared-to-the-rest-of-the-world",
+      "source": "/tag/military-spending/",
+      "destination": "/government-spending/how-much-does-the-us-spend-on-the-military-compared-to-the-rest-of-the-world/",
       "permanent": true
     },
     {
-      "source": "/tag/libertarianism",
-      "destination": "/economics/ideal-level-of-government-spending",
+      "source": "/tag/libertarianism/",
+      "destination": "/economics/ideal-level-of-government-spending/",
       "permanent": true
     },
     {
-      "source": "/tag/organization-for-economic-cooperation-and-development",
-      "destination": "/economics/ideal-level-of-government-spending",
+      "source": "/tag/organization-for-economic-cooperation-and-development/",
+      "destination": "/economics/ideal-level-of-government-spending/",
       "permanent": true
     },
     {
-      "source": "/category/economics/gdp",
-      "destination": "/category/gdp",
+      "source": "/category/economics/gdp/",
+      "destination": "/category/gdp/",
       "permanent": true
     },
     {
-      "source": "/category/government-spending/corporate-welfare",
-      "destination": "/category/corporate-welfare",
+      "source": "/category/government-spending/corporate-welfare/",
+      "destination": "/category/corporate-welfare/",
       "permanent": true
     },
     {
-      "source": "/privacy-policy-2",
+      "source": "/privacy-policy-2/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/2012/01",
+      "source": "/2012/01/",
       "destination": "/",
       "permanent": true
     }
@@ -164,6 +164,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/json/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }

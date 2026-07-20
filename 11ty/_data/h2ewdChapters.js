@@ -59,11 +59,16 @@ module.exports = async function () {
         .filter(Boolean)
         .join("-");
 
-      // Use scores from frontmatter if available, default to 5
+      // Use scores from frontmatter if available.
+      // Neutral 5 defaults for quality/value/timeliness (same as unscored TBN
+      // posts); length/imageCount default to 0 so chapters never get a
+      // hardcoded composite boost over locally scored posts.
       const scores = item.scores || {};
       const quality = scores.quality || 5;
       const value = scores.value || 5;
       const timeliness = scores.timeliness || 5;
+      const length = scores.length || 0;
+      const imageCount = scores.imageCount || 0;
 
       // Resolve image: from search-index, sites-metadata lookup, or construct from path
       let image = item.image || imageByUrl.get(fullUrl) || null;
@@ -82,7 +87,7 @@ module.exports = async function () {
         lastmod: item.lastmod || null,
         image,
         source: "h2ewd",
-        aiScores: { quality, value, timeliness },
+        aiScores: { quality, value, timeliness, length, imageCount },
       });
     }
 

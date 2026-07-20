@@ -8,7 +8,7 @@
   {%- if imageUrl %}
   <div class="post-image">
     <a href="{{ post.url }}">
-      <img src="{{ imageUrl }}" alt="{{ post.data.title | safe }}">
+      <img src="{{ imageUrl }}" alt="{{ post.data.title | safe }}" loading="lazy" width="400" height="300">
     </a>
   </div>
   {%- endif %}

@@ -1,6 +1,24 @@
 const { DateTime } = require("luxon");
 const metadataValidator = require("./scripts/validate-metadata.js");
 
+// Composite score recomputed from score parts. Must stay identical to the
+// client-side calculateComposite() in 11ty/index-paginated.njk and the
+// or-5/or-0 defaults in 11ty/posts-index.njk, so the server-rendered order
+// matches the client's composite sort (most posts lack a frontmatter
+// composite, so sorting by the stored value would fall back to date order).
+function computeCompositeScore(scores) {
+  const s = scores || {};
+  const lengthScore = Math.min((s.length || 0) / 5000, 1) * 10;
+  const imageScore = Math.min((s.imageCount || 0) / 5, 1) * 10;
+  return (
+    (s.value || 5) * 0.35 +
+    (s.quality || 5) * 0.25 +
+    (s.timeliness || 5) * 0.25 +
+    lengthScore * 0.10 +
+    imageScore * 0.05
+  );
+}
+
 module.exports = function(eleventyConfig) {
   // Load metadata validation plugin
   eleventyConfig.addPlugin(metadataValidator);
@@ -28,7 +46,10 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("dateTimestamp", (dateStr) => {
     if (!dateStr) return Date.now();
-    return new Date(dateStr).getTime();
+    // Guard against unparseable date strings: NaN inside posts-index.json
+    // would make the whole file invalid JSON and disable client-side sorting.
+    const timestamp = new Date(dateStr).getTime();
+    return Number.isFinite(timestamp) ? timestamp : 0;
   });
 
   eleventyConfig.addFilter("dateToRfc822", (dateObj) => {
@@ -174,9 +195,11 @@ module.exports = function(eleventyConfig) {
         return false;
       })
       .sort((a, b) => {
-        // Sort by composite AI score (highest first), fallback to date
-        const scoreA = a.data.aiScores?.composite || 0;
-        const scoreB = b.data.aiScores?.composite || 0;
+        // Sort by composite AI score (highest first), fallback to date.
+        // Always recompute from parts (never trust frontmatter composite) so
+        // this order agrees with the client-side sort by construction.
+        const scoreA = computeCompositeScore(a.data.aiScores);
+        const scoreB = computeCompositeScore(b.data.aiScores);
         if (scoreB !== scoreA) {
           return scoreB - scoreA;
         }
