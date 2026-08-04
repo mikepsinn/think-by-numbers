@@ -16,6 +16,7 @@ metadata:
     ogImage: /assets/og-images/economics/historical-examples-show-government.jpg
     infographic: /assets/infographics/economics/historical-examples-show-government.jpg
     thumbnail: /assets/thumbnails/economics/historical-examples-show-government.jpg
+    card: /assets/cards/economics/historical-examples-show-government.jpg
   categories:
     - Corporate Welfare
     - Economics

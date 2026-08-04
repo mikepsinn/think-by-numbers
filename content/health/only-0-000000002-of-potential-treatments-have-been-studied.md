@@ -16,6 +16,8 @@ metadata:
       /assets/infographics/health/only-0-000000002-of-potential-treatments-have-been-studied.jpg
     thumbnail: >-
       /assets/thumbnails/health/only-0-000000002-of-potential-treatments-have-been-studied.jpg
+    card: >-
+      /assets/cards/health/only-0-000000002-of-potential-treatments-have-been-studied.jpg
   categories:
     - Health
   tags:

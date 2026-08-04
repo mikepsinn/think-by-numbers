@@ -18,6 +18,8 @@ metadata:
       /assets/infographics/uncategorized/fda-fails-to-apply-basic-rational-cost-benefit-analysis-to-regulatory-decisions.jpg
     thumbnail: >-
       /assets/thumbnails/uncategorized/fda-fails-to-apply-basic-rational-cost-benefit-analysis-to-regulatory-decisions.jpg
+    card: >-
+      /assets/cards/uncategorized/fda-fails-to-apply-basic-rational-cost-benefit-analysis-to-regulatory-decisions.jpg
   categories:
     - Health
   tags:

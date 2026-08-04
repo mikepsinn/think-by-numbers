@@ -18,6 +18,8 @@ metadata:
       /assets/infographics/military/the-1-percent-treaty-bribing-our-way-to-not-dying.jpg
     thumbnail: >-
       /assets/thumbnails/military/the-1-percent-treaty-bribing-our-way-to-not-dying.jpg
+    card: >-
+      /assets/cards/military/the-1-percent-treaty-bribing-our-way-to-not-dying.jpg
   categories:
     - Military
     - Healthcare

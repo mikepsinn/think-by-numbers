@@ -18,6 +18,8 @@ metadata:
       /assets/infographics/economics/incentive-alignment-bonds-making-greed-save-lives.jpg
     thumbnail: >-
       /assets/thumbnails/economics/incentive-alignment-bonds-making-greed-save-lives.jpg
+    card: >-
+      /assets/cards/economics/incentive-alignment-bonds-making-greed-save-lives.jpg
   categories:
     - Economics
     - Politics

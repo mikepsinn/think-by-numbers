@@ -12,6 +12,7 @@ metadata:
     ogImage: /assets/og-images/drug-war/drug-war-statistics.jpg
     infographic: /assets/infographics/drug-war/drug-war-statistics.jpg
     thumbnail: /assets/thumbnails/drug-war/drug-war-statistics.jpg
+    card: /assets/cards/drug-war/drug-war-statistics.jpg
   categories:
     - Drug War
     - Government Spending

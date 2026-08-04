@@ -22,6 +22,8 @@ metadata:
       /assets/infographics/economics/keynsian-creationism-and-intelligently-design-economies.jpg
     thumbnail: >-
       /assets/thumbnails/economics/keynsian-creationism-and-intelligently-design-economies.jpg
+    card: >-
+      /assets/cards/economics/keynsian-creationism-and-intelligently-design-economies.jpg
 tags:
   - economics
 aiScores:

@@ -16,6 +16,7 @@ metadata:
       /assets/og-images/statistics/how-much-time-do-people-spend-consuming-news.jpg
     thumbnail: >-
       /assets/thumbnails/statistics/how-much-time-do-people-spend-consuming-news.jpg
+    card: /assets/cards/statistics/how-much-time-do-people-spend-consuming-news.jpg
   categories:
     - Statistics
   tags:

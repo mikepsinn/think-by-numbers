@@ -23,6 +23,8 @@ metadata:
       /assets/infographics/government-spending/humanity-spends-56-cents-per-person-per-year-on-curing-disease.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/humanity-spends-56-cents-per-person-per-year-on-curing-disease.jpg
+    card: >-
+      /assets/cards/government-spending/humanity-spends-56-cents-per-person-per-year-on-curing-disease.jpg
 aiScores:
   composite: 3
   quality: 3

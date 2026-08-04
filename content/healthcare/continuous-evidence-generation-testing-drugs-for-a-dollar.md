@@ -16,6 +16,8 @@ metadata:
       /assets/infographics/healthcare/continuous-evidence-generation-testing-drugs-for-a-dollar.jpg
     thumbnail: >-
       /assets/thumbnails/healthcare/continuous-evidence-generation-testing-drugs-for-a-dollar.jpg
+    card: >-
+      /assets/cards/healthcare/continuous-evidence-generation-testing-drugs-for-a-dollar.jpg
   categories:
     - Healthcare
     - Science

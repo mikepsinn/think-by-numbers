@@ -15,6 +15,7 @@ metadata:
     ogImage: /assets/og-images/economics/how-much-does-it-cost-to-develop-a-drug.jpg
     infographic: /assets/infographics/economics/how-much-does-it-cost-to-develop-a-drug.jpg
     thumbnail: /assets/thumbnails/economics/how-much-does-it-cost-to-develop-a-drug.jpg
+    card: /assets/cards/economics/how-much-does-it-cost-to-develop-a-drug.jpg
   categories:
     - Economics
     - Healthcare

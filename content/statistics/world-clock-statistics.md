@@ -13,6 +13,7 @@ metadata:
     ogImage: /assets/og-images/statistics/world-clock-statistics.jpg
     infographic: /assets/infographics/statistics/world-clock-statistics.jpg
     thumbnail: /assets/thumbnails/statistics/world-clock-statistics.jpg
+    card: /assets/cards/statistics/world-clock-statistics.jpg
   categories:
     - Statistics
   tags:

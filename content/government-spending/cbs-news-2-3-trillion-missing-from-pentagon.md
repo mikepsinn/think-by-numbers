@@ -15,6 +15,8 @@ metadata:
       /assets/infographics/government-spending/cbs-news-2-3-trillion-missing-from-pentagon.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/cbs-news-2-3-trillion-missing-from-pentagon.jpg
+    card: >-
+      /assets/cards/government-spending/cbs-news-2-3-trillion-missing-from-pentagon.jpg
   categories:
     - Government Spending
     - Military

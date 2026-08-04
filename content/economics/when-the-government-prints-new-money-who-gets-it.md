@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/economics/when-the-government-prints-new-money-who-gets-it.jpg
     thumbnail: >-
       /assets/thumbnails/economics/when-the-government-prints-new-money-who-gets-it.jpg
+    card: >-
+      /assets/cards/economics/when-the-government-prints-new-money-who-gets-it.jpg
   categories:
     - Economics
     - Federal Reserve

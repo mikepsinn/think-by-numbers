@@ -15,6 +15,8 @@ metadata:
       /assets/infographics/psychology/subconscious-processes-27500-times-more-data-than-the-conscious-mind.jpg
     thumbnail: >-
       /assets/thumbnails/psychology/subconscious-processes-27500-times-more-data-than-the-conscious-mind.jpg
+    card: >-
+      /assets/cards/psychology/subconscious-processes-27500-times-more-data-than-the-conscious-mind.jpg
   categories:
     - Psychology
     - Science

@@ -16,6 +16,8 @@ metadata:
       /assets/infographics/government-spending/corporate-welfare/what-would-happen-if-we-let-aig-fail.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/corporate-welfare/what-would-happen-if-we-let-aig-fail.jpg
+    card: >-
+      /assets/cards/government-spending/corporate-welfare/what-would-happen-if-we-let-aig-fail.jpg
   categories:
     - Corporate Welfare
   tags:

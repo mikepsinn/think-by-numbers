@@ -22,6 +22,8 @@ metadata:
       /assets/infographics/politics/how-much-does-it-cost-to-save-the-world-about-250-million.jpg
     thumbnail: >-
       /assets/thumbnails/politics/how-much-does-it-cost-to-save-the-world-about-250-million.jpg
+    card: >-
+      /assets/cards/politics/how-much-does-it-cost-to-save-the-world-about-250-million.jpg
 aiScores:
   composite: 3
   quality: 3

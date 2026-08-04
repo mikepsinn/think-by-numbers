@@ -23,6 +23,7 @@ metadata:
       /assets/infographics/military/war-costs-humanity-11-point-4-trillion-a-year.jpg
     thumbnail: >-
       /assets/thumbnails/military/war-costs-humanity-11-point-4-trillion-a-year.jpg
+    card: /assets/cards/military/war-costs-humanity-11-point-4-trillion-a-year.jpg
 aiScores:
   composite: 3
   quality: 3

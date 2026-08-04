@@ -19,6 +19,7 @@ metadata:
     infographic: >-
       /assets/infographics/health/fecal-transplant-reduces-autism-symptoms-45.jpg
     thumbnail: /assets/thumbnails/health/fecal-transplant-reduces-autism-symptoms-45.jpg
+    card: /assets/cards/health/fecal-transplant-reduces-autism-symptoms-45.jpg
 tags:
   - health
 aiScores:

@@ -13,6 +13,7 @@ metadata:
     ogImage: /assets/og-images/military/war/posts.jpg
     infographic: /assets/infographics/military/war/posts.jpg
     thumbnail: /assets/thumbnails/military/war/posts.jpg
+    card: /assets/cards/military/war/posts.jpg
   categories:
     - War
   tags:

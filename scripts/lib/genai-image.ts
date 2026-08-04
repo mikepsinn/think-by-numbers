@@ -338,6 +338,18 @@ export async function saveImage(
     throw new Error(`Image after watermarking is too small (${buffer.length} bytes)`)
   }
 
+  // Gemini often returns PNG bytes even when we ask for .jpg — re-encode so
+  // OG/social assets stay ~100–200KB instead of ~2MB PNG-in-jpg files.
+  const ext = path.extname(filePath).toLowerCase()
+  if (ext === '.jpg' || ext === '.jpeg') {
+    const sharp = (await import('sharp')).default
+    buffer = await sharp(buffer)
+      .rotate()
+      .resize({ width: 1200, withoutEnlargement: true })
+      .jpeg({ quality: 80, mozjpeg: true })
+      .toBuffer()
+  }
+
   // Write to file
   await fs.writeFile(filePath, buffer)
 

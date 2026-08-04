@@ -16,6 +16,7 @@ metadata:
     infographic: >-
       /assets/infographics/democracy/optimocracy-letting-data-run-the-country.jpg
     thumbnail: /assets/thumbnails/democracy/optimocracy-letting-data-run-the-country.jpg
+    card: /assets/cards/democracy/optimocracy-letting-data-run-the-country.jpg
   categories:
     - Democracy
     - Politics

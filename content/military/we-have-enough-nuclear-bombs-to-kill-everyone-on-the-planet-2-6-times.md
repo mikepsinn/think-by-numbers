@@ -15,6 +15,8 @@ metadata:
       /assets/infographics/military/we-have-enough-nuclear-bombs-to-kill-everyone-on-the-planet-2-6-times.jpg
     thumbnail: >-
       /assets/thumbnails/military/we-have-enough-nuclear-bombs-to-kill-everyone-on-the-planet-2-6-times.jpg
+    card: >-
+      /assets/cards/military/we-have-enough-nuclear-bombs-to-kill-everyone-on-the-planet-2-6-times.jpg
   categories:
     - Military
   tags:

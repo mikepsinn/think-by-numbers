@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/democracy/wishocracy-what-if-politicians-had-to-do-what-we-actually-want.jpg
     thumbnail: >-
       /assets/thumbnails/democracy/wishocracy-what-if-politicians-had-to-do-what-we-actually-want.jpg
+    card: >-
+      /assets/cards/democracy/wishocracy-what-if-politicians-had-to-do-what-we-actually-want.jpg
   categories:
     - Democracy
     - Politics

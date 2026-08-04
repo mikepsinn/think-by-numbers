@@ -21,6 +21,8 @@ metadata:
       /assets/infographics/productivity/prioritize-your-to-do-list-by-converting-to-present-value.jpg
     thumbnail: >-
       /assets/thumbnails/productivity/prioritize-your-to-do-list-by-converting-to-present-value.jpg
+    card: >-
+      /assets/cards/productivity/prioritize-your-to-do-list-by-converting-to-present-value.jpg
 tags:
   - productivity
 aiScores:

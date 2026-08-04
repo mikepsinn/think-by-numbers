@@ -1107,14 +1107,18 @@
     </p>
   </footer>
 
-  {# Pagefind Search #}
+  {# Pagefind only on the search page (homepage just links there) #}
+  {%- if page.url == '/search/' %}
   <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
   <script src="/_pagefind/pagefind-ui.js"></script>
+  {%- endif %}
 
   {# Back to Top Button #}
   <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 
-  {# KaTeX for LaTeX rendering #}
+  {# KaTeX only on article pages — skip homepage/listing weight #}
+  {%- set isArticle = type == 'post' or (metadata and metadata.type == 'wordpress') %}
+  {%- if isArticle %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
@@ -1124,6 +1128,7 @@
       {left: '\\(', right: '\\)', display: false}
     ]
   });"></script>
+  {%- endif %}
 
   {# Back to Top Button Script #}
   <script>
@@ -1156,8 +1161,8 @@
     })();
   </script>
 
-  {# Disqus Comments Script #}
-  {%- if site.disqusShortname and title %}
+  {# Disqus only on articles (thread markup lives in post.njk) #}
+  {%- if site.disqusShortname and isArticle %}
   <script>
     var disqus_config = function () {
       this.page.url = '{{ site.url }}{{ page.url }}';

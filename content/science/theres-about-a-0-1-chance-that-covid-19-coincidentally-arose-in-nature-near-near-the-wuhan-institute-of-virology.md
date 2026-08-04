@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/science/theres-about-a-0-1-chance-that-covid-19-coincidentally-arose-in-nature-near-near-the-wuhan-institute-of-virology.jpg
     thumbnail: >-
       /assets/thumbnails/science/theres-about-a-0-1-chance-that-covid-19-coincidentally-arose-in-nature-near-near-the-wuhan-institute-of-virology.jpg
+    card: >-
+      /assets/cards/science/theres-about-a-0-1-chance-that-covid-19-coincidentally-arose-in-nature-near-near-the-wuhan-institute-of-virology.jpg
   categories:
     - Science
   uuid: '11ty/import::wordpress::https://thinkbynumbers.org/?p=10694'

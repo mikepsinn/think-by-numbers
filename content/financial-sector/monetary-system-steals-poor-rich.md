@@ -15,6 +15,7 @@ metadata:
     ogImage: /assets/og-images/financial-sector/monetary-system-steals-poor-rich.jpg
     infographic: /assets/infographics/financial-sector/monetary-system-steals-poor-rich.jpg
     thumbnail: /assets/thumbnails/financial-sector/monetary-system-steals-poor-rich.jpg
+    card: /assets/cards/financial-sector/monetary-system-steals-poor-rich.jpg
   categories:
     - Financial Sector
   tags:

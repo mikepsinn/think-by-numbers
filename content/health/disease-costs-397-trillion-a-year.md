@@ -20,6 +20,7 @@ metadata:
     ogImage: /assets/og-images/health/disease-costs-397-trillion-a-year.jpg
     infographic: /assets/infographics/health/disease-costs-397-trillion-a-year.jpg
     thumbnail: /assets/thumbnails/health/disease-costs-397-trillion-a-year.jpg
+    card: /assets/cards/health/disease-costs-397-trillion-a-year.jpg
 aiScores:
   composite: 3
   quality: 3

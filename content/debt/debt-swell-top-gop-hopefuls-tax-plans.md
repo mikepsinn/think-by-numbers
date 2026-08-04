@@ -15,6 +15,7 @@ metadata:
     ogImage: /assets/og-images/debt/debt-swell-top-gop-hopefuls-tax-plans.jpg
     infographic: /assets/infographics/debt/debt-swell-top-gop-hopefuls-tax-plans.jpg
     thumbnail: /assets/thumbnails/debt/debt-swell-top-gop-hopefuls-tax-plans.jpg
+    card: /assets/cards/debt/debt-swell-top-gop-hopefuls-tax-plans.jpg
   categories:
     - Debt
     - Taxes

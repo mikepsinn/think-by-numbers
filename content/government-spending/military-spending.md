@@ -16,6 +16,7 @@ metadata:
     infographic: /assets/infographics/government-spending/military-spending.jpg
     ogImage: /assets/og-images/government-spending/military-spending.jpg
     thumbnail: /assets/thumbnails/government-spending/military-spending.jpg
+    card: /assets/cards/government-spending/military-spending.jpg
   categories:
     - Government Spending
     - Military

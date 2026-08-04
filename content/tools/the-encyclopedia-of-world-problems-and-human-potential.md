@@ -21,6 +21,8 @@ metadata:
       /assets/infographics/tools/the-encyclopedia-of-world-problems-and-human-potential.jpg
     thumbnail: >-
       /assets/thumbnails/tools/the-encyclopedia-of-world-problems-and-human-potential.jpg
+    card: >-
+      /assets/cards/tools/the-encyclopedia-of-world-problems-and-human-potential.jpg
 tags:
   - tools
 aiScores:

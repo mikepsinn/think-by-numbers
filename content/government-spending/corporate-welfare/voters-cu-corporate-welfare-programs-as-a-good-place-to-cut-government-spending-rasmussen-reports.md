@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/government-spending/corporate-welfare/voters-cu-corporate-welfare-programs-as-a-good-place-to-cut-government-spending-rasmussen-reports.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/corporate-welfare/voters-cu-corporate-welfare-programs-as-a-good-place-to-cut-government-spending-rasmussen-reports.jpg
+    card: >-
+      /assets/cards/government-spending/corporate-welfare/voters-cu-corporate-welfare-programs-as-a-good-place-to-cut-government-spending-rasmussen-reports.jpg
   categories:
     - Corporate Welfare
   tags:

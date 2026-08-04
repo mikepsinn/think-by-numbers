@@ -34,6 +34,8 @@ metadata:
       /assets/infographics/uncategorized/how-to-overcome-bias-in-crowdsoucing-participants.jpg
     thumbnail: >-
       /assets/thumbnails/uncategorized/how-to-overcome-bias-in-crowdsoucing-participants.jpg
+    card: >-
+      /assets/cards/uncategorized/how-to-overcome-bias-in-crowdsoucing-participants.jpg
 aiScores:
   quality: 7
   value: 8

@@ -23,6 +23,8 @@ metadata:
       /assets/infographics/government-spending/the-nih-spent-1-trillion-and-eradicated-zero-diseases.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/the-nih-spent-1-trillion-and-eradicated-zero-diseases.jpg
+    card: >-
+      /assets/cards/government-spending/the-nih-spent-1-trillion-and-eradicated-zero-diseases.jpg
 aiScores:
   composite: 3
   quality: 3

@@ -13,6 +13,7 @@ metadata:
     ogImage: /assets/og-images/empiricism-2/why-think-by-numbers.jpg
     infographic: /assets/infographics/empiricism-2/why-think-by-numbers.jpg
     thumbnail: /assets/thumbnails/empiricism-2/why-think-by-numbers.jpg
+    card: /assets/cards/empiricism-2/why-think-by-numbers.jpg
   categories:
     - Empiricism
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/?p=8476'

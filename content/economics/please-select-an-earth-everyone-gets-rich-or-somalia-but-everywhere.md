@@ -22,6 +22,8 @@ metadata:
       /assets/infographics/economics/please-select-an-earth-everyone-gets-rich-or-somalia-but-everywhere.jpg
     thumbnail: >-
       /assets/thumbnails/economics/please-select-an-earth-everyone-gets-rich-or-somalia-but-everywhere.jpg
+    card: >-
+      /assets/cards/economics/please-select-an-earth-everyone-gets-rich-or-somalia-but-everywhere.jpg
 aiScores:
   composite: 3
   quality: 3

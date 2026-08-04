@@ -10,6 +10,8 @@
     "clean": "npx rimraf _site",
     "generate-images": "tsx scripts/generate-project-images.ts",
     "generate-images:file": "tsx scripts/generate-project-images.ts",
+    "generate-card-images": "tsx scripts/generate-card-images.ts",
+    "compress-og-images": "tsx scripts/compress-og-images.ts",
     "update-images": "tsx scripts/update-existing-images.ts",
     "fix-image-extensions": "tsx scripts/fix-image-extensions.ts",
     "generate-checklist": "tsx scripts/generate-post-checklist.ts",

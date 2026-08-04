@@ -18,6 +18,7 @@ metadata:
     ogImage: /assets/og-images/health/less-rem-sleep-linked-to-dementia.jpg
     infographic: /assets/infographics/health/less-rem-sleep-linked-to-dementia.jpg
     thumbnail: /assets/thumbnails/health/less-rem-sleep-linked-to-dementia.jpg
+    card: /assets/cards/health/less-rem-sleep-linked-to-dementia.jpg
 tags:
   - health
 aiScores:

@@ -15,6 +15,7 @@ metadata:
     ogImage: /assets/og-images/government-spending/corporate-vs-social-welfare.jpg
     infographic: /assets/infographics/government-spending/corporate-vs-social-welfare.jpg
     thumbnail: /assets/thumbnails/government-spending/corporate-vs-social-welfare.jpg
+    card: /assets/cards/government-spending/corporate-vs-social-welfare.jpg
   categories:
     - Government Spending
   tags:

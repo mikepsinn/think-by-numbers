@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/health/the-invisible-graveyard-102-million-deaths-nobody-talks-about.jpg
     thumbnail: >-
       /assets/thumbnails/health/the-invisible-graveyard-102-million-deaths-nobody-talks-about.jpg
+    card: >-
+      /assets/cards/health/the-invisible-graveyard-102-million-deaths-nobody-talks-about.jpg
   categories:
     - Health
     - Healthcare

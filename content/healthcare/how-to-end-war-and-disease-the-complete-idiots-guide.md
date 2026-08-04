@@ -21,6 +21,8 @@ metadata:
       /assets/infographics/healthcare/how-to-end-war-and-disease-the-complete-idiots-guide.jpg
     thumbnail: >-
       /assets/thumbnails/healthcare/how-to-end-war-and-disease-the-complete-idiots-guide.jpg
+    card: >-
+      /assets/cards/healthcare/how-to-end-war-and-disease-the-complete-idiots-guide.jpg
   categories:
     - Healthcare
     - Economics

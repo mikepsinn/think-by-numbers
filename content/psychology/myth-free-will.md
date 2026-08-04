@@ -12,6 +12,7 @@ metadata:
     ogImage: /assets/og-images/psychology/myth-free-will.jpg
     infographic: /assets/infographics/psychology/myth-free-will.jpg
     thumbnail: /assets/thumbnails/psychology/myth-free-will.jpg
+    card: /assets/cards/psychology/myth-free-will.jpg
   categories:
     - Psychology
   tags:

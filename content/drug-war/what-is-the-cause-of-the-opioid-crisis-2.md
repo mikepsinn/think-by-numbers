@@ -13,6 +13,7 @@ metadata:
     ogImage: /assets/og-images/drug-war/what-is-the-cause-of-the-opioid-crisis-2.jpg
     infographic: /assets/infographics/drug-war/what-is-the-cause-of-the-opioid-crisis-2.jpg
     thumbnail: /assets/thumbnails/drug-war/what-is-the-cause-of-the-opioid-crisis-2.jpg
+    card: /assets/cards/drug-war/what-is-the-cause-of-the-opioid-crisis-2.jpg
   categories:
     - Drug War
   tags:

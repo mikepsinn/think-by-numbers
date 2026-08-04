@@ -23,6 +23,8 @@ metadata:
       /assets/infographics/science/you-are-a-meat-robot-why-death-is-a-technical-problem.jpg
     thumbnail: >-
       /assets/thumbnails/science/you-are-a-meat-robot-why-death-is-a-technical-problem.jpg
+    card: >-
+      /assets/cards/science/you-are-a-meat-robot-why-death-is-a-technical-problem.jpg
 aiScores:
   composite: 3
   quality: 3

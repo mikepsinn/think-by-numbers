@@ -16,6 +16,7 @@ metadata:
     ogImage: /assets/og-images/solutions/wisdom-of-crowds.jpg
     infographic: /assets/infographics/solutions/wisdom-of-crowds.jpg
     thumbnail: /assets/thumbnails/solutions/wisdom-of-crowds.jpg
+    card: /assets/cards/solutions/wisdom-of-crowds.jpg
 tags:
   - solutions
 aiScores:
