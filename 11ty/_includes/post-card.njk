@@ -4,11 +4,12 @@
   Expects: post variable in context
 #}
 <article class="post-card">
-  {%- set imageUrl = post.data.metadata.media.ogImage or post.data.metadata.media.infographic or post.data.metadata.media.featuredImage %}
+  {%- set imageUrl = (post.data.metadata.media.ogImage or post.data.metadata.media.infographic or post.data.metadata.media.featuredImage) | cardImage %}
   {%- if imageUrl %}
+  {%- set eager = loop and loop.index0 < 2 %}
   <div class="post-image">
     <a href="{{ post.url }}">
-      <img src="{{ imageUrl }}" alt="{{ post.data.title | safe }}" loading="lazy" width="400" height="300">
+      <img src="{{ imageUrl }}" alt="{{ post.data.title | safe }}" width="720" height="400" decoding="async"{% if eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
     </a>
   </div>
   {%- endif %}

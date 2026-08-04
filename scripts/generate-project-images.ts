@@ -147,10 +147,26 @@ Full article content: ${cleanedContent}
         filePrefix: fileName,
         format: 'jpg',
         metadata: imageMetadata,
-      }).then(ogFiles => {
+      }).then(async (ogFiles) => {
         if (ogFiles && ogFiles.length > 0) {
           ogImagePath = path.relative('content', ogFiles[0]).replace(/\\/g, '/');
           console.log(`  [OK] Generated OG image: ${ogImagePath}`);
+          // Keep homepage card derivative in sync with the new OG asset
+          try {
+            const sharp = (await import('sharp')).default;
+            const ogAbs = path.join(process.cwd(), 'content', ogImagePath);
+            const cardRel = ogImagePath.replace(/^assets\/og-images\//, 'assets/cards/');
+            const cardAbs = path.join(process.cwd(), 'content', cardRel);
+            await fs.mkdir(path.dirname(cardAbs), { recursive: true });
+            await sharp(ogAbs)
+              .rotate()
+              .resize({ width: 720, withoutEnlargement: true })
+              .jpeg({ quality: 78, mozjpeg: true })
+              .toFile(cardAbs);
+            console.log(`  [OK] Generated card image: ${cardRel}`);
+          } catch (cardErr) {
+            console.error(`  [ERROR] Failed to generate card image:`, cardErr);
+          }
         }
       }).catch(error => {
         console.error(`  [ERROR] Failed to generate OG image:`, error);
