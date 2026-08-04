@@ -12,6 +12,7 @@ metadata:
     infographic: /assets/infographics/politics/vote.jpg
     ogImage: /assets/og-images/politics/vote.jpg
     thumbnail: /assets/thumbnails/politics/vote.jpg
+    card: /assets/cards/politics/vote.jpg
   categories:
     - Politics
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/?p=8707'

@@ -12,6 +12,7 @@ metadata:
     ogImage: /assets/og-images/healthcare/more-upward-wealth-redistribution-from.jpg
     infographic: /assets/infographics/healthcare/more-upward-wealth-redistribution-from.jpg
     thumbnail: /assets/thumbnails/healthcare/more-upward-wealth-redistribution-from.jpg
+    card: /assets/cards/healthcare/more-upward-wealth-redistribution-from.jpg
   categories:
     - Corporate Welfare
     - Healthcare

@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/government-spending/the-optimal-budget-generator-what-if-budgets-made-sense.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/the-optimal-budget-generator-what-if-budgets-made-sense.jpg
+    card: >-
+      /assets/cards/government-spending/the-optimal-budget-generator-what-if-budgets-made-sense.jpg
   categories:
     - Government Spending
     - Economics

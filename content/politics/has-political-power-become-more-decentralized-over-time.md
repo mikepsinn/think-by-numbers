@@ -21,6 +21,8 @@ metadata:
       /assets/infographics/politics/has-political-power-become-more-decentralized-over-time.jpg
     thumbnail: >-
       /assets/thumbnails/politics/has-political-power-become-more-decentralized-over-time.jpg
+    card: >-
+      /assets/cards/politics/has-political-power-become-more-decentralized-over-time.jpg
 tags:
   - politics
 aiScores:

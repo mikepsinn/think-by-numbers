@@ -16,6 +16,7 @@ metadata:
     ogImage: /assets/og-images/terrorism/muslims-terrorists-terrorists-muslims.jpg
     infographic: /assets/infographics/terrorism/muslims-terrorists-terrorists-muslims.jpg
     thumbnail: /assets/thumbnails/terrorism/muslims-terrorists-terrorists-muslims.jpg
+    card: /assets/cards/terrorism/muslims-terrorists-terrorists-muslims.jpg
 tags:
   - terrorism
 aiScores:

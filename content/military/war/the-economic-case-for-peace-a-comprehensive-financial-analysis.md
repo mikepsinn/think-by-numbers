@@ -15,6 +15,8 @@ metadata:
       /assets/infographics/military/war/the-economic-case-for-peace-a-comprehensive-financial-analysis.jpg
     thumbnail: >-
       /assets/thumbnails/military/war/the-economic-case-for-peace-a-comprehensive-financial-analysis.jpg
+    card: >-
+      /assets/cards/military/war/the-economic-case-for-peace-a-comprehensive-financial-analysis.jpg
   categories:
     - War
   tags:

@@ -18,6 +18,8 @@ metadata:
       /assets/infographics/healthcare/why-your-medicine-costs-105-times-more-than-it-should.jpg
     thumbnail: >-
       /assets/thumbnails/healthcare/why-your-medicine-costs-105-times-more-than-it-should.jpg
+    card: >-
+      /assets/cards/healthcare/why-your-medicine-costs-105-times-more-than-it-should.jpg
   categories:
     - Healthcare
     - Economics

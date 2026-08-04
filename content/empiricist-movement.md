@@ -11,6 +11,7 @@ metadata:
     ogImage: /assets/og-images/empiricist-movement.jpg
     infographic: /assets/infographics/empiricist-movement.jpg
     thumbnail: /assets/thumbnails/empiricist-movement.jpg
+    card: /assets/cards/empiricist-movement.jpg
 tags:
   - empiricism
   - rationality

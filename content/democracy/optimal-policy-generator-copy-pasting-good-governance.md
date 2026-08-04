@@ -18,6 +18,8 @@ metadata:
       /assets/infographics/democracy/optimal-policy-generator-copy-pasting-good-governance.jpg
     thumbnail: >-
       /assets/thumbnails/democracy/optimal-policy-generator-copy-pasting-good-governance.jpg
+    card: >-
+      /assets/cards/democracy/optimal-policy-generator-copy-pasting-good-governance.jpg
   categories:
     - Democracy
     - Politics

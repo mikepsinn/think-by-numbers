@@ -24,6 +24,8 @@ metadata:
       /assets/infographics/science/genetic-slavery-your-brain-is-a-museum-of-obsolete-instincts.jpg
     thumbnail: >-
       /assets/thumbnails/science/genetic-slavery-your-brain-is-a-museum-of-obsolete-instincts.jpg
+    card: >-
+      /assets/cards/science/genetic-slavery-your-brain-is-a-museum-of-obsolete-instincts.jpg
 aiScores:
   composite: 3
   quality: 3

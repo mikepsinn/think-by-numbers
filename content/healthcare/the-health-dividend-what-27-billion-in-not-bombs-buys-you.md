@@ -22,6 +22,8 @@ metadata:
       /assets/infographics/healthcare/the-health-dividend-what-27-billion-in-not-bombs-buys-you.jpg
     thumbnail: >-
       /assets/thumbnails/healthcare/the-health-dividend-what-27-billion-in-not-bombs-buys-you.jpg
+    card: >-
+      /assets/cards/healthcare/the-health-dividend-what-27-billion-in-not-bombs-buys-you.jpg
 aiScores:
   composite: 3
   quality: 3

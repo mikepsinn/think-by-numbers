@@ -16,6 +16,8 @@ metadata:
       /assets/infographics/health/youre-14-times-more-likely-to-die-of-cancer-than-from-an-opioid-overdose.jpg
     thumbnail: >-
       /assets/thumbnails/health/youre-14-times-more-likely-to-die-of-cancer-than-from-an-opioid-overdose.jpg
+    card: >-
+      /assets/cards/health/youre-14-times-more-likely-to-die-of-cancer-than-from-an-opioid-overdose.jpg
   categories:
     - Health
   uuid: '11ty/import::wordpress::https://thinkbynumbers.org/?p=9536'

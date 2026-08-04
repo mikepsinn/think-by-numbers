@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/economics/how-the-federal-reserve-steals-from-the-poor-and-gives-to-the-rich.jpg
     thumbnail: >-
       /assets/thumbnails/economics/how-the-federal-reserve-steals-from-the-poor-and-gives-to-the-rich.jpg
+    card: >-
+      /assets/cards/economics/how-the-federal-reserve-steals-from-the-poor-and-gives-to-the-rich.jpg
   categories:
     - Economics
     - Federal Reserve

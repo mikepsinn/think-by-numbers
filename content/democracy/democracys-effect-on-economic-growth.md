@@ -14,6 +14,7 @@ metadata:
     ogImage: /assets/og-images/democracy/democracys-effect-on-economic-growth.jpg
     infographic: /assets/infographics/democracy/democracys-effect-on-economic-growth.jpg
     thumbnail: /assets/thumbnails/democracy/democracys-effect-on-economic-growth.jpg
+    card: /assets/cards/democracy/democracys-effect-on-economic-growth.jpg
   categories:
     - Democracy
   tags:

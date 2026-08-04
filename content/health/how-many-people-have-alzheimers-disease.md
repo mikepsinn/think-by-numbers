@@ -16,6 +16,7 @@ metadata:
     ogImage: /assets/og-images/health/how-many-people-have-alzheimers-disease.jpg
     infographic: /assets/infographics/health/how-many-people-have-alzheimers-disease.jpg
     thumbnail: /assets/thumbnails/health/how-many-people-have-alzheimers-disease.jpg
+    card: /assets/cards/health/how-many-people-have-alzheimers-disease.jpg
 tags:
   - health
 aiScores:

@@ -22,6 +22,8 @@ metadata:
       /assets/infographics/military/the-peace-dividend-what-1-percent-fewer-bombs-buys-you.jpg
     thumbnail: >-
       /assets/thumbnails/military/the-peace-dividend-what-1-percent-fewer-bombs-buys-you.jpg
+    card: >-
+      /assets/cards/military/the-peace-dividend-what-1-percent-fewer-bombs-buys-you.jpg
 aiScores:
   composite: 3
   quality: 3

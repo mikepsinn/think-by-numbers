@@ -16,6 +16,8 @@ metadata:
       /assets/infographics/military/military-industrial-complex-funnels-wealth-to-4-counties.jpg
     thumbnail: >-
       /assets/thumbnails/military/military-industrial-complex-funnels-wealth-to-4-counties.jpg
+    card: >-
+      /assets/cards/military/military-industrial-complex-funnels-wealth-to-4-counties.jpg
   categories:
     - Military
   tags:

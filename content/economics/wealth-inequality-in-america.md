@@ -14,6 +14,7 @@ metadata:
     ogImage: /assets/og-images/economics/wealth-inequality-in-america.jpg
     infographic: /assets/infographics/economics/wealth-inequality-in-america.jpg
     thumbnail: /assets/thumbnails/economics/wealth-inequality-in-america.jpg
+    card: /assets/cards/economics/wealth-inequality-in-america.jpg
   categories:
     - Economics
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/?p=8256'

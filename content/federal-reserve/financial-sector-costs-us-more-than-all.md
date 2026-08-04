@@ -17,6 +17,7 @@ metadata:
       /assets/infographics/federal-reserve/financial-sector-costs-us-more-than-all.jpg
     thumbnail: >-
       /assets/thumbnails/federal-reserve/financial-sector-costs-us-more-than-all.jpg
+    card: /assets/cards/federal-reserve/financial-sector-costs-us-more-than-all.jpg
   categories:
     - Corporate Welfare
     - Federal Reserve

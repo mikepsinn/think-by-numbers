@@ -14,6 +14,7 @@ metadata:
     ogImage: /assets/og-images/health/how-many-net-lives-does-the-fda-save.jpg
     infographic: /assets/infographics/health/how-many-net-lives-does-the-fda-save.jpg
     thumbnail: /assets/thumbnails/health/how-many-net-lives-does-the-fda-save.jpg
+    card: /assets/cards/health/how-many-net-lives-does-the-fda-save.jpg
   categories:
     - Health
     - Healthcare

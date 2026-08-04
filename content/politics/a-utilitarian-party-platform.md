@@ -16,6 +16,7 @@ metadata:
     ogImage: /assets/og-images/politics/a-utilitarian-party-platform.jpg
     infographic: /assets/infographics/politics/a-utilitarian-party-platform.jpg
     thumbnail: /assets/thumbnails/politics/a-utilitarian-party-platform.jpg
+    card: /assets/cards/politics/a-utilitarian-party-platform.jpg
 tags:
   - politics
 aiScores:

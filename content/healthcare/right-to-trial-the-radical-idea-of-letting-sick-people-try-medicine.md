@@ -18,6 +18,8 @@ metadata:
       /assets/infographics/healthcare/right-to-trial-the-radical-idea-of-letting-sick-people-try-medicine.jpg
     thumbnail: >-
       /assets/thumbnails/healthcare/right-to-trial-the-radical-idea-of-letting-sick-people-try-medicine.jpg
+    card: >-
+      /assets/cards/healthcare/right-to-trial-the-radical-idea-of-letting-sick-people-try-medicine.jpg
   categories:
     - Healthcare
     - Health

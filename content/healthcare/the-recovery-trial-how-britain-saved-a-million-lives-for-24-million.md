@@ -22,6 +22,8 @@ metadata:
       /assets/infographics/healthcare/the-recovery-trial-how-britain-saved-a-million-lives-for-24-million.jpg
     thumbnail: >-
       /assets/thumbnails/healthcare/the-recovery-trial-how-britain-saved-a-million-lives-for-24-million.jpg
+    card: >-
+      /assets/cards/healthcare/the-recovery-trial-how-britain-saved-a-million-lives-for-24-million.jpg
 aiScores:
   composite: 3
   quality: 3

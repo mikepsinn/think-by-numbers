@@ -18,6 +18,8 @@ metadata:
       /assets/infographics/government-spending/the-political-dysfunction-tax-101-trillion-reasons-to-be-annoyed.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/the-political-dysfunction-tax-101-trillion-reasons-to-be-annoyed.jpg
+    card: >-
+      /assets/cards/government-spending/the-political-dysfunction-tax-101-trillion-reasons-to-be-annoyed.jpg
   categories:
     - Government Spending
     - Economics

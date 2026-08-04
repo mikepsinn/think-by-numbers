@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/politics/the-price-of-political-change-utopia-is-surprisingly-affordable.jpg
     thumbnail: >-
       /assets/thumbnails/politics/the-price-of-political-change-utopia-is-surprisingly-affordable.jpg
+    card: >-
+      /assets/cards/politics/the-price-of-political-change-utopia-is-surprisingly-affordable.jpg
   categories:
     - Politics
     - Economics

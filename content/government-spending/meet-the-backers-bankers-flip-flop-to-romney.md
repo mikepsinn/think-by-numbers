@@ -16,6 +16,8 @@ metadata:
       /assets/infographics/government-spending/meet-the-backers-bankers-flip-flop-to-romney.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/meet-the-backers-bankers-flip-flop-to-romney.jpg
+    card: >-
+      /assets/cards/government-spending/meet-the-backers-bankers-flip-flop-to-romney.jpg
   categories:
     - Government Spending
   tags:

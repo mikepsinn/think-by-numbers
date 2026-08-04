@@ -14,6 +14,7 @@ metadata:
     ogImage: /assets/og-images/debt/posts-2.jpg
     infographic: /assets/infographics/debt/posts-2.jpg
     thumbnail: /assets/thumbnails/debt/posts-2.jpg
+    card: /assets/cards/debt/posts-2.jpg
   categories:
     - Debt
     - Economics

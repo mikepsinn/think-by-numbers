@@ -17,6 +17,7 @@ metadata:
       /assets/infographics/government-spending/how-much-do-we-spend-on-the-military.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/how-much-do-we-spend-on-the-military.jpg
+    card: /assets/cards/government-spending/how-much-do-we-spend-on-the-military.jpg
   categories:
     - Government Spending
     - Military

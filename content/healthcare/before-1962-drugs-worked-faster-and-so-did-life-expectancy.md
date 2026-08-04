@@ -23,6 +23,8 @@ metadata:
       /assets/infographics/healthcare/before-1962-drugs-worked-faster-and-so-did-life-expectancy.jpg
     thumbnail: >-
       /assets/thumbnails/healthcare/before-1962-drugs-worked-faster-and-so-did-life-expectancy.jpg
+    card: >-
+      /assets/cards/healthcare/before-1962-drugs-worked-faster-and-so-did-life-expectancy.jpg
 aiScores:
   composite: 3
   quality: 3

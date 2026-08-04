@@ -14,6 +14,7 @@ metadata:
     ogImage: /assets/og-images/economics/a-world-run-by-economists.jpg
     infographic: /assets/infographics/economics/a-world-run-by-economists.jpg
     thumbnail: /assets/thumbnails/economics/a-world-run-by-economists.jpg
+    card: /assets/cards/economics/a-world-run-by-economists.jpg
   categories:
     - Economics
     - Utilitarianism

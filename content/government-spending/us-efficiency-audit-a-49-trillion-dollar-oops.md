@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/government-spending/us-efficiency-audit-a-49-trillion-dollar-oops.jpg
     thumbnail: >-
       /assets/thumbnails/government-spending/us-efficiency-audit-a-49-trillion-dollar-oops.jpg
+    card: >-
+      /assets/cards/government-spending/us-efficiency-audit-a-49-trillion-dollar-oops.jpg
   categories:
     - Government Spending
     - Economics

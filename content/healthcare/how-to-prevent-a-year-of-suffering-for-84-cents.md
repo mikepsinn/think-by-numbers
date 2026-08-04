@@ -17,6 +17,8 @@ metadata:
       /assets/infographics/healthcare/how-to-prevent-a-year-of-suffering-for-84-cents.jpg
     thumbnail: >-
       /assets/thumbnails/healthcare/how-to-prevent-a-year-of-suffering-for-84-cents.jpg
+    card: >-
+      /assets/cards/healthcare/how-to-prevent-a-year-of-suffering-for-84-cents.jpg
   categories:
     - Healthcare
     - Health

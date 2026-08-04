@@ -18,6 +18,8 @@ metadata:
       /assets/infographics/democracy/unrepresentative-democracy-government-by-millionaires-for-millionaires.jpg
     thumbnail: >-
       /assets/thumbnails/democracy/unrepresentative-democracy-government-by-millionaires-for-millionaires.jpg
+    card: >-
+      /assets/cards/democracy/unrepresentative-democracy-government-by-millionaires-for-millionaires.jpg
   categories:
     - Democracy
   tags:

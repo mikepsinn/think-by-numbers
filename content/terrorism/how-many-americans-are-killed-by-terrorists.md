@@ -16,6 +16,7 @@ metadata:
       /assets/infographics/terrorism/how-many-americans-are-killed-by-terrorists.jpg
     thumbnail: >-
       /assets/thumbnails/terrorism/how-many-americans-are-killed-by-terrorists.jpg
+    card: /assets/cards/terrorism/how-many-americans-are-killed-by-terrorists.jpg
   categories:
     - Terrorism
   uuid: '11ty/import::wordpress::https://thinkbynumbers.org/?p=9571'

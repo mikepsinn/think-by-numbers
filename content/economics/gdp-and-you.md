@@ -14,6 +14,7 @@ metadata:
     ogImage: /assets/og-images/economics/gdp-and-you.jpg
     infographic: /assets/infographics/economics/gdp-and-you.jpg
     thumbnail: /assets/thumbnails/economics/gdp-and-you.jpg
+    card: /assets/cards/economics/gdp-and-you.jpg
   categories:
     - Economics
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/?p=8269'

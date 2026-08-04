@@ -18,6 +18,7 @@ metadata:
     ogImage: /assets/og-images/economics/how-much-money-is-there-in-the-world-2.jpg
     infographic: /assets/infographics/economics/how-much-money-is-there-in-the-world-2.jpg
     thumbnail: /assets/thumbnails/economics/how-much-money-is-there-in-the-world-2.jpg
+    card: /assets/cards/economics/how-much-money-is-there-in-the-world-2.jpg
 tags:
   - economics
 aiScores:

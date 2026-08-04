@@ -14,6 +14,7 @@ metadata:
     ogImage: /assets/og-images/terrorism/iran-terrorism-history.jpg
     infographic: /assets/infographics/terrorism/iran-terrorism-history.jpg
     thumbnail: /assets/thumbnails/terrorism/iran-terrorism-history.jpg
+    card: /assets/cards/terrorism/iran-terrorism-history.jpg
   categories:
     - Terrorism
     - War

@@ -93,6 +93,7 @@ async function generateImagesForPost(
   }
 
   let ogImagePath: string | null = null;
+  let cardImagePath: string | null = null;
   let infographicImagePath: string | null = null;
   let thumbnailPath: string | null = null;
 
@@ -163,6 +164,7 @@ Full article content: ${cleanedContent}
               .resize({ width: 720, withoutEnlargement: true })
               .jpeg({ quality: 78, mozjpeg: true })
               .toFile(cardAbs);
+            cardImagePath = cardRel;
             console.log(`  [OK] Generated card image: ${cardRel}`);
           } catch (cardErr) {
             console.error(`  [ERROR] Failed to generate card image:`, cardErr);
@@ -219,7 +221,7 @@ Full article content: ${cleanedContent}
   await Promise.all(imageJobs);
 
   // Update frontmatter if we generated any new images
-  if (ogImagePath || infographicImagePath || thumbnailPath) {
+  if (ogImagePath || cardImagePath || infographicImagePath || thumbnailPath) {
     const updatedFrontmatter = { ...frontmatter };
 
     // Ensure metadata structure exists
@@ -233,6 +235,9 @@ Full article content: ${cleanedContent}
     // Add generated images to frontmatter
     if (ogImagePath) {
       updatedFrontmatter.metadata.media.ogImage = `/${ogImagePath}`;
+    }
+    if (cardImagePath) {
+      updatedFrontmatter.metadata.media.card = `/${cardImagePath}`;
     }
     if (infographicImagePath) {
       updatedFrontmatter.metadata.media.infographic = `/${infographicImagePath}`;

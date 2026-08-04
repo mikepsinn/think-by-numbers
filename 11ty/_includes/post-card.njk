@@ -4,7 +4,7 @@
   Expects: post variable in context
 #}
 <article class="post-card">
-  {%- set imageUrl = (post.data.metadata.media.ogImage or post.data.metadata.media.infographic or post.data.metadata.media.featuredImage) | cardImage %}
+  {%- set imageUrl = post.data.metadata.media.card or post.data.metadata.media.ogImage or post.data.metadata.media.infographic or post.data.metadata.media.featuredImage %}
   {%- if imageUrl %}
   {%- set eager = loop and loop.index0 < 2 %}
   <div class="post-image">

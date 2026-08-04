@@ -16,6 +16,7 @@ metadata:
       /assets/infographics/taxes/irs-automation-could-save-americans-191-billion.jpg
     thumbnail: >-
       /assets/thumbnails/taxes/irs-automation-could-save-americans-191-billion.jpg
+    card: /assets/cards/taxes/irs-automation-could-save-americans-191-billion.jpg
   categories:
     - Taxes
   tags:

@@ -16,6 +16,7 @@ metadata:
       /assets/og-images/politics/most-voters-believe-their-own-party-will-win.jpg
     thumbnail: >-
       /assets/thumbnails/politics/most-voters-believe-their-own-party-will-win.jpg
+    card: /assets/cards/politics/most-voters-believe-their-own-party-will-win.jpg
   categories:
     - Politics
   tags:

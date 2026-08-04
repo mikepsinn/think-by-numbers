@@ -13,6 +13,7 @@ metadata:
     ogImage: /assets/og-images/government-spending/false-sense-of-insecurity.jpg
     infographic: /assets/infographics/government-spending/false-sense-of-insecurity.jpg
     thumbnail: /assets/thumbnails/government-spending/false-sense-of-insecurity.jpg
+    card: /assets/cards/government-spending/false-sense-of-insecurity.jpg
   categories:
     - Government Spending
   uuid: '11ty/import::wordpress::http://thinkbynumbers.org/wordpress/?p=4'

@@ -14,6 +14,7 @@ metadata:
     ogImage: /assets/og-images/terrorism/suicide-terrorism-statistics.jpg
     infographic: /assets/infographics/terrorism/suicide-terrorism-statistics.jpg
     thumbnail: /assets/thumbnails/terrorism/suicide-terrorism-statistics.jpg
+    card: /assets/cards/terrorism/suicide-terrorism-statistics.jpg
   categories:
     - Terrorism
   tags:

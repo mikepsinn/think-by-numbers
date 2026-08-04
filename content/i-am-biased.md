@@ -11,6 +11,7 @@ metadata:
     ogImage: /assets/og-images/i-am-biased.jpg
     infographic: /assets/infographics/i-am-biased.jpg
     thumbnail: /assets/thumbnails/i-am-biased.jpg
+    card: /assets/cards/i-am-biased.jpg
 tags:
   - empiricism
   - philosophy
