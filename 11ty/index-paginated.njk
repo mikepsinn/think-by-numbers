@@ -2,7 +2,7 @@
 layout: base.njk
 description: "Minimizing suffering with the power of arithmetic"
 pagination:
-  data: collections.posts
+  data: collections.gallery
   size: 10
   alias: pagedPosts
 permalink: "{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber + 1 }}/{% else %}/{% endif %}"
@@ -39,7 +39,7 @@ eleventyComputed:
 
     <div class="post-grid" id="post-grid">
       {%- for post in pagedPosts %}
-      {%- if post.data.title and post.inputPath.endsWith('.md') %}
+      {%- if post.data.title %}
       {% include "post-card.njk" %}
       {%- endif %}
       {%- endfor %}
@@ -79,45 +79,6 @@ eleventyComputed:
     </nav>
     {%- endif %}
 
-    {# Manual (How to End War and Disease) chapters — homepage only, server-rendered
-       so the book stays visible without a client-side sort. Curated top 6. #}
-    {%- if pagination.pageNumber == 0 %}
-    <section class="manual-chapters" data-pagefind-ignore style="margin-top:50px;">
-      <h2>From the Book: How to End War and Disease</h2>
-      <p class="section-sub" style="color:var(--color-text-light); margin:-0.25rem 0 1.25rem;">A free plan to redirect 1% of military spending into curing disease. A few chapters to start with.</p>
-      <div class="post-grid">
-        {%- for chapter in h2ewdChapters | topByComposite(6) %}
-        <article class="post-card">
-          {%- if chapter.image %}
-          <div class="post-image">
-            <a href="{{ chapter.url }}" target="_blank" rel="noopener">
-              <img src="{{ chapter.image }}" alt="{{ chapter.title }}" loading="lazy" width="400" height="300">
-            </a>
-          </div>
-          {%- endif %}
-          <div class="post-header">
-            <h3 class="post-title">
-              <a href="{{ chapter.url }}" target="_blank" rel="noopener">{{ chapter.title }}</a>
-            </h3>
-          </div>
-          <div class="post-info">
-            <div class="entry-summary">
-              {%- if chapter.description %}<p>{{ chapter.description }}</p>{%- endif %}
-            </div>
-          </div>
-          <div class="post-footer">
-            <small>
-              <a href="{{ chapter.url }}" target="_blank" rel="noopener"><span class="read-more">Read more</span></a>
-            </small>
-          </div>
-        </article>
-        {%- endfor %}
-      </div>
-      <p style="margin-top:24px; text-align:center;">
-        <a href="https://manual.warondisease.org" target="_blank" rel="noopener">Read the whole book, free →</a>
-      </p>
-    </section>
-    {%- endif %}
   </div>
 </div>
 

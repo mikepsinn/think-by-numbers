@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const metadataValidator = require("./scripts/validate-metadata.js");
+const getH2ewdChapters = require("./11ty/_data/h2ewdChapters.js");
 
 // Composite score recomputed from score parts. Must stay identical to the
 // client-side calculateComposite() in 11ty/index-paginated.njk and the
@@ -69,13 +70,40 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, limit);
   });
 
-  // Top N items (posts or h2ewd chapters) by recomputed composite score.
-  // Used for the homepage "From the Book" teaser so the strongest chapters show.
-  eleventyConfig.addFilter("topByComposite", (items, n) => {
-    return [...(items || [])]
-      .sort((a, b) => computeCompositeScore(b.aiScores) - computeCompositeScore(a.aiScores))
-      .slice(0, n || 6);
-  });
+  function isBlogPost(item) {
+    if (!item.inputPath ||
+        !(item.inputPath.includes("/content/") || item.inputPath.includes("\\content\\")) ||
+        !item.inputPath.endsWith(".md") ||
+        !item.data.title) {
+      return false;
+    }
+    if (item.data.type === "post") return true;
+    if (item.data.metadata && item.data.metadata.type === "wordpress") return true;
+    return false;
+  }
+
+  function sortByCompositeThenDate(a, b) {
+    const scoreA = computeCompositeScore(a.data.aiScores);
+    const scoreB = computeCompositeScore(b.data.aiScores);
+    if (scoreB !== scoreA) return scoreB - scoreA;
+    return (b.date || 0) - (a.date || 0);
+  }
+
+  function chapterToGalleryItem(chapter) {
+    const scores = chapter.aiScores || {};
+    const composite = Math.round(computeCompositeScore(scores) * 10) / 10;
+    return {
+      url: chapter.url,
+      date: chapter.lastmod ? new Date(chapter.lastmod) : new Date(0),
+      data: {
+        title: chapter.title,
+        description: chapter.description,
+        external: true,
+        metadata: { media: { card: chapter.image, ogImage: chapter.image } },
+        aiScores: { ...scores, composite },
+      },
+    };
+  }
 
   // Decode HTML entities
   eleventyConfig.addFilter("decodeHtml", (str) => {
@@ -180,40 +208,16 @@ module.exports = function(eleventyConfig) {
   // WordPress-style posts collection (blog articles that appear in feeds/listings)
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getAll()
-      .filter(item => {
-        // Only include markdown files from content directory
-        if (!item.inputPath ||
-            !item.inputPath.includes('/content/') ||
-            !item.inputPath.endsWith('.md') ||
-            !item.data.title) {
-          return false;
-        }
+      .filter(isBlogPost)
+      .sort(sortByCompositeThenDate);
+  });
 
-        // Include items explicitly marked as posts
-        if (item.data.type === 'post') {
-          return true;
-        }
-
-        // Include WordPress imports (legacy)
-        if (item.data.metadata && item.data.metadata.type === 'wordpress') {
-          return true;
-        }
-
-        // Exclude everything else (pages, utility content, etc.)
-        return false;
-      })
-      .sort((a, b) => {
-        // Sort by composite AI score (highest first), fallback to date.
-        // Always recompute from parts (never trust frontmatter composite) so
-        // this order agrees with the client-side sort by construction.
-        const scoreA = computeCompositeScore(a.data.aiScores);
-        const scoreB = computeCompositeScore(b.data.aiScores);
-        if (scoreB !== scoreA) {
-          return scoreB - scoreA;
-        }
-        // If scores are equal, sort by date (newest first)
-        return b.date - a.date;
-      });
+  // Homepage gallery: local posts and book chapters, ranked the same way.
+  eleventyConfig.addCollection("gallery", async function(collectionApi) {
+    const posts = collectionApi.getAll().filter(isBlogPost);
+    const chapters = await getH2ewdChapters();
+    return [...posts, ...chapters.map(chapterToGalleryItem)]
+      .sort(sortByCompositeThenDate);
   });
 
   // WordPress-style pages collection (standalone pages that don't appear in feeds)
