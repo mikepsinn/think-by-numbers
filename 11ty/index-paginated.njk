@@ -12,8 +12,6 @@ eleventyComputed:
 
 <div class="container" data-pagefind-ignore>
   <div class="main-content">
-    <p class="site-identity">Think by Numbers runs cost-benefit analyses for a species that spends $604 on weapons for every $1 on clinical trials. We suspect a math error.</p>
-
     <form class="home-search" action="/search/" method="get" role="search"
       style="display:flex; gap:10px; margin:0 0 30px;">
       <input type="text" name="q" placeholder="Search articles…" aria-label="Search articles" required
@@ -23,16 +21,15 @@ eleventyComputed:
     </form>
 
     <div class="post-header-controls">
-      <h2>Posts, Ranked by Extinction-Prevention Potential</h2>
       <div class="sort-controls">
         <label for="post-sort">Sort by:</label>
         <select id="post-sort">
-          <option value="composite">Most Likely to Prevent Extinction</option>
-          <option value="value">Biggest "Why Didn't Anyone Tell Me This?"</option>
-          <option value="quality">Most Rigorous (For Skeptics)</option>
-          <option value="timeliness">Most Useful Right Now</option>
-          <option value="date-new">Fresh Off the Spreadsheet</option>
-          <option value="date-old">Vintage Data (Aged Like Wine)</option>
+          <option value="composite">Highest score</option>
+          <option value="value">Highest value</option>
+          <option value="quality">Highest quality</option>
+          <option value="timeliness">Most timely</option>
+          <option value="date-new">Newest</option>
+          <option value="date-old">Oldest</option>
         </select>
       </div>
     </div>
