@@ -24,10 +24,13 @@ metadata:
     - Healthcare
   source: 'https://invisible-graveyard.warondisease.org'
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 9.4
+  quality: 9
+  value: 10
+  timeliness: 9
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.086Z'
+  model: editorial
 ---
 
 ## The Graveyard You Can't See (Because It's the Size of a Country)

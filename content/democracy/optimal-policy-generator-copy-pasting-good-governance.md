@@ -25,10 +25,13 @@ metadata:
     - Politics
   source: 'https://opg.warondisease.org'
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 6.7
+  quality: 6
+  value: 7
+  timeliness: 7
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.216Z'
+  model: editorial
 ---
 
 ## The World's Largest Experiment (That Nobody's Looked At)

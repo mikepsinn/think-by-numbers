@@ -26,10 +26,13 @@ metadata:
     card: >-
       /assets/cards/government-spending/humanity-spends-56-cents-per-person-per-year-on-curing-disease.jpg
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 9.7
+  quality: 9
+  value: 10
+  timeliness: 10
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.092Z'
+  model: editorial
 ---
 
 ## The $68 Billion Lie

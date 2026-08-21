@@ -23,10 +23,13 @@ metadata:
     - Science
   source: 'https://dfda-spec.warondisease.org'
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 8.4
+  quality: 8
+  value: 9
+  timeliness: 8
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.148Z'
+  model: editorial
 ---
 
 ## What If Drug Testing Was Cheap, Fast, and Not Completely Insane?

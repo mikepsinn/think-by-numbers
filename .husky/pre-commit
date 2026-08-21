@@ -1,8 +1,4 @@
-cd . || exit 1
-
-if [ ! -d node_modules ]; then
-	echo "[pre-commit] node_modules missing; running npm ci..."
-	npm ci --no-audit --no-fund || exit 1
-fi
-
-npm run build
+# Full `npm run build` used to run here. That deletes and rewrites
+# ~2,300 `_site` files plus a Pagefind index on every commit, which
+# pegs Defender and Windows Search for minutes. Vercel already builds
+# on push.

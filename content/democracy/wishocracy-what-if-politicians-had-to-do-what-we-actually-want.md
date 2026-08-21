@@ -24,10 +24,13 @@ metadata:
     - Politics
   source: 'https://wishocracy.warondisease.org'
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 7.7
+  quality: 7
+  value: 8
+  timeliness: 8
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.205Z'
+  model: editorial
 ---
 
 ## Democracy, But Make It Actually Work

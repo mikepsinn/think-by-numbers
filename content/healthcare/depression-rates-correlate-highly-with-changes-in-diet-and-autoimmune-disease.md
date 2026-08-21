@@ -1,5 +1,5 @@
 ---
-title: Depression  Rates Correlate Highly with Changes in Diet and Autoimmune Disease
+title: Depression Rates Correlate Highly with Changes in Diet and Autoimmune Disease
 description: >-
   US suicide rate jumped 40% as vegetable oil went up and actual vegetables
   dropped 10%. Inflammation steals tryptophan needed to make serotonin.
