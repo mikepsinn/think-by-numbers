@@ -25,10 +25,13 @@ metadata:
     - Economics
   source: 'https://drug-cost.warondisease.org'
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 9.4
+  quality: 9
+  value: 10
+  timeliness: 9
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.045Z'
+  model: editorial
 ---
 
 ## The Price of Staying Alive Has Gone Up a Bit

@@ -26,10 +26,13 @@ metadata:
     - Government Spending
   source: 'https://impact.warondisease.org'
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 9.1
+  quality: 8
+  value: 10
+  timeliness: 9
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.128Z'
+  model: editorial
 ---
 
 ## A Modest Proposal Involving Slightly Fewer Missiles

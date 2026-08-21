@@ -1,0 +1,61 @@
+/**
+ * Homepage gallery order. Lower index = earlier on the homepage.
+ * Keys ending in .md are local posts (path under content/).
+ * Keys starting with "book:" match How to End War and Disease chapter titles
+ * (exact or prefix).
+ *
+ * Unlisted book chapters come next, then unlisted local posts.
+ * Do not use aiScores.composite for this list — it ranked link-dumps first.
+ */
+module.exports = [
+  "healthcare/why-your-medicine-costs-105-times-more-than-it-should.md",
+  "government-spending/the-nih-spent-1-trillion-and-eradicated-zero-diseases.md",
+  "taxes/irs-automation-could-save-americans-191-billion.md",
+  "book:The 1% Treaty",
+  "health/the-invisible-graveyard-102-million-deaths-nobody-talks-about.md",
+  "health/only-0-000000002-of-potential-treatments-have-been-studied.md",
+  "government-spending/humanity-spends-56-cents-per-person-per-year-on-curing-disease.md",
+  "book:NIH Fails to Institute Health",
+  "healthcare/the-recovery-trial-how-britain-saved-a-million-lives-for-24-million.md",
+  "healthcare/how-to-prevent-a-year-of-suffering-for-84-cents.md",
+  "government-spending/cbs-news-2-3-trillion-missing-from-pentagon.md",
+  "economics/4-trillion-printed-in-2020-went-entirely-to-the-top-1-percent.md",
+  "democracy/voter-support-for-a-bill-has-near-zero-influence-on-whether-it-will-become-law.md",
+  "book:What Matters",
+  "health/disease-costs-397-trillion-a-year.md",
+  "military/war-costs-humanity-11-point-4-trillion-a-year.md",
+  "health/youre-14-times-more-likely-to-die-of-cancer-than-from-an-opioid-overdose.md",
+  "drug-war/drug-war-statistics.md",
+  "economics/bottled-water-costs-40x-more-why-dont-poor-areas-have-water-plants.md",
+  "government-spending/false-sense-of-insecurity.md",
+  "military/fraudulent-defense-contractors-paid-1-trillion.md",
+  "healthcare/before-1962-drugs-worked-faster-and-so-did-life-expectancy.md",
+  "book:The Court of Humanity",
+  "military/the-1-percent-treaty-bribing-our-way-to-not-dying.md",
+  "healthcare/continuous-evidence-generation-testing-drugs-for-a-dollar.md",
+  "healthcare/right-to-trial-the-radical-idea-of-letting-sick-people-try-medicine.md",
+  "healthcare/the-health-dividend-what-27-billion-in-not-bombs-buys-you.md",
+  "economics/how-the-federal-reserve-steals-from-the-poor-and-gives-to-the-rich.md",
+  "economics/when-the-government-prints-new-money-who-gets-it.md",
+  "drug-war/what-is-the-cause-of-the-opioid-crisis-2.md",
+  "healthcare/depression-rates-correlate-highly-with-changes-in-diet-and-autoimmune-disease.md",
+  "health/fecal-transplant-reduces-autism-symptoms-45.md",
+  "health/less-rem-sleep-linked-to-dementia.md",
+  "health/how-many-net-lives-does-the-fda-save.md",
+  "terrorism/suicide-terrorism-statistics.md",
+  "terrorism/how-many-americans-are-killed-by-terrorists.md",
+  "debt/posts-2.md",
+  "government-spending/usps-uses-18-billion-in-taxpayer-subsidies-to-subsidize-junk-mail-killing-100-million-trees-and-irritating-millions.md",
+  "government-spending/corporate-vs-social-welfare.md",
+  "military/military-industrial-complex-funnels-wealth-to-4-counties.md",
+  "democracy/unrepresentative-democracy-government-by-millionaires-for-millionaires.md",
+  "health/americans-spend-more-on-weight-loss-products-than-it-would-take-to-end-world-hunger.md",
+  "military/we-have-enough-nuclear-bombs-to-kill-everyone-on-the-planet-2-6-times.md",
+  "politics/it-takes-3-5-of-the-population-to-change-the-world.md",
+  "politics/how-much-does-it-cost-to-save-the-world-about-250-million.md",
+  "economics/how-much-does-it-cost-to-develop-a-drug.md",
+  "federal-reserve/financial-sector-costs-us-more-than-all.md",
+  "government-spending/the-political-dysfunction-tax-101-trillion-reasons-to-be-annoyed.md",
+  "government-spending/us-efficiency-audit-a-49-trillion-dollar-oops.md",
+  "healthcare/how-to-end-war-and-disease-the-complete-idiots-guide.md",
+];

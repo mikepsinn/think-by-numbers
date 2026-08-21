@@ -36,12 +36,25 @@ async function scorePost(filePath: string): Promise<PostScore> {
   // Limit content to first 2000 chars to keep token count reasonable
   const truncatedContent = bodyContent.substring(0, 2000);
 
-  const prompt = `Mission: Maximize median health/wealth/happiness by exposing harmful policies.
+  const prompt = `You score Think by Numbers posts. The site uses numbers and cost-benefit analysis to show broken systems. Voice: dark humor, incentives not sermons.
 
-Score 1-10:
-- Clarity: Clear mechanism? Strong data? Actionable?
-- Impact: If everyone knew this, how much better would the world be? Novel insights? Hidden facts? Exposes wealth extraction?
-- Relevance: Useful TODAY? Timeless mechanisms=10. Current data=10. Evergreen principle=7-9. Dated politics=2-4.
+Score independently 1-10. Use the full range. Most posts are 4-7. 9-10 are rare. 1-3 are jokes, link-dumps, or empty.
+
+quality (writing + title + evidence):
+- 8-10: specific number in the title or first lines, clear mechanism, checkable sources
+- 5-7: solid but Wikipedia-question title ("How much does X") or thin evidence
+- 1-4: joke with no decision-relevant number, link-roundup to someone else's database, thesis-paper title, or mostly empty
+
+value (if a million people read this, does anything get better?):
+- High: misallocated trillions, preventable deaths, a lever the reader can explain
+- Low: 2012 primary horse-race, Cosby jokes, "fun facts", product pitches, duplicate of another post
+
+timeliness:
+- 10: mechanism still true with current numbers (FDA, Fed, military/clinical-trial ratio)
+- 7-9: evergreen principle
+- 2-4: dated electoral content (Obama/Romney/Gingrich 2012) unless the mechanism is restated without the horse race
+
+Penalize: "wealth extraction" buzzword essays with no number; catalogs of other people's tools; ALL CAPS clickbait.
 
 Title: ${title}
 Description: ${description}
@@ -52,7 +65,7 @@ JSON:
   "qualityScore": <1-10>,
   "valueScore": <1-10>,
   "timelinessScore": <1-10>,
-  "reasoning": "<why this matters NOW>"
+  "reasoning": "<one sentence: the number that matters, or why this is weak>"
 }`;
 
   try {
@@ -121,18 +134,32 @@ async function updatePostFrontmatter(filePath: string, scores: PostScore): Promi
 }
 
 async function main() {
-  const contentDir = path.join(process.cwd(), 'content');
+  const missingOnly = process.argv.includes("--missing");
+  const contentDir = path.join(process.cwd(), "content");
 
-  console.log('🔍 Finding all markdown posts...');
+  console.log("Finding markdown posts...");
   const files = await getAllMarkdownFiles(contentDir);
 
-  // Filter to only actual posts (exclude some meta files)
-  const posts = files.filter(f => {
-    const basename = path.basename(f);
-    return !['README.md', 'LICENSE.md', 'CONTRIBUTING.md'].includes(basename);
-  });
+  const posts: string[] = [];
+  for (const filePath of files) {
+    const basename = path.basename(filePath);
+    if (["README.md", "LICENSE.md", "CONTRIBUTING.md"].includes(basename)) continue;
+    const raw = await fs.readFile(filePath, "utf-8");
+    const { data } = matter(raw);
+    const isPost =
+      data.type === "post" ||
+      (data.metadata && data.metadata.type === "wordpress");
+    if (!isPost || !data.title) continue;
+    const hasRealScore = Boolean(data.aiScores && data.aiScores.scoredAt);
+    if (missingOnly && hasRealScore) continue;
+    posts.push(filePath);
+  }
 
-  console.log(`📊 Found ${posts.length} posts to score\n`);
+  console.log(
+    missingOnly
+      ? `Scoring ${posts.length} posts with stub/missing scores (--missing)\n`
+      : `Scoring ${posts.length} posts\n`
+  );
 
   let processedCount = 0;
 
@@ -144,25 +171,21 @@ async function main() {
       const scores = await scorePost(postPath);
       await updatePostFrontmatter(postPath, scores);
 
-      // Get composite score from updated frontmatter
-      const updatedContent = await fs.readFile(postPath, 'utf-8');
+      const updatedContent = await fs.readFile(postPath, "utf-8");
       const { data } = matter(updatedContent);
       const composite = data.aiScores?.composite || 0;
 
-      console.log(`  ✅ Quality: ${scores.qualityScore}/10 | Value: ${scores.valueScore}/10 | Timeliness: ${scores.timelinessScore}/10 | Composite: ${composite}/10`);
-      console.log(`  📝 ${scores.reasoning}`);
+      console.log(`  Quality: ${scores.qualityScore}/10 | Value: ${scores.valueScore}/10 | Timeliness: ${scores.timelinessScore}/10 | Composite: ${composite}/10`);
+      console.log(`  ${scores.reasoning}`);
 
       processedCount++;
-
-      // Small delay to avoid rate limiting
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     } catch (error) {
-      console.error(`  ❌ Error processing ${relativePath}:`, error);
+      console.error(`  Error processing ${relativePath}:`, error);
     }
   }
 
-  console.log(`\n✅ Completed scoring ${processedCount}/${posts.length} posts`);
+  console.log(`\nCompleted scoring ${processedCount}/${posts.length} posts`);
 }
 
 main().catch(console.error);

@@ -16,10 +16,12 @@
     "fix-image-extensions": "tsx scripts/fix-image-extensions.ts",
     "generate-checklist": "tsx scripts/generate-post-checklist.ts",
     "score-posts": "tsx scripts/score-posts.ts",
+    "score-posts:missing": "tsx scripts/score-posts.ts --missing",
     "podcast-data": "tsx scripts/generate-podcast-data.ts",
     "podcast-frontmatter": "tsx scripts/add-podcast-frontmatter.ts",
     "update-image-metadata": "tsx scripts/update-image-metadata.ts",
     "generate-declaration": "tsx scripts/generate-declaration-include.ts",
+    "rank-gallery": "tsx scripts/rank-gallery.ts",
     "prepare": "husky || true"
   },
   "keywords": [

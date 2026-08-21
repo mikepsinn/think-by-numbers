@@ -1,5 +1,5 @@
 ---
-title: Keynsian Creationism and Intelligently Design Economies
+title: Keynesian Creationism and Intelligently Designed Economies
 authors: []
 date: 2013-03-16T09:03:20.000Z
 description: >-

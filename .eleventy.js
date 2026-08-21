@@ -1,6 +1,7 @@
 const { DateTime } = require("luxon");
 const metadataValidator = require("./scripts/validate-metadata.js");
 const getH2ewdChapters = require("./11ty/_data/h2ewdChapters.js");
+const homepageOrder = require("./11ty/_data/homepageOrder.js");
 
 // Composite score recomputed from score parts. Must stay identical to the
 // client-side calculateComposite() in 11ty/index-paginated.njk and the
@@ -86,6 +87,39 @@ module.exports = function(eleventyConfig) {
     const scoreA = computeCompositeScore(a.data.aiScores);
     const scoreB = computeCompositeScore(b.data.aiScores);
     if (scoreB !== scoreA) return scoreB - scoreA;
+    return (b.date || 0) - (a.date || 0);
+  }
+
+  function postFileKey(item) {
+    const p = String(item.inputPath || "").replace(/\\/g, "/");
+    const marker = "/content/";
+    const idx = p.toLowerCase().lastIndexOf(marker);
+    return idx === -1 ? "" : p.slice(idx + marker.length);
+  }
+
+  function galleryOrderIndex(item) {
+    const listed = homepageOrder;
+    if (item.data && item.data.external) {
+      const title = String(item.data.title || "").toLowerCase();
+      const i = listed.findIndex((key) => {
+        if (!key.startsWith("book:")) return false;
+        const needle = key.slice(5).toLowerCase();
+        return title === needle || title.startsWith(needle);
+      });
+      return i === -1 ? 5000 : i;
+    }
+    const file = postFileKey(item);
+    const i = listed.indexOf(file);
+    return i === -1 ? 6000 : i;
+  }
+
+  function sortGallery(a, b) {
+    const ra = galleryOrderIndex(a);
+    const rb = galleryOrderIndex(b);
+    if (ra !== rb) return ra - rb;
+    const qa = (a.data.aiScores && a.data.aiScores.quality) || 0;
+    const qb = (b.data.aiScores && b.data.aiScores.quality) || 0;
+    if (qb !== qa) return qb - qa;
     return (b.date || 0) - (a.date || 0);
   }
 
@@ -212,12 +246,16 @@ module.exports = function(eleventyConfig) {
       .sort(sortByCompositeThenDate);
   });
 
-  // Homepage gallery: local posts and book chapters, ranked the same way.
+  // Homepage gallery: curated order, then remaining book chapters, then other posts.
   eleventyConfig.addCollection("gallery", async function(collectionApi) {
-    const posts = collectionApi.getAll().filter(isBlogPost);
+    const posts = collectionApi.getAll().filter((item) => {
+      if (!isBlogPost(item)) return false;
+      const p = String(item.inputPath || "").replace(/\\/g, "/");
+      return !p.includes("/monkey-business/");
+    });
     const chapters = await getH2ewdChapters();
     return [...posts, ...chapters.map(chapterToGalleryItem)]
-      .sort(sortByCompositeThenDate);
+      .sort(sortGallery);
   });
 
   // WordPress-style pages collection (standalone pages that don't appear in feeds)

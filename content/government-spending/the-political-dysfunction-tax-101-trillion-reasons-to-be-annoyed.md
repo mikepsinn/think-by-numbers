@@ -26,10 +26,13 @@ metadata:
     - Politics
   source: 'https://political-dysfunction-tax.warondisease.org'
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 7.7
+  quality: 7
+  value: 8
+  timeliness: 8
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.181Z'
+  model: editorial
 ---
 
 ## You Are Paying $50,500 a Year for Bad Government (Per Household)

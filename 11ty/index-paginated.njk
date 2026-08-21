@@ -20,21 +20,7 @@ eleventyComputed:
         style="padding:12px 20px; border:3px solid var(--color-text); background:var(--color-paper); color:var(--color-text); font-family:inherit; font-weight:600; cursor:pointer; white-space:nowrap;">Search</button>
     </form>
 
-    <div class="post-header-controls">
-      <div class="sort-controls">
-        <label for="post-sort">Sort by:</label>
-        <select id="post-sort">
-          <option value="composite">Highest score</option>
-          <option value="value">Highest value</option>
-          <option value="quality">Highest quality</option>
-          <option value="timeliness">Most timely</option>
-          <option value="date-new">Newest</option>
-          <option value="date-old">Oldest</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="post-grid" id="post-grid">
+    <div class="post-grid">
       {%- for post in pagedPosts %}
       {%- if post.data.title %}
       {% include "post-card.njk" %}
@@ -42,14 +28,13 @@ eleventyComputed:
       {%- endfor %}
     </div>
 
-    {# Pagination Navigation #}
     {%- if pagination.href.previous or pagination.href.next %}
     <nav class="pagination" aria-label="Pagination">
       <div class="pagination-links">
         {%- if pagination.href.previous %}
-        <a href="{{ pagination.href.previous }}" class="pagination-link prev">← Newer Posts</a>
+        <a href="{{ pagination.href.previous }}" class="pagination-link prev">← Previous</a>
         {%- else %}
-        <span class="pagination-link prev disabled">← Newer Posts</span>
+        <span class="pagination-link prev disabled">← Previous</span>
         {%- endif %}
 
         <span class="pagination-info">
@@ -57,13 +42,12 @@ eleventyComputed:
         </span>
 
         {%- if pagination.href.next %}
-        <a href="{{ pagination.href.next }}" class="pagination-link next">Older Posts →</a>
+        <a href="{{ pagination.href.next }}" class="pagination-link next">Next →</a>
         {%- else %}
-        <span class="pagination-link next disabled">Older Posts →</span>
+        <span class="pagination-link next disabled">Next →</span>
         {%- endif %}
       </div>
 
-      {# Page numbers #}
       <div class="pagination-numbers">
         {%- for pageHref in pagination.hrefs %}
         {%- if loop.index0 == pagination.pageNumber %}
@@ -75,183 +59,5 @@ eleventyComputed:
       </div>
     </nav>
     {%- endif %}
-
   </div>
 </div>
-
-<script>
-(function() {
-  var INDEX_URL = '/assets/json/posts-index.json';
-  var PAGE_SIZE = 20;
-
-  var sortSelect = document.getElementById('post-sort');
-  var postGrid = document.getElementById('post-grid');
-  var paginationNav = document.querySelector('.pagination');
-
-  if (!sortSelect || !postGrid) return;
-
-  // Same weights the build-time scorer uses; length/imageCount default to 0
-  // when unknown so nothing gets a free composite boost.
-  function calculateComposite(s) {
-    var lengthScore = Math.min((s.length || 0) / 5000, 1) * 10;
-    var imageScore = Math.min((s.imageCount || 0) / 5, 1) * 10;
-    return (
-      s.value * 0.35 +
-      s.quality * 0.25 +
-      s.timeliness * 0.25 +
-      lengthScore * 0.10 +
-      imageScore * 0.05
-    );
-  }
-
-  // Full HTML escaper — the server-rendered path (post-card.njk) auto-escapes
-  // these fields via Nunjucks, so the client render must match.
-  function esc(str) {
-    return String(str == null ? '' : str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-
-  // Lazily fetched + cached merged index (TBN posts + manual chapters).
-  var allPosts = null;
-  var loadPromise = null;
-
-  function loadIndex() {
-    if (allPosts) return Promise.resolve(allPosts);
-    if (!loadPromise) {
-      loadPromise = fetch(INDEX_URL)
-        .then(function(res) {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          return res.json();
-        })
-        .then(function(items) {
-          allPosts = items.map(function(post) {
-            post.aiScores.composite = calculateComposite(post.aiScores);
-            return post;
-          });
-          return allPosts;
-        })
-        .catch(function(err) {
-          loadPromise = null; // allow retry on the next sort attempt
-          throw err;
-        });
-    }
-    return loadPromise;
-  }
-
-  function sortPosts(posts, sortBy) {
-    var sorted = posts.slice();
-    switch (sortBy) {
-      case 'composite':
-        sorted.sort(function(a, b) { return b.aiScores.composite - a.aiScores.composite; });
-        break;
-      case 'value':
-        sorted.sort(function(a, b) { return b.aiScores.value - a.aiScores.value; });
-        break;
-      case 'quality':
-        sorted.sort(function(a, b) { return b.aiScores.quality - a.aiScores.quality; });
-        break;
-      case 'timeliness':
-        sorted.sort(function(a, b) { return b.aiScores.timeliness - a.aiScores.timeliness; });
-        break;
-      case 'date-new':
-        sorted.sort(function(a, b) { return b.timestamp - a.timestamp; });
-        break;
-      case 'date-old':
-        sorted.sort(function(a, b) { return a.timestamp - b.timestamp; });
-        break;
-    }
-    return sorted;
-  }
-
-  function cardHtml(post) {
-    var isExternal = post.source === 'h2ewd';
-    var linkTarget = isExternal ? ' target="_blank" rel="noopener"' : '';
-
-    return '' +
-      '<article class="post-card">' +
-        (post.ogImage ?
-          '<div class="post-image">' +
-            '<a href="' + esc(post.url) + '"' + linkTarget + '>' +
-              '<img src="' + esc(post.ogImage) + '" alt="' + esc(post.title) + '" loading="lazy" width="400" height="300">' +
-            '</a>' +
-          '</div>'
-        : '') +
-        '<div class="post-header">' +
-          '<h3 class="post-title">' +
-            '<a href="' + esc(post.url) + '"' + linkTarget + '>' + esc(post.title) + '</a>' +
-          '</h3>' +
-        '</div>' +
-        '<div class="post-info">' +
-          '<div class="entry-summary">' +
-            (post.description ? '<p>' + esc(post.description) + '</p>' : '') +
-          '</div>' +
-        '</div>' +
-        '<div class="post-footer">' +
-          '<small>' +
-            '<a href="' + esc(post.url) + '"' + linkTarget + '>' +
-              '<span class="read-more">Read more</span>' +
-            '</a>' +
-          '</small>' +
-          (post.aiScores.composite ? '<small class="post-score">' + post.aiScores.composite.toFixed(1) + '/10</small>' : '') +
-        '</div>' +
-      '</article>';
-  }
-
-  // "Show more" state for sorted views
-  var sortedPosts = [];
-  var shownCount = 0;
-  var showMoreBtn = null;
-
-  function updateShowMore() {
-    if (!showMoreBtn) {
-      showMoreBtn = document.createElement('button');
-      showMoreBtn.type = 'button';
-      showMoreBtn.className = 'show-more-button';
-      showMoreBtn.addEventListener('click', appendMore);
-      postGrid.insertAdjacentElement('afterend', showMoreBtn);
-    }
-    var remaining = sortedPosts.length - shownCount;
-    if (remaining > 0) {
-      showMoreBtn.textContent = 'Show ' + Math.min(remaining, PAGE_SIZE) + ' more (' + remaining + ' left)';
-      showMoreBtn.style.display = '';
-    } else {
-      showMoreBtn.style.display = 'none';
-    }
-  }
-
-  function appendMore() {
-    var next = sortedPosts.slice(shownCount, shownCount + PAGE_SIZE);
-    postGrid.insertAdjacentHTML('beforeend', next.map(cardHtml).join(''));
-    shownCount += next.length;
-    updateShowMore();
-  }
-
-  function renderSorted(posts) {
-    sortedPosts = posts;
-    shownCount = Math.min(PAGE_SIZE, posts.length);
-    postGrid.innerHTML = posts.slice(0, shownCount).map(cardHtml).join('');
-    // Pagination only makes sense for the server-rendered order;
-    // hide it once a client-side sort is applied.
-    if (paginationNav) {
-      paginationNav.style.display = 'none';
-    }
-    updateShowMore();
-  }
-
-  // The server-rendered paginated grid IS the initial state.
-  // Sorting (and the index fetch) happens only on a real user interaction.
-  sortSelect.addEventListener('change', function(e) {
-    var sortBy = e.target.value;
-    loadIndex()
-      .then(function(posts) {
-        renderSorted(sortPosts(posts, sortBy));
-      })
-      .catch(function(err) {
-        console.warn('Posts index unavailable, sorting disabled:', err);
-      });
-  });
-})();
-</script>

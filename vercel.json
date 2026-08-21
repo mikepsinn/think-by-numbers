@@ -13,6 +13,11 @@
       "permanent": true
     },
     {
+      "source": "/tools/the-encyclopedia-of-world-problems-and-human-potential/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/statistical-cost-benefit-analysis-vs-irrational-emotion/",
       "destination": "/empiricism-2/why-think-by-numbers/",
       "permanent": true

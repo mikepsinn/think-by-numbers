@@ -26,10 +26,13 @@ metadata:
     card: >-
       /assets/cards/government-spending/the-nih-spent-1-trillion-and-eradicated-zero-diseases.jpg
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 9.4
+  quality: 9
+  value: 10
+  timeliness: 9
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.075Z'
+  model: editorial
 ---
 
 ## A Tale of Two Trials

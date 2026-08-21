@@ -26,10 +26,13 @@ metadata:
     card: >-
       /assets/cards/science/you-are-a-meat-robot-why-death-is-a-technical-problem.jpg
 aiScores:
-  composite: 3
-  quality: 3
-  value: 3
-  timeliness: 3
+  composite: 6.3
+  quality: 6
+  value: 6
+  timeliness: 7
+  reasoning: Editorial score, not Gemini.
+  scoredAt: '2026-08-21T17:48:07.232Z'
+  model: editorial
 ---
 
 ## Your Body Is a Machine (Not "Like" a Machine)
