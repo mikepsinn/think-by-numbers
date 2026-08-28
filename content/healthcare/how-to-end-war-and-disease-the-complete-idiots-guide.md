@@ -1,7 +1,7 @@
 ---
 title: >-
-  How to End War and Disease: The Complete Idiot's Guide to Legally Bribing Your
-  Way to Utopia
+  How to End War and Disease: A Step-by-Step Guide to Optimizing Your Terrible
+  Civilization
 description: >-
   A manual for ending war and disease using financial incentives, pragmatic
   trials, and the radical assumption that humans respond to money. Spoiler: they
@@ -42,7 +42,7 @@ aiScores:
 
 There is a manual for ending war and disease. It has a website. It contains maths. The maths checks out. Nobody has read it, in the same way that nobody reads the manual for their television even though they've been complaining about the picture quality for thirty years.
 
-The subtitle is "The Complete Idiot's Guide to Legally Bribing Your Way to Utopia," which is either the most cynical or the most honest title in the history of public policy. Probably both. It's the kind of title that would make Machiavelli proud and Mother Teresa uncomfortable, which is roughly the correct emotional range for a serious proposal about fixing civilization.
+The subtitle is "A Step-by-Step Guide to Optimizing Your Terrible Civilization," which is either the rudest or the most honest title in the history of public policy. Probably both. It insults your entire civilization on the cover and then hands you the repair instructions, which is roughly the correct emotional range for a serious proposal about fixing it.
 
 ## The Core Insight (It's About Incentives, Stupid)
 
@@ -86,9 +86,9 @@ The weapons industry spends $5 trillion maintaining the status quo. Global house
 
 The manual's answer is to turn the coordination problem into an investment opportunity. Don't ask people to donate. Don't ask them to protest. Don't ask them to care about strangers. Just ask them to invest in a financial instrument that pays 272% returns while coincidentally saving 10.7 billion lives. Let greed do what altruism couldn't.
 
-## The Idiot's Guide Part
+## The Step-by-Step Part
 
-The manual calls itself an idiot's guide, and in a way it is—the core logic is simple enough for anyone to understand:
+The manual calls itself a step-by-step guide, and it is—the core logic is simple enough for anyone to understand:
 
 1. We spend too much on killing and too little on curing
 2. The people who decide this are incentivised to keep it that way
