@@ -16,8 +16,8 @@ permalink: /search/
     <div id="popular-articles" style="margin-top: 40px;">
       <h3>Popular Articles</h3>
       <div class="post-grid" style="margin-top: 20px;">
-        {%- for post in collections.posts | limit(6) %}
-        {%- if post.data.title and post.inputPath.endsWith('.md') %}
+        {%- for post in collections.gallery | limit(6) %}
+        {%- if post.data.title %}
         {% include "post-card.njk" %}
         {%- endif %}
         {%- endfor %}
