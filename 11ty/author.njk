@@ -1,69 +1,205 @@
 ---
 layout: base.njk
-title: "Posts by {{ site.author.name }}"
+title: "Posts by Mike P. Sinn"
 permalink: "/author/mikepsinn/"
 ---
 
+<style>
+  .author-card {
+    display: grid;
+    grid-template-columns: 128px minmax(0, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 30px;
+    border: 2px solid var(--color-text);
+    background: var(--color-paper);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-text);
+  }
+
+  .author-avatar img {
+    display: block;
+    width: 128px;
+    height: 128px;
+    border: 2px solid var(--color-text);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .author-info h1 {
+    margin: 0 0 12px;
+  }
+
+  .author-info p {
+    margin: 10px 0;
+    font-size: 1.05em;
+    line-height: 1.6;
+  }
+
+  .author-expertise {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-text-light);
+  }
+
+  .author-expertise-label {
+    font-size: 0.85em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .author-expertise-list,
+  .author-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .author-skill {
+    display: inline-flex;
+    padding: 5px 10px;
+    border: 1px solid var(--color-text-light);
+    background: var(--color-bg);
+    font-size: 0.85em;
+  }
+
+  .author-link,
+  .author-archive-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 13px;
+    border: 2px solid var(--color-text);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--color-text);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .author-link:hover,
+  .author-archive-link:hover {
+    color: var(--color-text);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--color-text);
+  }
+
+  .author-posts-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .author-posts-header h2 {
+    margin-bottom: 0;
+  }
+
+  .author-post-count {
+    color: var(--color-text-light);
+    white-space: nowrap;
+  }
+
+  .author-archive-actions {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .author-card {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .author-avatar img {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto;
+    }
+
+    .author-info p {
+      text-align: left;
+    }
+
+    .author-expertise-list,
+    .author-links {
+      justify-content: center;
+    }
+
+    .author-link {
+      flex: 1 1 130px;
+    }
+
+    .author-posts-header {
+      display: block;
+    }
+  }
+</style>
+
 <div class="container" data-pagefind-ignore>
   <div class="main-content">
-    <div class="author-bio" style="display: flex; gap: 30px; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 2px solid rgba(255,255,255,0.1);">
-      <div class="author-avatar" style="flex-shrink: 0;">
+    <section class="author-card" aria-labelledby="author-name">
+      <div class="author-avatar">
         <img src="{{ site.author.avatar }}"
              alt="{{ site.author.name }}"
-             style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
+             width="128"
+             height="128">
       </div>
-      <div class="author-info" style="flex-grow: 1;">
-        <h1 style="margin-top: 0;">{{ site.author.name }}</h1>
+      <div class="author-info">
+        <h1 id="author-name">{{ site.author.name }}</h1>
 
-        <p style="font-size: 1.05em; line-height: 1.6; margin: 12px 0;">
+        <p>
           {{ site.author.bio }}
         </p>
 
-        <p style="font-size: 1.05em; line-height: 1.6; margin: 12px 0;">
+        <p>
           {{ site.author.bioExtended }}
         </p>
 
-        <p style="font-size: 1.05em; line-height: 1.6; margin: 12px 0;">
+        <p>
           {{ site.author.mission }}
         </p>
 
-        <div class="author-expertise" style="margin-top: 15px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);">
-          <strong style="font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.5px;">Expertise:</strong>
-          <div style="margin-top: 8px;">
+        <div class="author-expertise">
+          <strong class="author-expertise-label">Expertise</strong>
+          <div class="author-expertise-list">
             {% for skill in site.author.expertise %}
-              <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 4px 12px; margin: 4px 4px 4px 0; border-radius: 3px; font-size: 0.85em;">{{ skill }}</span>
+              <span class="author-skill">{{ skill }}</span>
             {% endfor %}
           </div>
         </div>
 
-        <div class="author-links" style="margin-top: 15px;">
-          <a href="{{ site.author.url }}" target="_blank" style="margin-right: 15px;">
+        <div class="author-links" aria-label="Mike Sinn on other websites">
+          <a class="author-link" href="{{ site.author.url }}" target="_blank" rel="noopener noreferrer">
             <i class="fa-solid fa-globe"></i> Website
           </a>
-          <a href="{{ site.social.linkedin }}" target="_blank" style="margin-right: 15px;">
+          <a class="author-link" href="{{ site.social.linkedin }}" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-linkedin"></i> LinkedIn
           </a>
-          <a href="{{ site.social.twitter }}" target="_blank">
-            <i class="fa-brands fa-twitter"></i> Twitter
+          <a class="author-link" href="{{ site.social.github }}" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a class="author-link" href="{{ site.social.twitter }}" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-x-twitter"></i> X
           </a>
         </div>
       </div>
+    </section>
+
+    {%- set authorPosts = collections.posts %}
+    <div class="author-posts-header">
+      <h2>Latest posts by {{ site.author.name }}</h2>
+      <p class="author-post-count">Showing 12 of {{ authorPosts.length }}</p>
     </div>
 
-    <h2>Posts by {{ site.author.name }}</h2>
-
-    {%- set authorPosts = collections.all | reverse %}
-    {%- set mdPosts = [] %}
-    {%- for post in authorPosts %}
-      {%- if post.data.title and post.inputPath.endsWith('.md') %}
-        {%- set mdPosts = (mdPosts.push(post), mdPosts) %}
-      {%- endif %}
-    {%- endfor %}
-
-    <p>{{ mdPosts.length }} posts</p>
-
     <div class="post-grid">
-      {%- for post in mdPosts %}
+      {%- for post in authorPosts %}
+      {%- if loop.index <= 12 %}
       <article class="post-card">
         {%- if post.data.metadata.media.featuredImage %}
         <div class="post-image">
@@ -94,7 +230,14 @@ permalink: "/author/mikepsinn/"
           </small>
         </div>
       </article>
+      {%- endif %}
       {%- endfor %}
+    </div>
+
+    <div class="author-archive-actions">
+      <a class="author-archive-link" href="/search/">
+        <i class="fa-solid fa-magnifying-glass"></i> Search all {{ authorPosts.length }} posts
+      </a>
     </div>
   </div>
 
