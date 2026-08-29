@@ -83,7 +83,9 @@ module.exports = function(eleventyConfig) {
       const i = listed.findIndex((key) => {
         if (!key.startsWith("book:")) return false;
         const needle = key.slice(5).toLowerCase();
-        return title === needle || title.startsWith(needle);
+        // Curated chapter entries are exact titles. Prefix matching made
+        // "The 1% Treaty" also capture its separate impact paper.
+        return title === needle;
       });
       return i === -1 ? 5000 : i;
     }
