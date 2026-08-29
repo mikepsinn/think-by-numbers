@@ -19,7 +19,7 @@ eleventyComputed:
     <p>{{ collections[tag].length }} post{% if collections[tag].length != 1 %}s{% endif %} tagged with "{{ tag }}"</p>
 
     <div class="post-grid">
-      {%- set sortedPosts = collections[tag] | sort(false, false, 'data.aiScores.composite') | reverse %}
+      {%- set sortedPosts = collections[tag] | sort(true, false, 'date') %}
       {%- for post in sortedPosts %}
       {%- if post.data.title %}
       {% include "post-card.njk" %}

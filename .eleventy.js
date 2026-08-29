@@ -3,22 +3,8 @@ const metadataValidator = require("./scripts/validate-metadata.js");
 const getH2ewdChapters = require("./11ty/_data/h2ewdChapters.js");
 const homepageOrder = require("./11ty/_data/homepageOrder.js");
 
-// Composite score recomputed from score parts. Must stay identical to the
-// client-side calculateComposite() in 11ty/index-paginated.njk and the
-// or-5/or-0 defaults in 11ty/posts-index.njk, so the server-rendered order
-// matches the client's composite sort (most posts lack a frontmatter
-// composite, so sorting by the stored value would fall back to date order).
-function computeCompositeScore(scores) {
-  const s = scores || {};
-  const lengthScore = Math.min((s.length || 0) / 5000, 1) * 10;
-  const imageScore = Math.min((s.imageCount || 0) / 5, 1) * 10;
-  return (
-    (s.value || 5) * 0.35 +
-    (s.quality || 5) * 0.25 +
-    (s.timeliness || 5) * 0.25 +
-    lengthScore * 0.10 +
-    imageScore * 0.05
-  );
+function sortByDateDesc(a, b) {
+  return (b.date || 0) - (a.date || 0);
 }
 
 module.exports = function(eleventyConfig) {
@@ -83,13 +69,6 @@ module.exports = function(eleventyConfig) {
     return false;
   }
 
-  function sortByCompositeThenDate(a, b) {
-    const scoreA = computeCompositeScore(a.data.aiScores);
-    const scoreB = computeCompositeScore(b.data.aiScores);
-    if (scoreB !== scoreA) return scoreB - scoreA;
-    return (b.date || 0) - (a.date || 0);
-  }
-
   function postFileKey(item) {
     const p = String(item.inputPath || "").replace(/\\/g, "/");
     const marker = "/content/";
@@ -104,7 +83,9 @@ module.exports = function(eleventyConfig) {
       const i = listed.findIndex((key) => {
         if (!key.startsWith("book:")) return false;
         const needle = key.slice(5).toLowerCase();
-        return title === needle || title.startsWith(needle);
+        // Curated chapter entries are exact titles. Prefix matching made
+        // "The 1% Treaty" also capture its separate impact paper.
+        return title === needle;
       });
       return i === -1 ? 5000 : i;
     }
@@ -117,15 +98,10 @@ module.exports = function(eleventyConfig) {
     const ra = galleryOrderIndex(a);
     const rb = galleryOrderIndex(b);
     if (ra !== rb) return ra - rb;
-    const qa = (a.data.aiScores && a.data.aiScores.quality) || 0;
-    const qb = (b.data.aiScores && b.data.aiScores.quality) || 0;
-    if (qb !== qa) return qb - qa;
-    return (b.date || 0) - (a.date || 0);
+    return sortByDateDesc(a, b);
   }
 
   function chapterToGalleryItem(chapter) {
-    const scores = chapter.aiScores || {};
-    const composite = Math.round(computeCompositeScore(scores) * 10) / 10;
     return {
       url: chapter.url,
       date: chapter.lastmod ? new Date(chapter.lastmod) : new Date(0),
@@ -134,7 +110,6 @@ module.exports = function(eleventyConfig) {
         description: chapter.description,
         external: true,
         metadata: { media: { card: chapter.image, ogImage: chapter.image } },
-        aiScores: { ...scores, composite },
       },
     };
   }
@@ -243,7 +218,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getAll()
       .filter(isBlogPost)
-      .sort(sortByCompositeThenDate);
+      .sort(sortByDateDesc);
   });
 
   // Homepage gallery: curated order, then remaining book chapters, then other posts.
