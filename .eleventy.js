@@ -57,6 +57,9 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, limit);
   });
 
+  // Thousands separators for figures on the homepage
+  eleventyConfig.addFilter("numberFormat", (n) => Number(n).toLocaleString("en-US"));
+
   function isBlogPost(item) {
     if (!item.inputPath ||
         !(item.inputPath.includes("/content/") || item.inputPath.includes("\\content\\")) ||

@@ -1,0 +1,395 @@
+---
+layout: base.njk
+permalink: /
+title: "Think by Numbers"
+description: "Data, evidence, and the scientific method, pointed at the question of how to make life on Earth as good as it can be. The projects, the articles, and the world that could be."
+eleventyExcludeFromCollections: true
+---
+{%- set mp = manualParams %}
+<style>
+  .home {
+    --home-paper: var(--color-bg);
+    --home-paper-2: var(--color-paper);
+    --home-ink: var(--color-text);
+    --home-soft: var(--color-text-light);
+    --home-rule: #d9d9d9;
+    --home-rule-strong: var(--color-text);
+    --home-hover: #24488a;
+    --home-bp: #1f4079;
+    --home-bp-line: #f6f4ee;
+    --home-bp-soft: rgba(246, 244, 238, 0.72);
+    --home-bp-rule: rgba(246, 244, 238, 0.32);
+    --home-bp-grid: rgba(255, 255, 255, 0.075);
+    --home-mono: 'Courier Prime', 'Courier New', Courier, monospace;
+    color: var(--home-ink);
+    background: var(--home-paper);
+    line-height: 1.65;
+  }
+  [data-theme="dark"] .home {
+    --home-rule: #333333;
+    --home-hover: #9cb8ee;
+  }
+  .home h1, .home h2, .home h3 { line-height: 1.15; margin: 0; text-wrap: balance; }
+  .home p { margin: 0 0 1rem; }
+  .home a { color: var(--home-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+  .home a:hover { color: var(--home-hover); }
+  .home :focus-visible { outline: 2px solid var(--home-hover); outline-offset: 3px; }
+
+  .home-wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
+
+  /* Shared furniture */
+  .home-eyebrow {
+    font-family: var(--home-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--home-soft);
+    margin: 0 0 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .home-eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--home-rule); }
+  .home-sec { padding: 3.75rem 0 1.5rem; }
+  .home-sec-head { margin-bottom: 1.75rem; }
+  .home-sec-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; margin-bottom: 0.7rem; }
+  .home-intro { font-size: 1.1rem; max-width: 62ch; margin: 0; }
+  .home-foot { font-size: 0.92rem; color: var(--home-soft); margin: 1.25rem 0 0; }
+
+  .home-cta { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; align-items: center; margin: 1.6rem 0 0; }
+  .home a.home-btn {
+    display: inline-block;
+    padding: 0.62rem 1.15rem;
+    border: 1px solid var(--home-ink);
+    background: var(--home-ink);
+    color: var(--home-paper);
+    font-family: var(--home-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home a.home-btn:hover { background: var(--home-paper); color: var(--home-ink); }
+  .home a.home-btn-ghost { background: transparent; color: var(--home-ink); }
+  .home a.home-btn-ghost:hover { background: var(--home-ink); color: var(--home-paper); }
+  .home a.home-quiet { font-style: italic; color: var(--home-soft); }
+
+  /* Hero */
+  .home-hero { padding: 3rem 0 2.75rem; }
+  .home-hero h1 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 4.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    max-width: 17ch;
+    margin: 0 0 2rem;
+  }
+  .home-hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 1fr); gap: 2.5rem 4rem; align-items: start; }
+  .home-lead p { max-width: 60ch; font-size: 1.14rem; }
+  .home-objective {
+    border: 1px solid var(--home-rule-strong);
+    background: var(--home-paper-2);
+    padding: 1.2rem 1.35rem 1.1rem;
+    font-family: var(--home-mono);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+  .home-obj-title { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--home-soft); margin: 0 0 0.9rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--home-rule); display: flex; justify-content: space-between; gap: 1rem; }
+  .home-obj-title span { font-weight: 400; letter-spacing: 0.06em; text-transform: none; }
+  .home-objective dl { display: grid; grid-template-columns: auto 1fr; gap: 0.55rem 1.1rem; margin: 0; }
+  .home-objective dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; color: var(--home-soft); padding-top: 0.15rem; }
+  .home-objective dd { margin: 0; font-weight: 700; }
+  .home-objective .op { font-weight: 400; color: var(--home-soft); padding: 0 0.15rem; }
+  .home-obj-src { font-family: 'Crimson Text', 'Baskerville', 'Georgia', serif; font-size: 0.92rem; color: var(--home-soft); margin: 1rem 0 0; padding-top: 0.8rem; border-top: 1px solid var(--home-rule); font-style: italic; }
+
+  /* Ledger */
+  .home-ledger { margin: 0; border-top: 1px solid var(--home-rule-strong); }
+  .home-ledger .row { display: grid; grid-template-columns: minmax(11rem, 15rem) 1fr; gap: 0.35rem 2.25rem; padding: 1.05rem 0; border-bottom: 1px solid var(--home-rule); align-items: baseline; }
+  .home-ledger dt { font-family: var(--home-mono); font-size: 1.2rem; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .home-ledger dt a { text-decoration-color: var(--home-rule); }
+  .home-ledger dd { margin: 0; max-width: 60ch; }
+
+  /* Contents */
+  .home-toc { display: grid; grid-template-columns: 1fr 1fr; gap: 2.25rem 4rem; }
+  .home-toc-group h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--home-rule-strong); margin-bottom: 0.15rem; }
+  .home-verb { font-family: var(--home-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.82rem; font-weight: 700; }
+  .home-verb-sub { font-style: italic; font-weight: 400; color: var(--home-soft); font-size: 1rem; text-align: right; }
+  .home-toc-item { padding: 0.95rem 0; border-bottom: 1px solid var(--home-rule); }
+  .home-toc-row { display: flex; align-items: baseline; gap: 0.6rem; text-decoration: none; color: var(--home-ink); }
+  .home-toc-name { font-weight: 700; font-size: 1.22rem; line-height: 1.25; }
+  .home-leader { flex: 1; min-width: 1.5rem; border-bottom: 2px dotted var(--home-rule); transform: translateY(-0.32em); }
+  .home-toc-fig { font-family: var(--home-mono); font-size: 0.82rem; white-space: nowrap; }
+  .home-toc-row:hover .home-toc-name { color: var(--home-hover); text-decoration: underline; }
+  .home-toc-row:hover .home-leader { border-color: var(--home-soft); }
+  .home-toc-desc { margin: 0.3rem 0 0; font-size: 0.98rem; line-height: 1.5; max-width: 54ch; }
+  .home-toc-also { margin: 1.75rem 0 0; font-size: 1rem; color: var(--home-soft); }
+
+  /* Blueprint */
+  .home-bp {
+    margin-top: 3rem;
+    background-color: var(--home-bp);
+    background-image:
+      linear-gradient(var(--home-bp-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--home-bp-grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--home-bp-line);
+    padding: 4rem 0 2.75rem;
+    border-top: 1px solid var(--home-bp-rule);
+    border-bottom: 1px solid var(--home-bp-rule);
+  }
+  .home-bp h2, .home-bp a { color: var(--home-bp-line); }
+  .home-bp a:hover { color: #ffffff; }
+  .home-bp .home-eyebrow { color: var(--home-bp-soft); }
+  .home-bp .home-eyebrow::after { background: var(--home-bp-rule); }
+  .home-bp-title { font-style: italic; font-weight: 400; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.12; max-width: 26ch; margin: 0 0 2rem; }
+  .home-bp-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, 1fr); gap: 2.5rem 4rem; align-items: start; }
+  .home-bp-text p { max-width: 58ch; font-size: 1.08rem; }
+  .home-bp a.home-btn-bp { background: transparent; border-color: var(--home-bp-line); color: var(--home-bp-line); }
+  .home-bp a.home-btn-bp:hover { background: var(--home-bp-line); color: var(--home-bp); }
+  .home-bp a.home-quiet-bp { color: var(--home-bp-soft); }
+  .home-bp-fig { margin: 0 0 1.75rem; }
+  .home-bp-fig svg { width: 100%; max-width: 360px; height: auto; display: block; margin: 0 auto; }
+  .home-bp-fig figcaption, .home-spec caption { font-family: var(--home-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--home-bp-soft); text-align: left; }
+  .home-bp-fig figcaption { margin-top: 0.5rem; }
+  .home-spec { width: 100%; border-collapse: collapse; font-family: var(--home-mono); font-size: 0.84rem; line-height: 1.4; }
+  .home-spec caption { padding-bottom: 0.5rem; }
+  .home-spec th, .home-spec td { padding: 0.45rem 0.2rem; border-top: 1px solid var(--home-bp-rule); text-align: left; vertical-align: top; background: transparent; }
+  .home-spec tr:last-child th, .home-spec tr:last-child td { border-bottom: 1px solid var(--home-bp-rule); }
+  .home-spec th { font-weight: 400; color: var(--home-bp-soft); width: 55%; }
+  .home-spec td { font-weight: 700; color: var(--home-bp-line); font-variant-numeric: tabular-nums; }
+  .home-spec td a { text-decoration-color: var(--home-bp-rule); }
+  .home-titleblock { display: flex; justify-content: flex-end; margin-top: 2.75rem; }
+  .home-titleblock div { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--home-bp-rule); font-family: var(--home-mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--home-bp-soft); }
+  .home-titleblock span { padding: 0.4rem 0.85rem; border-left: 1px solid var(--home-bp-rule); }
+  .home-titleblock span:first-child { border-left: 0; }
+
+  /* About */
+  .home-about { display: grid; grid-template-columns: 120px 1fr; gap: 2rem; align-items: start; }
+  .home-avatar { width: 120px; height: 120px; border-radius: 50%; border: 1px solid var(--home-rule-strong); object-fit: cover; display: block; }
+  .home-about-name { font-size: 1.7rem; font-weight: 700; margin-bottom: 0.15rem; }
+  .home-about-role { font-style: italic; color: var(--home-soft); margin-bottom: 0.9rem; }
+  .home-about p { max-width: 62ch; }
+  .home-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-family: var(--home-mono); font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; }
+  .home-links a { text-decoration: none; border-bottom: 1px solid var(--home-rule); }
+  .home-links a:hover { border-color: var(--home-hover); }
+
+  /* Writing */
+  .home-sec-head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem 2rem; flex-wrap: wrap; }
+  .home-sec-head-row h2 { margin-bottom: 0; }
+  .home-search { display: flex; gap: 0.5rem; flex: 0 1 340px; margin-bottom: 0.35rem; }
+  .home-search input { flex: 1; min-width: 0; padding: 0.55rem 0.75rem; border: 1px solid var(--home-rule-strong); background: var(--home-paper); color: var(--home-ink); font-family: inherit; font-size: 1rem; }
+  .home-search button { padding: 0.5rem 0.9rem; border: 1px solid var(--home-ink); background: transparent; color: var(--home-ink); font-family: var(--home-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+  .home-search button:hover { background: var(--home-ink); color: var(--home-paper); }
+  .home-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .home-cards .post-image img { height: auto; aspect-ratio: 720 / 402; }
+  .home-cards .post-title { font-size: 1.15rem; }
+
+  @media (max-width: 1024px) {
+    .home-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .home-hero-grid, .home-bp-grid, .home-toc { grid-template-columns: 1fr; }
+    .home-cards { grid-template-columns: 1fr; }
+    .home-about { grid-template-columns: 1fr; }
+    .home-ledger .row { grid-template-columns: 1fr; }
+    .home-ledger dt { text-align: left; white-space: normal; }
+    .home-verb-sub { text-align: left; }
+    .home-toc-group h3 { flex-direction: column; align-items: flex-start; gap: 0.1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .home * { transition: none !important; }
+  }
+</style>
+
+<div class="home" data-pagefind-ignore>
+
+  <section class="home-hero home-wrap">
+    <p class="home-eyebrow">A reference manual for optimizing Earth</p>
+    <h1>{{ site.description }}.</h1>
+    <div class="home-hero-grid">
+      <div class="home-lead">
+        <p>We think the scientific method should be pointed at the largest question there is: given what we already have, how do we make life on Earth as good as it can be? Not by vibes, and not by whoever shouts loudest. By data, evidence, and experiments, aimed at one goal: as much pleasant consciousness in the universe as we can manage.</p>
+        <p>Everything on this page is that single idea applied to something specific. Some of it is writing. Most of it is software, and all of it is open.</p>
+        <p class="home-cta">
+          <a class="home-btn" href="#projects">See the projects</a>
+          <a class="home-btn home-btn-ghost" href="#future">The world that could be</a>
+          <a class="home-quiet" href="#about">Who runs this?</a>
+        </p>
+      </div>
+      <aside class="home-objective" aria-label="Objective function">
+        <p class="home-obj-title">Objective function <span>v1</span></p>
+        <dl>
+          <dt>maximize</dt>
+          <dd>median healthy life years <span class="op">&times;</span> real median after-tax income</dd>
+          <dt>subject to</dt>
+          <dd>the species continuing to exist</dd>
+          <dt>long run</dt>
+          <dd>pleasant consciousness in the universe, as much as possible</dd>
+        </dl>
+        <p class="home-obj-src">Metrics from <a href="https://manual.warondisease.org/knowledge/solution/optimocracy.html">the Optimocracy paper</a>. The long-run term is the part we are least likely to finish this year.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="arithmetic" class="home-wrap home-sec">
+    <div class="home-sec-head">
+      <p class="home-eyebrow">Ledger · selected entries</p>
+      <h2>The arithmetic, briefly.</h2>
+      <p class="home-intro">Nobody in this story needs to be a villain. It is just that the numbers, once you line them up next to each other, are strange.</p>
+    </div>
+    <dl class="home-ledger">
+      <div class="row">
+        <dt><a href="{{ mp.MILITARY_TO_GOVERNMENT_CLINICAL_TRIALS_SPENDING_RATIO.url }}">${{ mp.MILITARY_TO_GOVERNMENT_CLINICAL_TRIALS_SPENDING_RATIO.value | round }} : $1</a></dt>
+        <dd>Spent on the capacity for war, for every dollar governments spend on clinical trials that might cure something.</dd>
+      </div>
+      <div class="row">
+        <dt><a href="{{ mp.ANNUAL_TERRORISM_DEATH_RISK_DENOMINATOR.url }}">1 in {{ mp.ANNUAL_TERRORISM_DEATH_RISK_DENOMINATOR.value | numberFormat }}</a></dt>
+        <dd>Annual odds of being killed by a terrorist. Odds of eventually dying of a disease: one in one.</dd>
+      </div>
+      <div class="row">
+        <dt><a href="/healthcare/the-recovery-trial-how-britain-saved-a-million-lives-for-24-million/">{{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.formatted }} vs. {{ mp.TRADITIONAL_PHASE3_COST_PER_PATIENT.formatted }}</a></dt>
+        <dd>Per-patient cost of a clinical trial, Oxford's RECOVERY trial versus the US average. The cheap one found a one-dollar steroid that cut COVID deaths by a third, in 100 days.</dd>
+      </div>
+      <div class="row">
+        <dt><a href="/healthcare/how-to-prevent-a-year-of-suffering-for-84-cents/">${{ mp.DFDA_DIRECT_FUNDING_COST_PER_DALY.value | round(2) }}</a></dt>
+        <dd>Cost to prevent one year of death and suffering, if trials were run the cheap way at scale. This is less than a candy bar.</dd>
+      </div>
+      <div class="row">
+        <dt><a href="{{ mp.NUCLEAR_WINTER_OVERKILL_FACTOR.url }}">{{ mp.NUCLEAR_WINTER_OVERKILL_FACTOR.value | round }} &times;</a></dt>
+        <dd>Times over that existing arsenals could end civilization. Once would be sufficient.</dd>
+      </div>
+    </dl>
+    <p class="home-foot">Each figure links to its derivation in the Earth Repair Manual's parameters appendix, or to the article that works it out.</p>
+  </section>
+
+  <section id="projects" class="home-wrap home-sec">
+    <div class="home-sec-head">
+      <p class="home-eyebrow">Contents · the idea, applied</p>
+      <h2>One idea, applied wherever it fits.</h2>
+      <p class="home-intro">Grouped by what each one does, because the verbs matter more than the org charts. The figure at the end of each line is the number that best explains why it exists.</p>
+    </div>
+    <div class="home-toc">
+      {%- for group in projects.groups %}
+      <section class="home-toc-group">
+        <h3><span class="home-verb">{{ group.verb }}</span> <span class="home-verb-sub">{{ group.tagline }}</span></h3>
+        {%- for item in group.items %}
+        {%- set fig = item.figure %}
+        {%- if item.figureParam and mp[item.figureParam] %}{% set fig = mp[item.figureParam].formatted + (item.figureSuffix or "") %}{% endif %}
+        {%- if item.figureKind == "postCount" %}{% set fig = (collections.posts | length) + " articles" %}{% endif %}
+        <div class="home-toc-item">
+          <a class="home-toc-row" href="{{ item.url }}"><span class="home-toc-name">{{ item.name }}</span><span class="home-leader"></span><span class="home-toc-fig">{{ fig }}</span></a>
+          <p class="home-toc-desc">{{ item.description }}</p>
+        </div>
+        {%- endfor %}
+      </section>
+      {%- endfor %}
+    </div>
+    <p class="home-toc-also">Also: {% for extra in projects.also %}<a href="{{ extra.url }}">{{ extra.name }}</a>, {{ extra.note }}{% if not loop.last %}, and {% endif %}{% endfor %}.</p>
+  </section>
+
+  <section id="future" class="home-bp">
+    <div class="home-wrap">
+      <p class="home-eyebrow">Fig. 1 · The world that could be · after the Wishonia chapter</p>
+      <h2 class="home-bp-title">Same species. Same technology. Same Tuesday. One line of the budget moved.</h2>
+      <div class="home-bp-grid">
+        <div class="home-bp-text">
+          <p>Imagine the experiment has already been run. A civilization kept the same physics and the same people, and moved one percent of what it spent on the capacity for war into finding out what cures what. Trials became cheap, so they ran everywhere, all the time.</p>
+          <p>Cures showed up. Cures produced public support. Support produced more funding. The loop ran for a few decades and then it was simply how things were. Aging stopped being mandatory. Depression was treated as the biology it is. Budgets were set by asking people, two options at a time, instead of by whoever hired the better lobbyist. The weapons firms pivoted to biotech and, reportedly, found the transition seamless.</p>
+          <p>Suffering survived mainly in history classes, where the students did not entirely believe it.</p>
+          <p class="home-cta">
+            <a class="home-btn home-btn-bp" href="https://manual.warondisease.org/knowledge/futures/wishonia.html">Read the Wishonia chapter</a>
+            <a class="home-btn home-btn-bp" href="https://manual.warondisease.org/knowledge/solution/optimocracy.html">The Optimocracy paper</a>
+            <a class="home-quiet home-quiet-bp" href="https://manual.warondisease.org/knowledge/futures.html">Compare the two futures</a>
+          </p>
+        </div>
+        <div class="home-bp-side">
+          <figure class="home-bp-fig">
+            <svg viewBox="0 0 360 290" role="img" aria-labelledby="home-loop-title">
+              <title id="home-loop-title">The loop: funding produces cures, cures produce support, support produces funding</title>
+              <defs>
+                <marker id="home-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#f6f4ee"/>
+                </marker>
+              </defs>
+              <path d="M201.8 62.3 A105 105 0 0 1 279.9 197.4" fill="none" stroke="#f6f4ee" stroke-width="1.6" marker-end="url(#home-arrow)"/>
+              <path d="M258 235.3 A105 105 0 0 1 102 235.3" fill="none" stroke="#f6f4ee" stroke-width="1.6" marker-end="url(#home-arrow)"/>
+              <path d="M80.1 197.4 A105 105 0 0 1 158.2 62.3" fill="none" stroke="#f6f4ee" stroke-width="1.6" marker-end="url(#home-arrow)"/>
+              <circle cx="180" cy="60" r="7" fill="#1f4079" stroke="#f6f4ee" stroke-width="1.6"/>
+              <circle cx="270.9" cy="217.5" r="7" fill="#1f4079" stroke="#f6f4ee" stroke-width="1.6"/>
+              <circle cx="89.1" cy="217.5" r="7" fill="#1f4079" stroke="#f6f4ee" stroke-width="1.6"/>
+              <text x="180" y="40" text-anchor="middle" font-family="Courier Prime, Courier New, monospace" font-size="12" letter-spacing="2" fill="#f6f4ee">FUNDING</text>
+              <text x="271" y="250" text-anchor="middle" font-family="Courier Prime, Courier New, monospace" font-size="12" letter-spacing="2" fill="#f6f4ee">CURES</text>
+              <text x="89" y="250" text-anchor="middle" font-family="Courier Prime, Courier New, monospace" font-size="12" letter-spacing="2" fill="#f6f4ee">SUPPORT</text>
+              <text x="180" y="160" text-anchor="middle" font-family="Crimson Text, Georgia, serif" font-style="italic" font-size="18" fill="#f6f4ee">the loop</text>
+              <text x="180" y="181" text-anchor="middle" font-family="Courier Prime, Courier New, monospace" font-size="9.5" letter-spacing="1.5" fill="rgba(246,244,238,0.72)">COMPOUNDING, APPLIED TO NOT DYING</text>
+            </svg>
+            <figcaption>Fig. 1a · The loop. Funding produces cures, cures produce support, support produces funding.</figcaption>
+          </figure>
+          <table class="home-spec">
+            <caption>Fig. 1b · Specification. Figures link to their derivations.</caption>
+            <tbody>
+              <tr><th scope="row">Military budget redirected</th><td><a href="{{ mp.TREATY_ANNUAL_FUNDING.url }}">1% a year, {{ mp.TREATY_ANNUAL_FUNDING.formatted }}</a></td></tr>
+              <tr><th scope="row">Cost per trial patient</th><td><a href="{{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.url }}">about {{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.formatted }}</a></td></tr>
+              <tr><th scope="row">Cost per year of suffering prevented</th><td><a href="{{ mp.DFDA_DIRECT_FUNDING_COST_PER_DALY.url }}">${{ mp.DFDA_DIRECT_FUNDING_COST_PER_DALY.value | round(2) }}</a></td></tr>
+              <tr><th scope="row">Budget decisions</th><td>2 options at a time</td></tr>
+              <tr><th scope="row">Healthy life expectancy, year 15</th><td><a href="{{ mp.WISHONIA_PROJECTED_HALE_YEAR_15.url }}">{{ mp.WISHONIA_PROJECTED_HALE_YEAR_15.formatted }}</a></td></tr>
+              <tr><th scope="row">Average income, year 20</th><td><a href="{{ mp.TREATY_TRAJECTORY_AVG_INCOME_YEAR_20.url }}">{{ mp.TREATY_TRAJECTORY_AVG_INCOME_YEAR_20.formatted }}</a>, up from <a href="{{ mp.CURRENT_TRAJECTORY_AVG_INCOME_YEAR_20.url }}">{{ mp.CURRENT_TRAJECTORY_AVG_INCOME_YEAR_20.formatted }}</a></td></tr>
+              <tr><th scope="row">Death</th><td>optional</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="home-titleblock">
+        <div>
+          <span>Drawing no. TBN-001</span>
+          <span>Sheet 1 of 1</span>
+          <span>Scale: none, unfortunately</span>
+          <span>Rev. {{ page.date | dateToISO | truncate(7, true, "") }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="home-wrap home-sec">
+    <p class="home-eyebrow">About · who runs this</p>
+    <div class="home-about">
+      <img class="home-avatar" src="{{ site.author.avatar }}" alt="{{ site.author.name }}" width="120" height="120">
+      <div>
+        <h2 class="home-about-name">{{ site.author.name }}</h2>
+        <p class="home-about-role">{{ site.author.bio }}</p>
+        <p>{{ site.author.bioExtended }} Built most of the things above, and would like to hear from you, especially if you think one of the numbers is wrong.</p>
+        <p class="home-links">
+          <a href="{{ site.author.url }}">mikesinn.com</a>
+          <a href="{{ site.social.github }}">GitHub</a>
+          <a href="{{ site.social.linkedin }}">LinkedIn</a>
+          <a href="mailto:{{ site.author.contactEmail or site.author.email }}">Email</a>
+          <a href="/author/mikepsinn/">Longer bio</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing" class="home-wrap home-sec">
+    <div class="home-sec-head home-sec-head-row">
+      <div>
+        <p class="home-eyebrow">Writing · from the articles</p>
+        <h2>From the articles.</h2>
+      </div>
+      <form class="home-search" action="/search/" method="get" role="search">
+        <input type="search" name="q" placeholder="Search the articles" aria-label="Search the articles">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="home-cards">
+      {%- for post in collections.gallery | limit(6) %}
+      {%- if post.data.title %}
+      {% include "post-card.njk" %}
+      {%- endif %}
+      {%- endfor %}
+    </div>
+    <p class="home-foot"><a href="/posts/">All {{ collections.posts | length }} articles</a> · <a href="/empiricism-2/why-think-by-numbers/">Why think by numbers?</a> · <a href="/subscribe/">Subscribe</a></p>
+  </section>
+
+</div>

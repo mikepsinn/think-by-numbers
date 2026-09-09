@@ -29,12 +29,13 @@ npm run podcast-frontmatter    # Link podcast episodes to posts
 ```
 .
 ├── 11ty/                      # Eleventy templates and data
-│   ├── _data/                 # Global data (site.json, categories.js, podcastEpisodes.json)
+│   ├── _data/                 # Global data (site.json, categories.js, projects.js, manualParams.js, podcastEpisodes.json)
 │   ├── _includes/             # Layouts: base.njk (main), post.njk, post-card.njk
 │   ├── assets/podcasts/       # Self-hosted MP3 files
 │   ├── feed.njk               # Atom RSS feed
 │   ├── podcast.njk            # iTunes-compatible podcast RSS
-│   ├── index-paginated.njk    # Homepage with pagination
+│   ├── index.njk              # Homepage: thesis, project directory, blueprint, recent posts
+│   ├── posts-archive.njk      # Paginated article archive (/posts/)
 │   └── search.njk             # Pagefind search page
 │
 ├── content/                   # All markdown content

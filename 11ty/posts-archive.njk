@@ -1,17 +1,22 @@
 ---
 layout: base.njk
-description: "Minimizing suffering with the power of arithmetic"
+description: "Every Think by Numbers article, in curated order. Data-driven analysis of government spending, healthcare, economics, and public policy."
 pagination:
   data: collections.gallery
   size: 10
   alias: pagedPosts
-permalink: "{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber + 1 }}/{% else %}/{% endif %}"
+permalink: "/posts/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
 eleventyComputed:
-  title: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }} - {% endif %}Think by Numbers"
+  title: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }} - {% endif %}Articles"
 ---
 
 <div class="container" data-pagefind-ignore>
   <div class="main-content">
+    {%- if pagination.pageNumber == 0 %}
+    <h1 style="margin: 0 0 8px;">Articles</h1>
+    <p style="margin: 0 0 24px; color: var(--color-text-light); font-style: italic;">Everything we have published, best first. The <a href="/">front page</a> has the projects and the short version of the argument.</p>
+    {%- endif %}
+
     <form class="home-search" action="/search/" method="get" role="search"
       style="display:flex; gap:10px; margin:0 0 30px;">
       <input type="text" name="q" placeholder="Search articles…" aria-label="Search articles" required

@@ -6,3 +6,5 @@
 
 # External redirect to QuantiModo
 /qm https://quantimo.do 302
+# Paginated homepage moved to the articles archive
+/page/:n/ /posts/page/:n/ 301

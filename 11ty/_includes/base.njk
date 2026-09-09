@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
   {# Favicon #}
@@ -899,8 +899,12 @@
           <img src="{{ site.logo }}" alt="{{ site.name }}" style="max-width: 300px; height: auto;">
         </a>
       </div>
+      {%- if page.url != "/" %}
       <p>{{ site.description }}</p>
+      {%- endif %}
       <nav aria-label="Primary">
+        <a href="/#projects">Projects</a>
+        <a href="/posts/">Articles</a>
         <a href="/empiricism-2/why-think-by-numbers/">Why Think by Numbers</a>
         <a href="/search/">Search</a>
         <a href="https://open.spotify.com/show/1aX8mw9MmFzyiSBq2RNnu2" target="_blank" rel="noopener">Podcast</a>
