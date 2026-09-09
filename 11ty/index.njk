@@ -31,14 +31,17 @@ eleventyExcludeFromCollections: true
   .home a:hover { text-decoration-thickness: 2px; }
   .home :focus-visible { outline: 2px solid var(--home-ink); outline-offset: 3px; }
 
-  .home-wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
-  .home-prose { max-width: 66ch; }
+  .home-wrap { max-width: 1000px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
+  .home-essay { display: grid; grid-template-columns: minmax(0, 1fr) min(68ch, 100%) minmax(0, 1fr); }
+  .home-essay > * { grid-column: 2; min-width: 0; }
+  .home-essay > .home-figure { grid-column: 1 / -1; justify-self: center; width: min(100%, 860px); }
+  .home-prose { max-width: 68ch; }
   .home-prose p { font-size: 1.08rem; }
   .home-sec { padding: 3.5rem 0 0.5rem; }
   .home-sec h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); margin-bottom: 1.1rem; max-width: 24ch; }
   .home-note { font-size: 0.92rem; color: var(--home-soft); }
 
-  /* Figures quoted from the manual */
+  /* Figures with links to their calculations */
   .home-fig { font-variant-numeric: tabular-nums; text-decoration-color: var(--home-soft); }
   .home-ci { color: var(--home-soft); font-size: 0.86em; white-space: nowrap; }
 
@@ -58,8 +61,8 @@ eleventyExcludeFromCollections: true
   /* Diagrams */
   .home-figure { margin: 1.75rem 0 1.75rem; }
   .home-figure-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .home-figure svg { display: block; width: 100%; max-width: 780px; min-width: 620px; height: auto; }
-  .home-figure figcaption { font-size: 0.92rem; color: var(--home-soft); margin-top: 0.6rem; max-width: 66ch; }
+  .home-figure svg { display: block; width: 100%; max-width: 780px; min-width: 620px; height: auto; margin: 0 auto; }
+  .home-figure figcaption { font-size: 0.92rem; color: var(--home-soft); margin: 0.6rem auto 0; max-width: 780px; }
   .home-diagram .box { fill: var(--home-paper-2); stroke: var(--home-ink); stroke-width: 1.4; }
   .home-diagram .box-missing { fill: none; stroke: var(--home-soft); stroke-width: 1.2; stroke-dasharray: 4 4; }
   .home-diagram .wire { fill: none; stroke: var(--home-ink); stroke-width: 1.4; }
@@ -134,24 +137,24 @@ eleventyExcludeFromCollections: true
 
 <div class="home" data-pagefind-ignore>
 
-  <section class="home-hero home-wrap">
+  <section class="home-hero home-wrap home-essay">
     <h1>{{ site.description }}.</h1>
     <div class="home-prose">
       <p>We think the largest question there is deserves the scientific method. Given what we already have, how do we make life on Earth as good as it can be? Not by vibes, and not by whoever shouts loudest. By measuring what actually happens to people, and doing more of whatever works.</p>
-      <p>The long-run objective is as much pleasant consciousness in the universe as possible. The near-term proxy, borrowed from the <a href="https://manual.warondisease.org/knowledge/solution/optimocracy.html">Optimocracy chapter</a> of the Earth Repair Manual, is two numbers: how many healthy years the median person gets, and how much the median person has left after tax. Everything on this site is an attempt to move those two numbers.</p>
+      <p>The long-run objective is as much pleasant consciousness in the universe as possible. The near-term proxy, borrowed from <a href="https://manual.warondisease.org/knowledge/solution/optimocracy.html">Optimocracy</a>, is two numbers: how many healthy years the median person gets, and how much the median person has left after tax. Everything on this site is an attempt to move those two numbers.</p>
     </div>
   </section>
 
-  <section id="the-bill" class="home-wrap home-sec">
+  <section id="the-bill" class="home-wrap home-sec home-essay">
     <h2>The bill</h2>
     <div class="home-prose">
       <p>Suboptimal governance costs each of us about <a class="home-fig" href="{{ mp.POLITICAL_DYSFUNCTION_TAX_PER_PERSON_ANNUAL.url }}">{{ mp.POLITICAL_DYSFUNCTION_TAX_PER_PERSON_ANNUAL.formatted }}</a> a year, or <a class="home-fig" href="{{ mp.POLITICAL_DYSFUNCTION_TAX_PER_HOUSEHOLD_OF_FOUR_ANNUAL.url }}">{{ mp.POLITICAL_DYSFUNCTION_TAX_PER_HOUSEHOLD_OF_FOUR_ANNUAL.formatted }}</a> for a household of four. Over a lifetime it is the difference between the life we have and one in which we are <a class="home-fig" href="{{ mp.WISHONIA_TRAJECTORY_LIFETIME_INCOME_GAIN_PER_CAPITA.url }}">{{ mp.WISHONIA_TRAJECTORY_LIFETIME_INCOME_GAIN_PER_CAPITA.formatted }}</a> richer and the diseases never arrive.</p>
       <p>This is not a metaphor. <a class="home-fig" href="{{ mp.GLOBAL_ANNUAL_DEATHS_CURABLE_DISEASES.url }}">{{ mp.GLOBAL_ANNUAL_DEATHS_CURABLE_DISEASES.formatted | replace(" deaths/year", "") }}</a> people die every year of conditions with no cure, mostly because the trials that would have found one were never run. For every dollar governments spend on those trials, they spend <a class="home-fig" href="{{ mp.MILITARY_TO_GOVERNMENT_CLINICAL_TRIALS_SPENDING_RATIO.url }}">${{ mp.MILITARY_TO_GOVERNMENT_CLINICAL_TRIALS_SPENDING_RATIO.value | round }}</a> on the capacity for war. Nobody decided this. It is what a system does when it has no thermostat.</p>
-      <p class="home-note">Every figure on this page links to its calculation in the manual, with its sources and uncertainty.</p>
+      <p class="home-note">Every figure on this page links to its calculation, with sources and uncertainty.</p>
     </div>
   </section>
 
-  <section id="thermostat" class="home-wrap home-sec">
+  <section id="thermostat" class="home-wrap home-sec home-essay">
     <h2>Our ovens have thermostats. Our governments do not.</h2>
     <div class="home-prose">
       <p>An oven checks the temperature and adjusts the heat. That is the entire reason dinner is edible. A government announces a policy, spends the budget, and does not check. Fifty years into <a href="/drug-war/drug-war-statistics/">the war on drugs</a>, overdose deaths are at record highs and the response has been a larger budget. Whether a policy worked is, in the technical sense, nobody's job.</p>
@@ -240,7 +243,7 @@ eleventyExcludeFromCollections: true
     </figure>
 
     <div class="home-prose">
-      <p>The sensor is the <a href="https://dfda.earth/">Decentralized FDA</a>, which runs trials at about <a class="home-fig" href="{{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.url }}">{{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.formatted }}</a> a patient{% if mp.RECOVERY_TRIAL_COST_PER_PATIENT.ciText %} <span class="home-ci">(range {{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.ciText }})</span>{% endif %} instead of <a class="home-fig" href="{{ mp.TRADITIONAL_PHASE3_COST_PER_PATIENT.url }}">{{ mp.TRADITIONAL_PHASE3_COST_PER_PATIENT.formatted }}</a>, so that every treatment gets tested and anyone who wants in can join, and <a href="https://optimitron.com/">Optimitron</a>, which uses the policy differences between jurisdictions to work out which policies actually improve outcomes. The comparison is <a href="https://wishocracy.warondisease.org/">Wishocracy</a>, which sets budgets by asking people two options at a time instead of asking lobbyists. The adjustment is the <a href="https://warondisease.org/">1% Treaty</a>, which moves one percent of military spending, about <a class="home-fig" href="{{ mp.TREATY_ANNUAL_FUNDING.url }}">{{ mp.TREATY_ANNUAL_FUNDING.formatted }}</a> a year, into finding out what cures what. The instructions are in <a href="https://manual.warondisease.org/">How to End War and Disease</a>, which is free.</p>
+      <p>The sensor is the <a href="https://dfda.earth/">Decentralized FDA</a>, which runs trials at about <a class="home-fig" href="{{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.url }}">{{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.formatted }}</a> a patient{% if mp.RECOVERY_TRIAL_COST_PER_PATIENT.ciText %} <span class="home-ci">(range {{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.ciText }})</span>{% endif %} instead of <a class="home-fig" href="{{ mp.TRADITIONAL_PHASE3_COST_PER_PATIENT.url }}">{{ mp.TRADITIONAL_PHASE3_COST_PER_PATIENT.formatted }}</a>, so that every treatment gets tested and anyone who wants in can join, and <a href="https://optimitron.com/">Optimitron</a>, which uses the policy differences between jurisdictions to work out which policies actually improve outcomes. The comparison is <a href="https://wishocracy.warondisease.org/">Wishocracy</a>, which sets budgets by asking people two options at a time instead of asking lobbyists. The adjustment is the <a href="https://warondisease.org/">1% Treaty</a>, which moves one percent of military spending, about <a class="home-fig" href="{{ mp.TREATY_ANNUAL_FUNDING.url }}">{{ mp.TREATY_ANNUAL_FUNDING.formatted }}</a> a year, into finding out what cures what.</p>
     </div>
   </section>
 
@@ -276,7 +279,7 @@ eleventyExcludeFromCollections: true
             </figure>
             {%- endfor %}
           </div>
-          <p class="home-note" style="margin-top:0.9rem">From the manual's <a href="{{ futures.source }}">trajectory models</a>: healthy life expectancy over fifteen years and median income after tax over twenty. Income is on a log scale so all three lines fit on one page.</p>
+          <p class="home-note" style="margin-top:0.9rem">From the <a href="{{ futures.source }}">trajectory models</a>: healthy life expectancy over fifteen years and median income after tax over twenty. Income is on a log scale so all three lines fit on one page.</p>
         </div>
       </div>
 
@@ -291,7 +294,7 @@ eleventyExcludeFromCollections: true
         </blockquote>
       </div>
 
-      <p class="home-more">The long version is the <a href="https://manual.warondisease.org/knowledge/futures/wishonia.html">Wishonia chapter</a>. The mechanism is the <a href="https://manual.warondisease.org/knowledge/solution/optimocracy.html">Optimocracy chapter</a>. The <a href="https://manual.warondisease.org/knowledge/futures.html">two futures</a> are laid out side by side, and the reviews above are from the <a href="https://manual.warondisease.org/knowledge/solution/earth-optimization-services.html">Earth Optimization Services</a> chapter.</p>
+      <p class="home-more"><a href="https://manual.warondisease.org/knowledge/futures/wishonia.html">Wishonia</a> is the long version. <a href="https://manual.warondisease.org/knowledge/solution/optimocracy.html">Optimocracy</a> is the mechanism. The <a href="https://manual.warondisease.org/knowledge/futures.html">two futures</a> are laid out side by side, and the reviews are from <a href="https://manual.warondisease.org/knowledge/solution/earth-optimization-services.html">Earth Optimization Services</a>.</p>
     </div>
   </section>
 
@@ -313,7 +316,7 @@ eleventyExcludeFromCollections: true
     <p class="home-note" style="margin-top:1.25rem"><a href="/posts/">All {{ collections.posts | length }} articles</a>, best first. Or <a href="/empiricism-2/why-think-by-numbers/">why think by numbers at all</a>.</p>
   </section>
 
-  <section id="about" class="home-wrap home-sec home-end">
+  <section id="about" class="home-wrap home-sec home-end home-essay">
     <div class="home-about">
       <img class="home-avatar" src="{{ site.author.avatar }}" alt="{{ site.author.name }}" width="112" height="112">
       <div>
