@@ -5,9 +5,9 @@ const getParams = require("./manualParams.js");
  * the manual's modeled points. Income uses a log scale so the three trajectories
  * fit on one panel. Everything here is in SVG user units.
  */
-const W = 420;
+const W = 460;
 const H = 230;
-const M = { left: 46, right: 168, top: 16, bottom: 30 };
+const M = { left: 46, right: 190, top: 16, bottom: 30 };
 
 function panel({ title, tMax, yMin, yMax, log, ticks, series }) {
   const x = (t) => M.left + (t / tMax) * (W - M.left - M.right);
@@ -64,7 +64,7 @@ module.exports = async function () {
       {
         name: "wishonia",
         kind: "wishonia",
-        label: `${f("WISHONIA_PROJECTED_HALE_YEAR_15").replace(" years", "")} · with the whole loop`,
+        label: `${f("WISHONIA_PROJECTED_HALE_YEAR_15").replace(" years", "")} · with optimal governance`,
         points: [[0, v("GLOBAL_HALE_CURRENT")], [15, v("WISHONIA_PROJECTED_HALE_YEAR_15")]],
       },
     ],
@@ -101,7 +101,7 @@ module.exports = async function () {
       {
         name: "wishonia",
         kind: "wishonia",
-        label: `${f("WISHONIA_TRAJECTORY_MEDIAN_AFTER_TAX_INCOME_YEAR_20")} · with the whole loop`,
+        label: `${f("WISHONIA_TRAJECTORY_MEDIAN_AFTER_TAX_INCOME_YEAR_20")} · with optimal governance`,
         points: [
           [0, v("GLOBAL_MEDIAN_AFTER_TAX_INCOME_2025")],
           [20, v("WISHONIA_TRAJECTORY_MEDIAN_AFTER_TAX_INCOME_YEAR_20")],
