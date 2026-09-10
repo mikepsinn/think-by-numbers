@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
   {# Favicon #}
@@ -137,8 +137,6 @@
   <link rel="alternate" type="application/atom+xml" title="{{ site.name }} Feed" href="{{ site.feedPath }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }} Podcast Feed" href="{{ site.podcastFeedPath }}">
 
-  {# Font Awesome #}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
     /* Classic Black & White Design System */
@@ -187,63 +185,74 @@
       color: var(--color-text);
     }
 
-    /* Social Header */
-    .social-header {
-      background: var(--color-text);
-      padding: 10px 0;
-      border-bottom: var(--border-subtle) solid var(--color-text-light);
+    /* Site header: one line, wordmark left, text navigation right */
+    .site-header {
+      border-bottom: var(--border-subtle) solid var(--color-text);
+      background: var(--color-bg);
     }
 
-    .social-icons {
+    .site-header-in {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
-      text-align: right;
+      padding: 14px 20px;
       display: flex;
-      justify-content: flex-end;
       align-items: center;
-      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 32px;
     }
 
-    .social-icons a {
-      text-decoration: none;
-      color: var(--color-bg);
-      font-size: 1.2em;
-      transition: opacity 0.2s;
+    .site-brand {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--color-text);
+      font-size: 1.35em;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
     }
 
-    .social-icons a:hover {
-      opacity: 0.7;
-    }
-
-    .social-icons a .label {
-      font-size: 0.7em;
+    .site-brand em {
       font-weight: 400;
-    }
-
-    /* Main Header */
-    .main-header {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px 30px;
-      border-bottom: var(--border-subtle) solid var(--color-text-light);
-      background: var(--color-paper);
-      text-align: center;
-    }
-
-    .main-header p {
-      font-size: 1.1em;
-      margin: 12px 0;
-      font-weight: 400;
-      color: var(--color-text-light);
       font-style: italic;
+      font-size: 0.85em;
     }
 
-    /* Navigation */
-    nav {
+    .site-mark {
+      width: 34px;
+      height: 34px;
+      flex: none;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 22px;
+      font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+      font-size: 0.74em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .site-nav a {
+      color: var(--color-text-light);
+      text-decoration: none;
+      padding: 4px 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .site-nav a:hover,
+    .site-nav a[aria-current="page"] {
+      color: var(--color-text);
+      border-bottom-color: var(--color-text);
+    }
+
+    /* Pagination on archive pages keeps the boxed-link look */
+    .pagination {
       margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
@@ -251,7 +260,7 @@
       justify-content: center;
     }
 
-    nav a {
+    .pagination a {
       padding: 8px 16px;
       text-decoration: none;
       color: var(--color-link);
@@ -263,18 +272,9 @@
       display: inline-block;
     }
 
-    nav a:hover {
+    .pagination a:hover {
       background: var(--color-accent);
-      color: var(--color-parchment);
-    }
-
-    nav a.cta-link {
-      background: var(--color-bg);
-      color: var(--color-text);
-    }
-
-    nav a.cta-link:hover {
-      background: var(--color-paper);
+      color: var(--color-bg);
     }
 
     /* Container */
@@ -507,24 +507,89 @@
       text-decoration: underline;
     }
 
-    /* Footer */
-    footer {
-      border-top: var(--border-subtle) solid var(--color-text-light);
+    /* Site footer: a colophon on paper */
+    .site-footer {
+      border-top: var(--border-subtle) solid var(--color-text);
       margin-top: 60px;
-      padding: 30px 20px;
-      text-align: center;
-      background: var(--color-text);
-      color: var(--color-bg);
+      background: var(--color-paper);
+      color: var(--color-text);
     }
 
-    footer a {
-      color: var(--color-bg);
+    .site-footer-in {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 44px;
+    }
+
+    .site-footer-cols {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 28px 32px;
+    }
+
+    .site-footer-h {
+      font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+      font-size: 0.7em;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: var(--border-subtle) solid var(--color-text-light);
+      line-height: 1.3;
+    }
+
+    .site-footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-footer li {
+      margin: 0 0 6px;
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+
+    .site-footer a {
+      color: var(--color-text);
       text-decoration: none;
       font-weight: 400;
     }
 
-    footer a:hover {
-      opacity: 0.8;
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .site-colophon {
+      margin: 32px 0 0;
+      padding-top: 16px;
+      border-top: var(--border-subtle) solid var(--color-text-light);
+      font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+      font-size: 0.7em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+    }
+
+    .site-colophon a {
+      color: var(--color-text-light);
+    }
+
+    @media (max-width: 860px) {
+      .site-footer-cols {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-footer-cols {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Article Content */
@@ -699,45 +764,6 @@
       margin-bottom: 20px !important;
     }
 
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background: var(--color-bg);
-      color: var(--color-text);
-      border: var(--border-subtle) solid var(--color-text);
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 400;
-      text-decoration: none;
-      transition: all 0.3s;
-      z-index: 1000;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .back-to-top.visible {
-      display: flex;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .back-to-top:hover {
-      background: var(--color-paper);
-      box-shadow: 3px 3px 0 var(--color-black);
-    }
-
-    .back-to-top:active {
-      transform: translate(5px, 5px);
-      box-shadow: 1px 1px 0 var(--color-black);
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       :root {
@@ -752,29 +778,24 @@
         gap: 25px;
       }
 
-      .social-icons {
-        gap: 15px;
+      .site-header-in {
+        padding: 12px 15px;
+        justify-content: center;
       }
 
-      .social-icons a .label {
-        display: none;
+      .site-nav {
+        justify-content: center;
+        gap: 4px 16px;
+        font-size: 0.7em;
       }
 
-      nav {
+      .pagination {
         gap: 10px;
       }
 
-      nav a {
+      .pagination a {
         font-size: 0.8em;
         padding: 8px 14px;
-      }
-
-      .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
       }
 
       .share-buttons {
@@ -881,30 +902,46 @@
   </style>
 </head>
 <body>
-  <header data-pagefind-ignore>
-    {# Social Media Header #}
-    <div class="social-header">
-      <div class="social-icons">
-        <a href="/search/" title="Search">
-          <i class="fa-solid fa-search"></i>
-          <span class="label">Search</span>
-        </a>
-      </div>
-    </div>
-
-    {# Main Header #}
-    <div class="main-header">
-      <div class="logo">
-        <a href="/">
-          <img src="{{ site.logo }}" alt="{{ site.name }}" style="max-width: 300px; height: auto;">
-        </a>
-      </div>
-      <p>{{ site.description }}</p>
-      <nav aria-label="Primary">
-        <a href="/empiricism-2/why-think-by-numbers/">Why Think by Numbers</a>
-        <a href="/search/">Search</a>
+  <header class="site-header" data-pagefind-ignore>
+    <div class="site-header-in">
+      <a class="site-brand" href="/" aria-label="{{ site.name }} home">
+        {# The thought-bubble hash mark, redrawn as a vector so it stays crisp and follows the theme #}
+        <svg class="site-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <g fill="var(--color-bg)" stroke="var(--color-text)" stroke-width="2.5">
+            <circle cx="22" cy="21" r="12"/>
+            <circle cx="38" cy="17" r="12"/>
+            <circle cx="50" cy="29" r="10"/>
+            <circle cx="44" cy="41" r="10"/>
+            <circle cx="28" cy="43" r="11"/>
+            <circle cx="14" cy="32" r="10"/>
+          </g>
+          <g fill="var(--color-bg)">
+            <circle cx="22" cy="21" r="12"/>
+            <circle cx="38" cy="17" r="12"/>
+            <circle cx="50" cy="29" r="10"/>
+            <circle cx="44" cy="41" r="10"/>
+            <circle cx="28" cy="43" r="11"/>
+            <circle cx="14" cy="32" r="10"/>
+            <circle cx="32" cy="30" r="15"/>
+          </g>
+          <g fill="none" stroke="#d21f2b" stroke-width="4.2" stroke-linecap="round">
+            <path d="M27.5 19 L25.5 42"/>
+            <path d="M38.5 19 L36.5 42"/>
+            <path d="M20 25.5 H44"/>
+            <path d="M18.5 35.5 H42.5"/>
+          </g>
+          <g fill="var(--color-bg)" stroke="var(--color-text)" stroke-width="2">
+            <circle cx="15" cy="53" r="3.5"/>
+            <circle cx="8" cy="59.5" r="2.2"/>
+          </g>
+        </svg>
+        <span class="site-wordmark">Think <em>by</em> Numbers</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/posts/"{% if page.url.startsWith('/posts/') %} aria-current="page"{% endif %}>Articles</a>
+        <a href="https://manual.warondisease.org" target="_blank" rel="noopener">Manual</a>
         <a href="https://open.spotify.com/show/1aX8mw9MmFzyiSBq2RNnu2" target="_blank" rel="noopener">Podcast</a>
-        <a href="https://manual.warondisease.org" target="_blank" rel="noopener">Earth Repair Manual</a>
+        <a href="/search/"{% if page.url == '/search/' %} aria-current="page"{% endif %}>Search</a>
       </nav>
     </div>
   </header>
@@ -913,53 +950,53 @@
     {{ content | safe }}
   </main>
 
-  <footer id="footer">
-    <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2);">
-      <a href="/" style="margin: 0 10px; text-decoration: none;">
-        <i class="fa-solid fa-home"></i> Home
-      </a>
-      <a href="/search/" style="margin: 0 10px; text-decoration: none;">
-        <i class="fa-solid fa-search"></i> Search
-      </a>
-      <a href="/subscribe/" style="margin: 0 10px; text-decoration: none;">
-        <i class="fa-solid fa-envelope"></i> Subscribe
-      </a>
-      <a href="/empiricism-2/why-think-by-numbers/" style="margin: 0 10px; text-decoration: none;">
-        <i class="fa-solid fa-lightbulb"></i> Why Think by Numbers
-      </a>
+  <footer class="site-footer" id="footer" data-pagefind-ignore>
+    <div class="site-footer-in">
+      <div class="site-footer-cols">
+        <div>
+          <p class="site-footer-h">Read</p>
+          <ul>
+            <li><a href="/posts/">Articles</a></li>
+            <li><a href="/empiricism-2/why-think-by-numbers/">Why think by numbers</a></li>
+            <li><a href="/search/">Search</a></li>
+            <li><a href="/subscribe/">Subscribe</a></li>
+            <li><a href="{{ site.feedPath }}">RSS</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer-h">Listen</p>
+          <ul>
+            <li><a href="https://open.spotify.com/show/1aX8mw9MmFzyiSBq2RNnu2" target="_blank" rel="noopener">Podcast on Spotify</a></li>
+            <li><a href="https://podcasts.apple.com/us/podcast/how-to-end-war-and-disease/id1879755497" target="_blank" rel="noopener">Apple Podcasts</a></li>
+            <li><a href="{{ site.podcastFeedPath }}">Podcast feed</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer-h">Earth Repair Manual</p>
+          <ul>
+            <li><a href="https://manual.warondisease.org" target="_blank" rel="noopener">Read online</a></li>
+            <li><a href="https://www.amazon.com/dp/B0GPLXFMMT" target="_blank" rel="noopener">Paperback and Kindle</a></li>
+            <li><a href="https://warondisease.org/donate?source=think-by-numbers" target="_blank" rel="noopener noreferrer">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer-h">Elsewhere</p>
+          <ul>
+            <li><a href="mailto:{{ site.author.contactEmail or site.author.email }}">Email</a></li>
+            <li><a href="{{ site.author.url }}" target="_blank" rel="noopener">mikesinn.com</a></li>
+            <li><a href="{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="{{ site.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="{{ site.social.youtube }}" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="{{ site.social.twitter }}" target="_blank" rel="noopener">X</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-colophon">
+        <span>&copy; {{ buildYear }} <a href="{{ site.author.url }}">{{ site.author.name }}</a></span>
+        <span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></span>
+        <span><a href="https://mikesinn.com/privacy-policy" target="_blank" rel="noopener">Privacy</a></span>
+      </p>
     </div>
-    <div style="margin-bottom: 20px;">
-      <a href="https://warondisease.org" target="_blank" style="margin: 0 8px; font-weight: bold;">Vote at WarOnDisease.org</a>
-      <a href="https://www.amazon.com/dp/B0GPLXFMMT" target="_blank" style="margin: 0 8px;">Get "How to End War and Disease"</a>
-      <a href="https://manual.warondisease.org" target="_blank" style="margin: 0 8px;">Read Free Online</a>
-      <a href="https://warondisease.org/donate?source=think-by-numbers" target="_blank" rel="noopener noreferrer" style="margin: 0 8px;">Support the war on disease!</a>
-      <a href="https://open.spotify.com/show/1aX8mw9MmFzyiSBq2RNnu2" target="_blank" style="margin: 0 8px;">
-        <i class="fa-brands fa-spotify"></i> Podcast on Spotify
-      </a>
-      <a href="https://podcasts.apple.com/us/podcast/how-to-end-war-and-disease/id1879755497" target="_blank" style="margin: 0 8px;">
-        <i class="fa-brands fa-apple"></i> Apple Podcasts
-      </a>
-    </div>
-    <div style="margin-bottom: 20px;">
-
-
-
-    </div>
-    <div style="margin-bottom: 20px;">
-      <a href="{{ site.social.twitter }}" target="_blank" style="margin: 0 8px; text-decoration: none;"><i class="fa-brands fa-twitter"></i> Twitter</a>
-      <a href="{{ site.social.facebook }}" target="_blank" style="margin: 0 8px; text-decoration: none;"><i class="fa-brands fa-facebook"></i> Facebook</a>
-      <a href="{{ site.social.linkedin }}" target="_blank" style="margin: 0 8px; text-decoration: none;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-      <a href="{{ site.social.youtube }}" target="_blank" style="margin: 0 8px; text-decoration: none;"><i class="fa-brands fa-youtube"></i> YouTube</a>
-      <a href="https://soundcloud.com/plutonium-kidz" target="_blank" style="margin: 0 8px; text-decoration: none;"><i class="fa-brands fa-soundcloud"></i> SoundCloud</a>
-      <a href="{{ site.social.github }}" target="_blank" style="margin: 0 8px; text-decoration: none;"><i class="fa-brands fa-github"></i> GitHub</a>
-      <a href="/author/mikepsinn/" style="margin: 0 8px; text-decoration: none;"><i class="fa-solid fa-user"></i> About the Author</a>
-    </div>
-    <p>&copy; 2025 <a href="https://mikesinn.com">Mike P. Sinn</a> | <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
-    <p>
-      <a href="{{ site.feedPath }}">RSS Feed</a> |
-      <a href="{{ site.podcastFeedPath }}">Podcast Feed</a> |
-      <a href="https://mikesinn.com/privacy-policy" target="_blank">Privacy Policy</a>
-    </p>
   </footer>
 
   {# Pagefind only on the search page (homepage just links there) #}
@@ -967,9 +1004,6 @@
   <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
   <script src="/_pagefind/pagefind-ui.js"></script>
   {%- endif %}
-
-  {# Back to Top Button #}
-  <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 
   {# KaTeX only on article pages — skip homepage/listing weight #}
   {%- set isArticle = type == 'post' or (metadata and metadata.type == 'wordpress') %}
@@ -984,37 +1018,6 @@
     ]
   });"></script>
   {%- endif %}
-
-  {# Back to Top Button Script #}
-  <script>
-    (function() {
-      const backToTopButton = document.getElementById('back-to-top');
-      const scrollThreshold = 300; // Show button after scrolling 300px
-
-      function toggleBackToTop() {
-        if (window.pageYOffset > scrollThreshold) {
-          backToTopButton.classList.add('visible');
-        } else {
-          backToTopButton.classList.remove('visible');
-        }
-      }
-
-      // Show/hide button based on scroll position
-      window.addEventListener('scroll', toggleBackToTop);
-
-      // Smooth scroll to top when clicked
-      backToTopButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-
-      // Check initial scroll position
-      toggleBackToTop();
-    })();
-  </script>
 
   {# Disqus only on articles (thread markup lives in post.njk) #}
   {%- if site.disqusShortname and isArticle %}

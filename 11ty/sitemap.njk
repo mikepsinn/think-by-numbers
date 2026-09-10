@@ -49,6 +49,13 @@ layout: false
   </url>
 
   <url>
+    <loc>{{ site.url }}/posts/</loc>
+    <lastmod>{{ collections.posts | getNewestCollectionItemDate | dateToISO }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>{{ site.url }}/author/mikepsinn/</loc>
     <lastmod>{{ collections.posts | getNewestCollectionItemDate | dateToISO }}</lastmod>
     <changefreq>weekly</changefreq>

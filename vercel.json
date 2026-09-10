@@ -151,6 +151,11 @@
       "source": "/2012/01/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/page/:n/",
+      "destination": "/posts/page/:n/",
+      "permanent": true
     }
   ],
   "headers": [

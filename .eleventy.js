@@ -57,6 +57,12 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, limit);
   });
 
+  // Year shown in the footer colophon
+  eleventyConfig.addGlobalData("buildYear", () => new Date().getFullYear());
+
+  // Thousands separators for figures on the homepage
+  eleventyConfig.addFilter("numberFormat", (n) => Number(n).toLocaleString("en-US"));
+
   function isBlogPost(item) {
     if (!item.inputPath ||
         !(item.inputPath.includes("/content/") || item.inputPath.includes("\\content\\")) ||
