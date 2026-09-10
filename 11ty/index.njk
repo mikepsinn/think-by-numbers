@@ -25,7 +25,6 @@ eleventyExcludeFromCollections: true
     line-height: 1.5;
   }
   [data-theme="dark"] .home { --home-rule: #333333; }
-  .home .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   .home h1, .home h2 { margin: 0; text-wrap: balance; line-height: 1.12; }
   .home p { margin: 0; }
@@ -38,6 +37,7 @@ eleventyExcludeFromCollections: true
 
   /* Tagline and objective */
   .home-top { padding-top: 3.5rem; text-align: center; }
+  .home-top h1 { margin-bottom: 0; }
   .home-top h1 {
     font-style: italic;
     font-weight: 400;
@@ -47,36 +47,7 @@ eleventyExcludeFromCollections: true
     max-width: 18ch;
     margin: 0 auto 1.4rem;
   }
-  .home .home-objective { font-size: 1.12rem; max-width: 52ch; margin: 0 auto; color: var(--home-ink); }
 
-  /* The bill */
-  .home-bill { text-align: center; padding-top: 3.25rem; }
-  .home-bill-figure {
-    display: inline-block;
-    font-size: clamp(3.2rem, 8vw, 5.6rem);
-    line-height: 1;
-    font-variant-numeric: lining-nums tabular-nums;
-    text-decoration: none;
-    letter-spacing: -0.02em;
-  }
-  .home-bill-figure:hover { text-decoration: underline; text-decoration-thickness: 2px; }
-  .home .home-bill-label { margin-top: 0.8rem; font-size: 1.05rem; color: var(--home-soft); }
-
-  /* The readout */
-  .home-ledger { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
-  .home-ledger th, .home-ledger td { text-align: left; vertical-align: baseline; padding: 1.1rem 1.25rem 1.1rem 0; border-top: 1px solid var(--home-rule); }
-  .home-ledger thead th { border-top: 0; padding-top: 0; padding-bottom: 0.5rem; font-weight: 400; font-style: italic; font-size: 0.95rem; color: var(--home-soft); }
-  .home-ledger tbody tr:last-child th, .home-ledger tbody tr:last-child td { border-bottom: 1px solid var(--home-rule); }
-  .home-ledger th[scope="row"] { font-weight: 400; font-size: 1.05rem; width: 30%; max-width: 24ch; }
-  .home-ledger .num { font-size: 1.9rem; line-height: 1.1; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; width: 24%; }
-  .home-ledger .num a { text-decoration: none; }
-  .home-ledger .num a:hover { text-decoration: underline; }
-  .home-ledger .could { font-weight: 600; }
-  .home-ledger .when { display: block; font-size: 0.78rem; font-weight: 400; color: var(--home-soft); margin-top: 0.15rem; white-space: nowrap; }
-  .home-ledger .moved { font-size: 0.95rem; font-style: italic; color: var(--home-soft); padding-right: 0; }
-  .home-ledger .moved a { color: var(--home-soft); }
-  .home-ledger .moved a:hover { color: var(--home-ink); }
-  .home-ledger .word { font-size: 1.25rem; white-space: normal; }
 
   /* Diagrams */
   .home-figure { margin: 0 0 1.75rem; }
@@ -136,15 +107,6 @@ eleventyExcludeFromCollections: true
   @media (max-width: 760px) {
     .home-charts { grid-template-columns: 1fr; }
     .home-papers { grid-template-columns: 1fr; }
-    .home-ledger thead { display: none; }
-    .home-ledger, .home-ledger tbody { display: block; }
-    .home-ledger tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem; padding: 1rem 0; border-top: 1px solid var(--home-rule); }
-    .home-ledger tbody tr:last-child { border-bottom: 1px solid var(--home-rule); }
-    .home-ledger th, .home-ledger td { display: block; border: 0; padding: 0; width: auto; max-width: none; }
-    .home-ledger th[scope="row"] { grid-column: 1 / -1; width: auto; max-width: none; }
-    .home-ledger .num { font-size: 1.5rem; white-space: normal; }
-    .home-ledger .num::before { display: block; font-size: 0.8rem; font-style: italic; color: var(--home-soft); content: attr(data-col); margin-bottom: 0.1rem; }
-    .home-ledger .moved { grid-column: 1 / -1; margin-top: 0.35rem; }
   }
 </style>
 
@@ -152,75 +114,6 @@ eleventyExcludeFromCollections: true
 
   <section class="home-wrap home-top">
     <h1>{{ site.description }}.</h1>
-    <p class="home-objective"><a href="https://manual.warondisease.org/knowledge/solution/optimocracy.html">Objective</a>: the median person's healthy years and income after tax. In the long run, pleasant consciousness in the universe.</p>
-  </section>
-
-  <section class="home-wrap home-bill" aria-label="The bill">
-    <a class="home-bill-figure" href="{{ mp.POLITICAL_DYSFUNCTION_TAX_PER_PERSON_ANNUAL.url }}">{{ mp.POLITICAL_DYSFUNCTION_TAX_PER_PERSON_ANNUAL.formatted }}</a>
-    <p class="home-bill-label">The cost of suboptimal governance, per person, per year. <a href="{{ mp.POLITICAL_DYSFUNCTION_TAX_PER_HOUSEHOLD_OF_FOUR_ANNUAL.url }}">{{ mp.POLITICAL_DYSFUNCTION_TAX_PER_HOUSEHOLD_OF_FOUR_ANNUAL.formatted }}</a> per household of four.</p>
-  </section>
-
-  <section class="home-wrap home-sec" aria-label="Earth today and as it could be">
-    <table class="home-ledger">
-      <thead>
-        <tr>
-          <th scope="col"><span class="visually-hidden">Measure</span></th>
-          <th scope="col">Today</th>
-          <th scope="col">Could be</th>
-          <th scope="col">Moved by</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Healthy life expectancy</th>
-          <td class="num" data-col="Today"><a href="{{ mp.GLOBAL_HALE_CURRENT.url }}">{{ mp.GLOBAL_HALE_CURRENT.formatted }}</a></td>
-          <td class="num could" data-col="Could be"><a href="{{ mp.WISHONIA_PROJECTED_HALE_YEAR_15.url }}">{{ mp.WISHONIA_PROJECTED_HALE_YEAR_15.formatted }}</a><small class="when">year 15</small></td>
-          <td class="moved"><a href="https://dfda.earth/">Decentralized FDA</a></td>
-        </tr>
-        <tr>
-          <th scope="row">Median income after tax, per year</th>
-          <td class="num" data-col="Today"><a href="{{ mp.GLOBAL_MEDIAN_AFTER_TAX_INCOME_2025.url }}">{{ mp.GLOBAL_MEDIAN_AFTER_TAX_INCOME_2025.formatted }}</a></td>
-          <td class="num could" data-col="Could be"><a href="{{ mp.WISHONIA_TRAJECTORY_MEDIAN_AFTER_TAX_INCOME_YEAR_20.url }}">{{ mp.WISHONIA_TRAJECTORY_MEDIAN_AFTER_TAX_INCOME_YEAR_20.formatted }}</a><small class="when">year 20</small></td>
-          <td class="moved"><a href="https://warondisease.org/">The 1% Treaty</a></td>
-        </tr>
-        <tr>
-          <th scope="row">Diseases getting their first effective treatment, per year</th>
-          <td class="num" data-col="Today"><a href="{{ mp.NEW_DISEASE_FIRST_TREATMENTS_PER_YEAR.url }}">{{ mp.NEW_DISEASE_FIRST_TREATMENTS_PER_YEAR.short }}</a></td>
-          <td class="num could" data-col="Could be"><a href="{{ mp.DFDA_FIRST_TREATMENTS_PER_YEAR.url }}">{{ mp.DFDA_FIRST_TREATMENTS_PER_YEAR.short }}</a><small class="when">with 1% moved</small></td>
-          <td class="moved"><a href="https://dfda.earth/">Decentralized FDA</a></td>
-        </tr>
-        <tr>
-          <th scope="row">Years to test every treatment in the queue</th>
-          <td class="num" data-col="Today"><a href="{{ mp.STATUS_QUO_QUEUE_CLEARANCE_YEARS.url }}">{{ mp.STATUS_QUO_QUEUE_CLEARANCE_YEARS.value | round }}</a></td>
-          <td class="num could" data-col="Could be"><a href="{{ mp.DFDA_QUEUE_CLEARANCE_YEARS.url }}">{{ mp.DFDA_QUEUE_CLEARANCE_YEARS.value | round }}</a><small class="when">with 1% moved</small></td>
-          <td class="moved"><a href="https://dfda.earth/">Decentralized FDA</a></td>
-        </tr>
-        <tr>
-          <th scope="row">Cost of a clinical trial, per patient</th>
-          <td class="num" data-col="Today"><a href="{{ mp.TRADITIONAL_PHASE3_COST_PER_PATIENT.url }}">{{ mp.TRADITIONAL_PHASE3_COST_PER_PATIENT.formatted }}</a></td>
-          <td class="num could" data-col="Could be"><a href="{{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.url }}">{{ mp.RECOVERY_TRIAL_COST_PER_PATIENT.formatted }}</a><small class="when">demonstrated</small></td>
-          <td class="moved"><a href="https://dfda.earth/">Decentralized FDA</a></td>
-        </tr>
-        <tr>
-          <th scope="row">Government spending on trials of cures, per year</th>
-          <td class="num" data-col="Today"><a href="{{ mp.GLOBAL_GOVERNMENT_CLINICAL_TRIALS_SPENDING_ANNUAL.url }}">{{ mp.GLOBAL_GOVERNMENT_CLINICAL_TRIALS_SPENDING_ANNUAL.formatted }}</a></td>
-          <td class="num could" data-col="Could be"><a href="{{ mp.TRIAL_FUNDING_WITH_TREATY.url }}">{{ mp.TRIAL_FUNDING_WITH_TREATY.formatted }}</a><small class="when">with 1% moved</small></td>
-          <td class="moved"><a href="https://warondisease.org/">The 1% Treaty</a></td>
-        </tr>
-        <tr>
-          <th scope="row">Whether a policy's results are measured</th>
-          <td class="num word" data-col="Today">No</td>
-          <td class="num could word" data-col="Could be">Yes</td>
-          <td class="moved"><a href="https://optimitron.com/">Optimitron</a></td>
-        </tr>
-        <tr>
-          <th scope="row">Who sets the budget</th>
-          <td class="num word" data-col="Today">Lobbyists</td>
-          <td class="num could word" data-col="Could be">Everyone, two options at a time</td>
-          <td class="moved"><a href="https://wishocracy.warondisease.org/">Wishocracy</a></td>
-        </tr>
-      </tbody>
-    </table>
   </section>
 
   <section class="home-wrap home-sec" aria-label="The loop">
