@@ -5,7 +5,6 @@ title: "Think by Numbers"
 description: "Earth as it is and as it could be, in numbers: healthy life expectancy, income, cures per year, the cost of a trial, and the loop that moves them."
 eleventyExcludeFromCollections: true
 ---
-{%- set mp = manualParams %}
 <style>
   .home {
     --home-paper: var(--color-bg);
@@ -13,11 +12,6 @@ eleventyExcludeFromCollections: true
     --home-ink: var(--color-text);
     --home-soft: var(--color-text-light);
     --home-rule: #dedede;
-    --home-blue: #1f4079;
-    --home-blue-line: #f6f4ee;
-    --home-blue-soft: rgba(246, 244, 238, 0.72);
-    --home-blue-rule: rgba(246, 244, 238, 0.3);
-    --home-blue-grid: rgba(255, 255, 255, 0.07);
     --home-mono: 'Courier Prime', 'Courier New', Courier, monospace;
     --home-serif: 'Crimson Text', 'Baskerville', 'Georgia', serif;
     color: var(--home-ink);
@@ -68,35 +62,6 @@ eleventyExcludeFromCollections: true
   .home-diagram .t-side { font-family: var(--home-serif); font-style: italic; font-size: 16px; fill: var(--home-ink); }
   .home-diagram .t-note { font-family: var(--home-mono); font-size: 11px; fill: var(--home-soft); letter-spacing: 0.06em; }
 
-  /* The world that could be */
-  .home-blue {
-    margin-top: 4rem;
-    background-color: var(--home-blue);
-    background-image:
-      linear-gradient(var(--home-blue-grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--home-blue-grid) 1px, transparent 1px);
-    background-size: 24px 24px;
-    color: var(--home-blue-line);
-    padding: 3rem 0 3rem;
-  }
-  .home-blue h2 { color: var(--home-blue-line); }
-  .home-blue .home-text { color: var(--home-blue-line); }
-  .home-blue a { color: var(--home-blue-line); text-decoration-color: var(--home-blue-rule); }
-  .home-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; }
-  .home-chart { margin: 0; }
-  .home-chart svg { display: block; width: 100%; height: auto; }
-  .home-chart .axis { stroke: var(--home-blue-rule); stroke-width: 1; }
-  .home-chart .grid { stroke: var(--home-blue-rule); stroke-width: 0.6; stroke-dasharray: 2 4; }
-  .home-chart .tick { font-family: var(--home-serif); font-size: 10.5px; fill: var(--home-blue-soft); }
-  .home-chart .title { font-family: var(--home-serif); font-style: italic; font-size: 14px; fill: var(--home-blue-line); }
-  .home-chart .line { fill: none; stroke: var(--home-blue-line); stroke-linecap: round; stroke-linejoin: round; }
-  .home-chart .line-baseline { stroke-width: 1.3; stroke-dasharray: 2 4; stroke: var(--home-blue-soft); }
-  .home-chart .line-treaty { stroke-width: 1.8; }
-  .home-chart .line-wishonia { stroke-width: 2.8; }
-  .home-chart .end { font-family: var(--home-serif); font-size: 11px; fill: var(--home-blue-line); }
-  .home-chart .end-baseline { fill: var(--home-blue-soft); }
-  .home .home-source { margin-top: 1.5rem; font-size: 0.92rem; color: var(--home-blue-soft); }
-
   /* Papers */
   .home-papers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem 1.5rem; }
   .home-paper { border: 1px solid var(--home-rule); background: var(--home-paper-2); display: flex; flex-direction: column; }
@@ -111,7 +76,6 @@ eleventyExcludeFromCollections: true
     .home-papers { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 760px) {
-    .home-charts { grid-template-columns: 1fr; }
     .home-papers { grid-template-columns: 1fr; }
     .home-figure-scroll { display: none; }
     .home-figure .home-diagram-tall { display: block; }
@@ -278,36 +242,6 @@ eleventyExcludeFromCollections: true
           <text class="t-note" x="20" y="196" text-anchor="middle" transform="rotate(-90 20 196)" style="font-size:9px">MEASURE, COMPARE, ADJUST</text>
         </svg>
       </figure>
-      <p class="home-text">Each part of that loop is being built. <a href="https://wishocracy.warondisease.org/">Wishocracy</a> collects the priorities. <a href="https://optimitron.com/">Optimitron</a> is the controller, working from the evidence <a href="https://manual.warondisease.org/knowledge/appendix/optimocracy-paper">Optimocracy</a> produces. The <a href="https://dfda.earth/">Decentralized FDA</a> runs the trials, the <a href="https://dih.earth/">Decentralized Institutes of Health</a> fund the research, and <a href="https://manual.warondisease.org/knowledge/appendix/incentive-alignment-bonds-paper">Incentive Alignment Bonds</a> pay for results.</p>
-    </div>
-  </section>
-
-  <section class="home-blue" aria-label="The world that could be, with optimal governance">
-    <div class="home-wrap">
-      <h2>The world that could be, with optimal governance</h2>
-      <p class="home-text">The <a href="{{ futures.source }}">trajectory models</a> project healthy life expectancy and the median person's income after tax over the next twenty years on three paths: if nothing changes, if the 1% Treaty moves one percent of military spending into trials, and under optimal governance, meaning the whole loop above.</p>
-      <div class="home-charts">
-        {%- for panel in futures.panels %}
-        <figure class="home-chart">
-          <svg viewBox="0 0 {{ panel.width }} {{ panel.height }}" role="img" aria-label="{{ panel.title }}: {% for s in panel.series %}{{ s.label }}{% if not loop.last %}; {% endif %}{% endfor %}">
-            <text class="title" x="{{ panel.axis.x0 }}" y="11">{{ panel.title }}</text>
-            {%- for tick in panel.ticks %}
-            <line class="grid" x1="{{ panel.axis.x0 }}" x2="{{ panel.axis.x1 }}" y1="{{ tick.y | round(1) }}" y2="{{ tick.y | round(1) }}"/>
-            <text class="tick" x="{{ panel.axis.x0 - 6 }}" y="{{ (tick.y + 3) | round(1) }}" text-anchor="end">{{ tick.label }}</text>
-            {%- endfor %}
-            <line class="axis" x1="{{ panel.axis.x0 }}" x2="{{ panel.axis.x1 }}" y1="{{ panel.axis.y0 | round(1) }}" y2="{{ panel.axis.y0 | round(1) }}"/>
-            {%- for yr in panel.years %}
-            <text class="tick" x="{{ yr.x | round(1) }}" y="{{ (panel.axis.y0 + 16) | round(1) }}" text-anchor="{% if loop.first %}start{% else %}middle{% endif %}">{{ yr.label }}</text>
-            {%- endfor %}
-            {%- for s in panel.series %}
-            <polyline class="line line-{{ s.kind }}" points="{{ s.points }}"/>
-            <text class="end end-{{ s.kind }}" x="{{ (s.end.x + 7) | round(1) }}" y="{{ (s.end.y + 3.5) | round(1) }}">{{ s.label }}</text>
-            {%- endfor %}
-          </svg>
-        </figure>
-        {%- endfor %}
-      </div>
-      <p class="home-source">Income is on a log scale so all three lines fit on one chart.</p>
     </div>
   </section>
 
